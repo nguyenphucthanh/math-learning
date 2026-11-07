@@ -1,0 +1,50 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GroupBars } from "./_animations/group-bars";
+import { PairUp } from "./_animations/pair-up";
+import { SwapBars } from "./_animations/swap-bars";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Khi mua hai món, ta cộng giá tiền để biết phải trả bao nhiêu. Nếu đổi thứ tự hai món, hoặc tính cặp nào trước, kết quả có khác không? Hôm nay mình tìm hiểu hai điều rất hữu ích để cộng cho nhanh.
+
+## Đổi chỗ các số hạng
+
+<SwapBars />
+
+<KeyFact equation="a + b = b + a">
+  Khi **đổi chỗ các số hạng** trong một tổng thì tổng không thay đổi. Đây là **tính chất giao hoán** của phép cộng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.giaoHoan} />
+
+## Đổi cách nhóm
+
+Có ba số hạng thì ta cộng hai số nào trước? Dấu ngoặc cho biết cặp nào được cộng trước.
+
+<GroupBars />
+
+<KeyFact equation="(a + b) + c = a + (b + c)">
+  Khi cộng một tổng hai số với số thứ ba, ta có thể cộng số thứ nhất với tổng của số thứ hai và số thứ ba. Đây là **tính chất kết hợp** của phép cộng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.ketHop} />
+
+## Tính bằng cách thuận tiện
+
+Dùng hai tính chất trên, ta tìm những số cộng với nhau ra số tròn chục, tròn trăm hay tròn nghìn rồi cộng trước. Con đi theo ví dụ trong sách.
+
+<PairUp />
+
+Có bốn số thì ghép thành hai cặp: 12 + 14 + 16 + 18 = (12 + 18) + (14 + 16) = 30 + 30 = 60.
+
+<KeyFact equation="30 + 89 + 70 = 30 + 70 + 89 = 100 + 89 = 189">
+  Tìm hai số cộng ra **số tròn**, cộng hai số đó trước, rồi cộng với các số còn lại. Mỗi dòng đều phải có đủ các số.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuanTien} />
