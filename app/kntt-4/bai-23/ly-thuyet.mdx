@@ -1,0 +1,89 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ColumnSub } from "./_animations/column-sub";
+import { DoiTien } from "./_animations/doi-tien";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Video dạy hát nhạc có 235 072 lượt xem. Video dạy tiếng Anh có 438 589 lượt xem. Video dạy tiếng Anh nhiều hơn bao nhiêu lượt xem? Ta làm phép trừ 438 589 − 235 072, giống như con đã học với các số bé hơn.
+
+## Trừ cùng hàng, từ phải sang trái
+
+<ColumnSub
+  a={438589}
+  b={235072}
+  labels
+  intro="Muốn biết video tiếng Anh nhiều hơn bao nhiêu lượt xem, ta tính 438 589 − 235 072."
+  setup="Đặt tính: viết các số thẳng cột. Hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục, và cứ thế. Rồi trừ từ phải sang trái."
+/>
+
+<KeyFact equation="Trừ từ phải sang trái">
+  Mỗi cột là một hàng. Ta chỉ trừ các chữ số cùng hàng với nhau, bắt đầu từ hàng đơn vị. Video tiếng Anh nhiều hơn video dạy hát nhạc 203 517 lượt xem.
+</KeyFact>
+
+<QuickCheck question={quickChecks.noBorrow} />
+
+## Đổi 1 thành 10
+
+Khi hàng nhỏ không đủ để trừ, ta lấy 1 ở hàng bên trái đổi thành 10. Hãy xem với tiền.
+
+<DoiTien />
+
+<KeyFact equation="1 ở hàng bên trái = 10 ở hàng bên phải">
+  Đổi 1 tờ 100 000 đồng thành 10 tờ 10 000 đồng. Hàng bên trái bớt 1, hàng bên phải có thêm 10.
+</KeyFact>
+
+<QuickCheck question={quickChecks.exchange} />
+
+## Trừ có nhớ
+
+Bây giờ ta trừ 648 390 − 382 547. Chú ý những cột phải lấy 10 để trừ.
+
+<ColumnSub
+  a={648390}
+  b={382547}
+  labels
+  setup="Đặt tính: viết các số thẳng cột rồi trừ từ phải sang trái. Cột nào không trừ được thì ta lấy 10 trừ, viết kết quả và nhớ 1."
+/>
+
+<KeyFact equation="0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1">
+  Chữ số ở số bị trừ nhỏ hơn chữ số ở số trừ thì lấy 10 cộng vào rồi trừ, viết kết quả và nhớ 1. Ở cột bên trái, ta trừ 1 (số nhớ) rồi mới trừ số trừ: 9 trừ 1 bằng 8; 8 trừ 4 bằng 4.
+</KeyFact>
+
+<QuickCheck question={quickChecks.borrow} />
+
+## Số trừ có ít chữ số hơn
+
+Với 52 340 − 3 475, số trừ ngắn hơn số bị trừ. Số nhớ vẫn đi tiếp sang các cột bên trái.
+
+<ColumnSub
+  a={52340}
+  b={3475}
+  labels
+  setup="Đặt tính: hàng đơn vị thẳng hàng đơn vị. Cột chục nghìn chỉ có số bị trừ."
+/>
+
+<KeyFact equation="Số nhớ đi hết các cột">
+  Cột chỉ có chữ số của số bị trừ vẫn phải trừ số nhớ nếu có: 5 trừ 1 bằng 4, không phải 5.
+</KeyFact>
+
+<QuickCheck question={quickChecks.shortSubtrahend} />
+
+## Trừ và so sánh
+
+<KeyFact equation="Số bị trừ = hiệu + số trừ">
+  Biết hiệu và số trừ thì tìm số bị trừ bằng phép cộng. Biết số bị trừ và hiệu thì tìm số trừ bằng phép trừ: số trừ = số bị trừ − hiệu.
+</KeyFact>
+
+<QuickCheck question={quickChecks.findMinuend} />
+
+<KeyFact equation="Nhiều hơn bao nhiêu: lấy số lớn trừ số bé">
+  Muốn biết số này nhiều hơn số kia bao nhiêu, ta lấy số lớn trừ số bé.
+</KeyFact>
+
+<QuickCheck question={quickChecks.compare} />

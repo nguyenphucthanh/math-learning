@@ -57,9 +57,24 @@ export type WordQuestion = QuestionBase & {
   kind: "loi-van";
   prompt: string;
   lines: Part[][];
+  /** Hình minh họa riêng của bài (SVG), hiện dưới đề. */
+  illustration?: ReactNode;
 };
 
-export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuestion;
+export type DatTinhQuestion = QuestionBase & {
+  kind: "dat-tinh";
+  /** Phép tính, mặc định là cộng. */
+  op?: "+" | "-";
+  /** Không có thì hiện "Đặt tính rồi tính: a + b" (hoặc a − b). */
+  prompt?: string;
+  /** Số thứ nhất (trên) và số thứ hai (dưới). Số thứ nhất không ít chữ số hơn số thứ hai; phép trừ cần a >= b. */
+  a: number;
+  b: number;
+  /** Vị trí hàng để trống (0 là hàng đơn vị). `sum` là tổng hoặc hiệu. Không có thì con điền cả kết quả. */
+  hide?: { a?: number[]; b?: number[]; sum?: number[] };
+};
+
+export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuestion | DatTinhQuestion;
 
 export type ExerciseGroup = {
   id: string;

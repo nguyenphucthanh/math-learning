@@ -69,8 +69,8 @@ export const kntt4Topics: Topic[] = [
     number: 5,
     title: "Phép cộng và phép trừ",
     lessons: [
-      lesson(22, "Phép cộng các số có nhiều chữ số", 76),
-      lesson(23, "Phép trừ các số có nhiều chữ số", 79),
+      lesson(22, "Phép cộng các số có nhiều chữ số", 76, true),
+      lesson(23, "Phép trừ các số có nhiều chữ số", 79, true),
       lesson(24, "Tính chất giao hoán và kết hợp của phép cộng", 82),
       lesson(25, "Tìm hai số biết tổng và hiệu của hai số đó", 86),
       lesson(26, "Luyện tập chung", 88),

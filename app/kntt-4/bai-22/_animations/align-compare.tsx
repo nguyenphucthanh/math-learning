@@ -1,7 +1,7 @@
 "use client";
 
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
-import { columnCenter, PLACE_LABELS, signCenter, VIEW_WIDTH, CELL } from "./layout";
+import { columnCenter, PLACE_LABELS, signCenter, VIEW_WIDTH, CELL } from "@/components/math/column-layout";
 import { useRef, useState } from "react";
 
 const A = 5839;

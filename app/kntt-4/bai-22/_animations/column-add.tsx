@@ -4,7 +4,7 @@ import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import { formatNumber } from "@/lib/area-units";
 import { columnAdd, digitsOf, readColumn } from "@/lib/column-add";
 import { useRef, useState } from "react";
-import { CELL, columnCenter, PLACE_LABELS, signCenter, VIEW_WIDTH } from "./layout";
+import { CELL, columnCenter, PLACE_LABELS, signCenter, VIEW_WIDTH } from "@/components/math/column-layout";
 
 type Props = {
   a: number;

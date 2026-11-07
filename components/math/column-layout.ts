@@ -1,4 +1,4 @@
-/** Tọa độ chung cho các hình cộng theo cột: viewBox rộng 340, ô rộng 44, khe 8 giữa các lớp. */
+/** Tọa độ chung cho các hình cộng, trừ theo cột: viewBox rộng 340, ô rộng 44, khe 8 giữa các lớp. */
 export const VIEW_WIDTH = 340;
 export const CELL = 44;
 const GAP = 8;
@@ -7,7 +7,7 @@ function hasGap(index: number, columns: number): boolean {
   return index > 0 && (columns - 1 - index) % 3 === 2;
 }
 
-/** Tổng bề rộng của dấu + và `columns` cột. */
+/** Tổng bề rộng của dấu phép tính và `columns` cột. */
 function gridWidth(columns: number): number {
   const gaps = Array.from({ length: columns }, (_, index) => index).filter((index) => hasGap(index, columns)).length;
   return CELL * (columns + 1) + GAP * gaps;
@@ -24,7 +24,7 @@ export function columnCenter(index: number, columns: number): number {
   return Math.round(x + CELL / 2);
 }
 
-/** Tâm ngang của cột dấu +. */
+/** Tâm ngang của cột dấu phép tính. */
 export function signCenter(columns: number): number {
   return Math.round((VIEW_WIDTH - gridWidth(columns)) / 2 + CELL / 2);
 }
