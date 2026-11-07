@@ -1,0 +1,71 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { CenturyFinder } from "./_animations/century-finder";
+import { CenturyRuler } from "./_animations/century-ruler";
+import { SecondClock } from "./_animations/second-clock";
+import { TenSeconds } from "./_animations/ten-seconds";
+import { TimeSplit } from "./_animations/time-split";
+import { YearCount } from "./_animations/year-count";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Có những việc diễn ra rất nhanh, chưa đến một phút. Lại có những cây cổ thụ đã sống rất lâu, hơn cả trăm năm. Hôm nay mình làm quen với hai đơn vị đo thời gian: một đơn vị thật ngắn và một đơn vị thật dài.
+
+## Giây
+
+<SecondClock />
+
+<KeyFact unit="second" equation="1 phút = 60 giây">
+  **Giây** là một đơn vị đo thời gian. Kim giây đi được một vạch là một giây. Con nhớ thêm: 1 giờ = 60 phút.
+</KeyFact>
+
+Một giây ngắn lắm. Con thử cảm nhận 10 giây nhé.
+
+<TenSeconds />
+
+<QuickCheck question={quickChecks.second} />
+
+## Số đo có hai đơn vị
+
+Ở bài trước, các đơn vị diện tích liền nhau gấp nhau 100 lần. Với thời gian thì khác: **1 phút là 60 giây và 1 giờ là 60 phút**, không phải 100.
+
+Khi gặp số đo có hai đơn vị, con đổi từng phần rồi cộng lại.
+
+<TimeSplit />
+
+<QuickCheck question={quickChecks.countMixed} />
+
+<QuickCheck question={quickChecks.mixed} />
+
+## Thế kỉ
+
+Muốn nói về những khoảng thời gian rất dài, như lịch sử đất nước, người ta dùng **thế kỉ**.
+
+<KeyFact unit="century" equation="1 thế kỉ = 100 năm">
+  **Thế kỉ** là một đơn vị đo thời gian. Tên thế kỉ thường được viết bằng chữ số La Mã, như thế kỉ XXI.
+</KeyFact>
+
+<CenturyRuler />
+
+<QuickCheck question={quickChecks.century} />
+
+## Năm nào thuộc thế kỉ nào?
+
+Con tìm xem năm đó nằm trong đoạn nào. Hãy để ý các năm tròn trăm nhé.
+
+<CenturyFinder />
+
+<QuickCheck question={quickChecks.findCentury} />
+
+## Đếm số năm
+
+Khi đếm từ đầu năm này đến hết năm kia, con nhớ đếm cả năm đầu và năm cuối.
+
+<YearCount />
+
+<QuickCheck question={quickChecks.countYears} />

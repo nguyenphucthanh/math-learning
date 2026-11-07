@@ -120,7 +120,7 @@ function BlanksForm({
                   autoComplete="off"
                   inputMode="numeric"
                   disabled={solved}
-                  value={solved ? (values[key] ?? formatNumber(part.answer)) : (values[key] ?? "")}
+                  value={solved ? (values[key] ?? (part.year ? String(part.answer) : formatNumber(part.answer))) : (values[key] ?? "")}
                   onChange={(event) => {
                     setValues({ ...values, [key]: event.target.value });
                     setChecked({ ...checked, [key]: undefined });

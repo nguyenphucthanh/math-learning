@@ -13,6 +13,8 @@ const headingTones = {
   dm2: "text-unit-dm2",
   cm2: "text-unit-cm2",
   mm2: "text-unit-mm2",
+  second: "text-unit-second",
+  century: "text-unit-century",
 };
 
 export function ExerciseSet({ lessonSlug, groups }: { lessonSlug: string; groups: ExerciseGroup[] }) {

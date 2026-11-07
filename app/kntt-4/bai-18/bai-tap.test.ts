@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { FillQuestion, Question } from "@/components/exercises/types";
-import { convertArea } from "@/lib/area-units";
+import { convertArea, type AreaUnit } from "@/lib/area-units";
 import { boardPosition, gameReducer, initialGame, type GameAction, type GameState } from "./_game/game-logic";
 import { exerciseGroups, quickChecks, raceCells, warmUps } from "./bai-tap";
 
@@ -31,7 +31,7 @@ describe("dữ liệu bài tập", () => {
     expect(conversions.length).toBeGreaterThanOrEqual(14);
     for (const question of conversions) {
       const { source, to } = question.conversion!;
-      expect(blanks(question), question.id).toEqual([convertArea(source, to)]);
+      expect(blanks(question), question.id).toEqual([convertArea(source, to as AreaUnit)]);
     }
   });
 

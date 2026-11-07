@@ -1,6 +1,11 @@
 import type { AreaUnit } from "@/lib/area-units";
+import type { TimeUnit } from "@/lib/time-units";
 
-export type Blank = { answer: number };
+export type Blank = {
+  answer: number;
+  /** Năm viết liền như SGK (1698), không tách lớp như số lượng (2 400). */
+  year?: boolean;
+};
 export type Part = string | Blank;
 
 export type ShapeFigure = {
@@ -23,7 +28,7 @@ export type FillQuestion = QuestionBase & {
   prompt?: string;
   parts: Part[];
   /** Có với câu đổi đơn vị, để test kiểm tra lại đáp án. */
-  conversion?: { source: string; to: AreaUnit };
+  conversion?: { source: string; to: AreaUnit | TimeUnit };
 };
 
 export type ChoiceQuestion = QuestionBase & {
@@ -53,6 +58,6 @@ export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuest
 export type ExerciseGroup = {
   id: string;
   title: string;
-  unit?: "m2" | "dm2" | "cm2" | "mm2";
+  unit?: "m2" | "dm2" | "cm2" | "mm2" | "second" | "century";
   questions: Question[];
 };
