@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { QuestionBody } from "@/components/exercises/question";
 import { ExerciseSet } from "@/components/exercises/exercise-set";
+import { QuickCheck } from "@/components/exercises/quick-check";
 import type { Question } from "@/components/exercises/types";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -9,7 +10,7 @@ import { MixedSplit } from "./_animations/mixed-split";
 import { TileGrid } from "./_animations/tile-grid";
 import { UnitLadder } from "./_animations/unit-ladder";
 import { RaceGame } from "./_game/race-game";
-import { exerciseGroups, quickChecks } from "./bai-tap";
+import { exerciseGroups, quickChecks, warmUps } from "./bai-tap";
 
 beforeAll(() => {
   window.matchMedia = ((query: string) => ({ matches: true, media: query, addEventListener() {}, removeEventListener() {} })) as unknown as typeof window.matchMedia;
@@ -43,6 +44,25 @@ describe("điền số", () => {
     await user.type(screen.getByLabelText("Điền số"), "200");
     await user.click(screen.getByRole("button", { name: "Kiểm tra" }));
     expect(onSolved).toHaveBeenCalledWith(false);
+  });
+});
+
+describe("câu thử trong lý thuyết", () => {
+  it("mặc định ghi Thử nhanh, có thể đổi tiêu đề", () => {
+    const view = render(<QuickCheck question={quickChecks.dm2} />);
+    expect(screen.getByText("Thử nhanh")).toBeTruthy();
+    view.unmount();
+    render(<QuickCheck title="Khởi động 1/5" question={warmUps[0]} />);
+    expect(screen.getByText("Khởi động 1/5")).toBeTruthy();
+    expect(screen.queryByText("Thử nhanh")).toBeNull();
+  });
+
+  it("khởi động không ghi vào tiến độ", async () => {
+    const user = userEvent.setup();
+    render(<QuickCheck title="Khởi động 1/5" question={warmUps[0]} />);
+    await user.type(screen.getByLabelText("Điền số"), "700{Enter}");
+    expect(screen.getByRole("status").textContent).toContain("Đúng rồi");
+    expect(window.localStorage.getItem("math-learning:progress:v1")).toBeNull();
   });
 });
 

@@ -12,8 +12,59 @@ function conv(id: string, source: string, to: AreaUnit, answer: number): FillQue
   };
 }
 
+/** Khởi động đầu bài: nhớ lại kiến thức cũ, không tính vào tiến độ. */
+export const warmUps: Question[] = [
+  {
+    id: "kd-nhan",
+    kind: "dien-so",
+    parts: ["7 × 100 =", { answer: 700 }],
+    hint: "Nhân với 100 thì viết thêm hai chữ số 0 vào bên phải số đó.",
+    explanation: "7 viết thêm hai chữ số 0 thành 700.",
+  },
+  {
+    id: "kd-chia",
+    kind: "dien-so",
+    parts: ["600 : 100 =", { answer: 6 }],
+    hint: "Chia cho 100 thì bỏ bớt hai chữ số 0 ở bên phải số đó.",
+    explanation: "600 bỏ bớt hai chữ số 0 còn 6.",
+  },
+  {
+    id: "kd-do-dai",
+    kind: "dien-so",
+    parts: ["1 m =", { answer: 10 }, "dm"],
+    hint: "Đây là đổi độ dài. Một mét dài bằng mấy đề-xi-mét?",
+    explanation: "1 m = 10 dm. Con nhớ số 10 này, lát nữa mình so với đổi diện tích nhé.",
+  },
+  {
+    id: "kd-doc",
+    kind: "trac-nghiem",
+    prompt: "Số 306 đọc là:",
+    options: ["Ba trăm sáu mươi", "Ba trăm linh sáu", "Ba mươi sáu"],
+    answerIndex: 1,
+    hint: "Hàng chục của số này là 0, nên phải đọc “linh”.",
+    explanation: "306 có 3 trăm, 0 chục, 6 đơn vị: ba trăm linh sáu.",
+  },
+  {
+    id: "kd-dem",
+    kind: "dien-so",
+    prompt: "Đếm theo trăm rồi điền số còn thiếu.",
+    parts: ["200, 300,", { answer: 400 }, ", 500"],
+    hint: "Mỗi lần đếm, số tăng thêm 100.",
+    explanation: "300 thêm 100 là 400: 200, 300, 400, 500.",
+  },
+];
+
 export const quickChecks = {
   dm2: conv("thu-dm2", "2 dm²", "cm²", 200),
+  countMixed: {
+    id: "dem-309",
+    kind: "dien-so",
+    prompt: "Đếm để kiểm tra lại: 3 m² là 100, 200, 300 dm². Đếm tiếp 9 dm² nữa: 301, 302, … Con đếm đến số mấy?",
+    parts: ["3 m² 9 dm² =", { answer: 309 }, "dm²"],
+    conversion: { source: "3 m² 9 dm²", to: "dm²" },
+    hint: "Bắt đầu từ 300, đếm thêm đúng 9 số nữa.",
+    explanation: "300, rồi 301, 302, …, 309. Vậy 3 m² 9 dm² = 309 dm², không phải 39 dm².",
+  },
   m2: {
     id: "thu-m2",
     kind: "trac-nghiem",
@@ -191,6 +242,68 @@ export const exerciseGroups: ExerciseGroup[] = [
         ],
         hint: "Sàn tính bằng m², tấm gỗ tính bằng dm². Phải đổi về cùng đơn vị rồi mới chia.",
         explanation: "Sàn 4 m² = 400 dm². Mỗi tấm 4 dm². 400 : 4 = 100 tấm gỗ.",
+      },
+    ],
+  },
+  {
+    id: "tu-duy",
+    title: "Suy nghĩ thêm",
+    questions: [
+      {
+        id: "td-tach-nguoc",
+        kind: "dien-so",
+        prompt: "Con đổi ngược lại nhé.",
+        parts: ["306 dm² =", { answer: 3 }, "m²", { answer: 6 }, "dm²"],
+        hint: "100 dm² = 1 m². Trong 306 dm² có mấy trăm?",
+        explanation: "306 dm² = 300 dm² + 6 dm². Mà 300 dm² = 3 m². Vậy 306 dm² = 3 m² 6 dm².",
+      },
+      {
+        id: "td-gap",
+        kind: "dien-so",
+        parts: ["1 m² gấp 1 dm²", { answer: 100 }, "lần"],
+        hint: "Trong 1 m² có bao nhiêu ô 1 dm²?",
+        explanation: "1 m² = 100 dm², nên 1 m² gấp 1 dm² 100 lần. Cạnh gấp 10 lần thì diện tích gấp 10 × 10 = 100 lần.",
+      },
+      {
+        id: "td-hon",
+        kind: "dien-so",
+        parts: ["1 000 cm² hơn 900 cm² là", { answer: 100 }, "cm²"],
+        hint: "Muốn biết hơn bao nhiêu, con lấy số lớn trừ số bé.",
+        explanation: "1 000 − 900 = 100. Vậy 1 000 cm² hơn 900 cm² là 100 cm², đúng bằng 1 dm².",
+      },
+      {
+        id: "td-canh",
+        kind: "dien-so",
+        prompt: "Hình vuông cạnh 2 dm xếp được bao nhiêu ô 1 dm²?",
+        parts: [{ answer: 4 }, "ô"],
+        hint: "Con vẽ ra giấy: mỗi hàng có mấy ô, có mấy hàng?",
+        explanation: "Mỗi hàng 2 ô, có 2 hàng: 2 × 2 = 4 ô. Vậy hình vuông cạnh 2 dm có diện tích 4 dm², không phải 2 dm².",
+      },
+      {
+        id: "td-loi-an",
+        kind: "trac-nghiem",
+        prompt: "Bạn An viết 3 m² 9 dm² = 39 dm². An sai ở đâu?",
+        options: [
+          "An phải viết 3 m² 9 dm² = 93 dm².",
+          "An ghép hai số 3 và 9, chưa đổi 3 m² thành 300 dm².",
+          "An phải nhân: 3 × 9 = 27 dm².",
+        ],
+        answerIndex: 1,
+        hint: "Đổi 3 m² ra dm² trước, rồi cộng thêm 9 dm².",
+        explanation: "3 m² = 300 dm². 300 + 9 = 309. Vậy 3 m² 9 dm² = 309 dm².",
+      },
+      {
+        id: "td-loi-minh",
+        kind: "trac-nghiem",
+        prompt: "Sàn rộng 4 m², mỗi tấm gỗ rộng 4 dm². Bạn Minh tính 4 : 4 = 1 tấm. Vì sao kết quả này không hợp lý?",
+        options: [
+          "Kết quả hợp lý, chỉ cần 1 tấm gỗ.",
+          "Minh phải tính 4 × 4 = 16 tấm.",
+          "Một tấm gỗ nhỏ không lát kín được sàn. Phải đổi 4 m² = 400 dm² rồi mới chia.",
+        ],
+        answerIndex: 2,
+        hint: "1 m² lớn hơn 1 dm² rất nhiều. Hai số đo đã cùng đơn vị chưa?",
+        explanation: "4 m² = 400 dm². 400 : 4 = 100 tấm. Phải đổi về cùng đơn vị rồi mới chia.",
       },
     ],
   },

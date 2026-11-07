@@ -54,12 +54,30 @@ lib/lessons.ts          # registry: số bài, tên, chủ đề, tập
 ## Quy trình làm một bài
 
 1. Người dùng cung cấp nội dung SGK (ảnh, PDF hoặc text).
-2. Agent đọc, đánh giá và viết `brief.md`: mục tiêu, kiến thức cần có, lỗi con hay mắc, ý tưởng hình ảnh/animation, dạng bài tập.
+2. Agent đọc, đánh giá và viết `brief.md`: mục tiêu, kiến thức cần có, lỗi con hay mắc, mục "Tư duy", ý tưởng hình ảnh/animation, dạng bài tập.
 3. **Dừng lại để người dùng duyệt brief. Chưa viết code trước khi được duyệt.**
 4. Viết nội dung và animation, thêm bài vào registry.
 5. Kiểm tra theo mục "Hoàn thành một bài".
 
 Ảnh và file SGK chỉ là tư liệu để agent lên nội dung. **Không copy vào repo**, kể cả `public/` và `brief.md`.
+
+## Tư duy
+
+Mỗi `brief.md` có mục "Tư duy": chọn yếu tố phù hợp với bài, dùng hết hoặc một phần. Các yếu tố lấy cảm hứng từ cách dạy number sense của Mathnasium.
+
+| Yếu tố | Dùng khi |
+|---|---|
+| Đếm | Bài có quy luật theo bước, như đơn vị, bội số, dãy số |
+| Tách | Bài có số lớn, số đo ghép, tính nhẩm |
+| So sánh | Bài có quan hệ "hơn/kém" hoặc "gấp" |
+| Kiểm tra đầu vào | Bài dựa nhiều vào kiến thức cũ |
+| Bốn kênh (nói, hình, nhẩm, viết) | Mọi bài: rà xem thiếu kênh nào, chỉ bù kênh có ích |
+| Câu tư duy ("vì sao", ước lượng, tìm lỗi sai) | Bài có lỗi hay mắc rõ ràng |
+
+- Mỗi yếu tố được chọn phải phục vụ một mục tiêu hoặc một lỗi trong brief. Yếu tố không dùng thì ghi lý do.
+- Cách của SGK vẫn là chính; tư duy chỉ để hiểu sâu hoặc tự kiểm tra lại. Phần vượt SGK phải ghi rõ trong brief.
+- Khởi động là đầu phần Lý thuyết, tối đa 3 phút, không đổi cấu trúc trang.
+- Kết quả kiểm tra đầu vào chỉ dùng tại chỗ, không lưu vào tiến độ.
 
 ## Cấu trúc một trang bài
 

@@ -3,7 +3,13 @@ import { QuickCheck } from "@/components/exercises/quick-check";
 import { MixedSplit } from "./_animations/mixed-split";
 import { TileGrid } from "./_animations/tile-grid";
 import { UnitLadder } from "./_animations/unit-ladder";
-import { quickChecks } from "./bai-tap";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
 
 Con đã biết **xăng-ti-mét vuông** (cm²) từ lớp 3. Nhưng đo cả nền nhà bằng cm² thì mỏi tay lắm. Hôm nay mình làm quen với ba đơn vị mới, dùng cho những thứ to hơn và nhỏ hơn.
 
@@ -85,5 +91,7 @@ Còn nếu muốn làm một cánh cửa cho chú kiến thì sao? Cửa bé tí
 Khi gặp số đo có hai đơn vị, con đổi từng phần rồi cộng lại.
 
 <MixedSplit />
+
+<QuickCheck question={quickChecks.countMixed} />
 
 <QuickCheck question={quickChecks.mixed} />

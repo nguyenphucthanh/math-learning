@@ -2,7 +2,7 @@
 
 - SGK Toán 4 KNTT, tập một, trang 60-65. Chủ đề 4: Một số đơn vị đo đại lượng.
 - Route: `/kntt-4/bai-18`
-- Trạng thái: **đã duyệt**, cả 3 câu hỏi theo đề xuất; đã viết nội dung
+- Trạng thái: **đã duyệt** cả nội dung gốc và mục "Tư duy"; đã viết nội dung
 
 ## Đánh giá
 
@@ -30,6 +30,65 @@
 | Tính diện tích khi chưa cùng đơn vị | So sánh 4 dm² với 400 cm² mà không đổi | Giải thích bước đổi trong đáp án |
 | Thiếu cảm nhận độ lớn | Nhãn vở 15 m² | Đồ vật mốc, thực hành với đồ thật |
 | Đọc sai số có số 0 | 1 005: "một nghìn linh năm" | Câu đọc-viết với số có 0 |
+
+## Tư duy
+
+Thêm vào bài đã có, không đổi nội dung cũ.
+
+| Yếu tố | Mức độ | Phục vụ |
+|---|---|---|
+| Kiểm tra đầu vào | Thêm | Kiến thức cần có |
+| Đếm | Thêm | Lỗi 39 thay vì 309; nhân, chia với 100 |
+| Tách | Mở rộng | Mục tiêu 3: đổi số đo ghép |
+| So sánh | Thêm | Lỗi 1 m² = 10 dm²; lỗi lẫn cạnh và diện tích |
+| Bốn kênh | Bù kênh nói và nhẩm | Dấu hiệu "giải thích được", không chỉ đọc thuộc |
+| Câu tư duy | Thêm | Lỗi ghép số; lỗi chưa cùng đơn vị |
+
+**Không dùng:**
+
+- Lộ trình cá nhân đầy đủ: app không có backend, và đã có phụ huynh theo sát.
+- Đếm ngoài mục tiêu: chỉ đếm theo trăm vì bài này cần.
+- Bài luyện tốc độ riêng: trò chơi Đường đua đã đủ luyện nhẩm.
+
+**Khởi động** (đầu `ly-thuyet.mdx`, không tính tiến độ). Mỗi câu có gợi ý nhắc lại kiến thức cũ, chưa có bài trước để liên kết tới. Không hỏi về đơn vị diện tích ở đây, vì con chưa vào phần lý thuyết đo diện tích.
+
+| Id | Dạng | Câu | Đáp án |
+|---|---|---|---|
+| `kd-nhan` | `dien-so` | 7 × 100 | 700 |
+| `kd-chia` | `dien-so` | 600 : 100 | 6 |
+| `kd-do-dai` | `dien-so` | 1 m = ? dm | 10 |
+| `kd-doc` | `trac-nghiem` | 306 đọc là | Ba trăm linh sáu |
+| `kd-dem` | `dien-so` | 200, 300, ?, 500 | 400 |
+
+**Trong Lý thuyết** (sau `MixedSplit`, trước câu thử số đo ghép):
+
+| Id | Dạng | Câu | Đáp án |
+|---|---|---|---|
+| `dem-309` | `dien-so` | 3 m² 9 dm²: đếm 100, 200, 300 rồi đếm tiếp 9 dm²: 301, 302, …, ? | 309 |
+
+**Nhóm bài tập mới "Suy nghĩ thêm"** (sau nhóm Luyện tập, trước trò chơi):
+
+| Id | Dạng | Câu | Đáp án |
+|---|---|---|---|
+| `td-tach-nguoc` | `dien-so` | 306 dm² = ? m² ? dm² | 3; 6 |
+| `td-gap` | `dien-so` | 1 m² gấp 1 dm² bao nhiêu lần | 100 |
+| `td-hon` | `dien-so` | 1 000 cm² hơn 900 cm² bao nhiêu xăng-ti-mét vuông | 100 |
+| `td-canh` | `dien-so` | Hình vuông cạnh 2 dm xếp được bao nhiêu ô 1 dm² | 4 |
+| `td-loi-an` | `trac-nghiem` | Bạn An viết 3 m² 9 dm² = 39 dm². An sai ở đâu? | An ghép hai số, chưa đổi 3 m² thành 300 dm² |
+| `td-loi-minh` | `trac-nghiem` | Sàn rộng 4 m², tấm gỗ rộng 4 dm². Bạn Minh tính 4 : 4 = 1 tấm. Vì sao không hợp lý? | Một tấm nhỏ không lát kín được sàn; phải đổi 4 m² = 400 dm² rồi mới chia |
+
+**Có thể vượt SGK:** `td-tach-nguoc` và `td-gap`. Người dùng đã duyệt giữ; chưa đối chiếu với trang 60-65.
+
+**Phụ huynh** (thêm vào mẫu có sẵn):
+
+- Mục "Cách giải thích": hỏi "Nói cho bố mẹ nghe: vì sao 1 m² = 100 dm²?", không chấm điểm.
+- Mục "Lỗi con hay gặp": với lỗi 39, đếm 100, 200, 300, rồi 301 đến 309.
+
+**Kỹ thuật:**
+
+- Không thêm dạng bài. `QuickCheck` cần thêm prop `title` tùy chọn, mặc định vẫn là "Thử nhanh", để khối đầu bài ghi "Khởi động".
+- Test tính lại đáp án: `td-tach-nguoc` có hai ô trống nên `conversion` không diễn đạt được, cần assert riêng. Các câu không đổi đơn vị cũng assert riêng.
+- Nhóm mới làm tăng tổng số câu của bài, cần kiểm tra lại điểm và tiến độ đã lưu.
 
 ## Phần Phụ huynh
 

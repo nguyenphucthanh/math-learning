@@ -2,9 +2,13 @@ import { describe, expect, it } from "vitest";
 import type { FillQuestion, Question } from "@/components/exercises/types";
 import { convertArea } from "@/lib/area-units";
 import { boardPosition, gameReducer, initialGame, type GameAction, type GameState } from "./_game/game-logic";
-import { exerciseGroups, quickChecks, raceCells } from "./bai-tap";
+import { exerciseGroups, quickChecks, raceCells, warmUps } from "./bai-tap";
 
-const questions: Question[] = [...exerciseGroups.flatMap((group) => group.questions), ...Object.values(quickChecks)];
+const questions: Question[] = [
+  ...exerciseGroups.flatMap((group) => group.questions),
+  ...Object.values(quickChecks),
+  ...warmUps,
+];
 
 function find<K extends Question["kind"]>(id: string, kind: K) {
   const question = questions.find((item) => item.id === id);
@@ -78,6 +82,38 @@ describe("dữ liệu bài tập", () => {
     const question = find("lt-lat-san", "loi-van");
     const answers = question.lines.flat().flatMap((part) => (typeof part === "string" ? [] : [part.answer]));
     expect(answers).toEqual([2 * 2, convertArea("4 m²", "dm²"), 4 * 1, 400 / 4]);
+  });
+
+  it("khởi động: đáp án tính lại đúng", () => {
+    expect(warmUps.map((question) => question.id)).toEqual([
+      "kd-nhan", "kd-chia", "kd-do-dai", "kd-doc", "kd-dem",
+    ]);
+    expect(blanks(find("kd-nhan", "dien-so"))).toEqual([7 * 100]);
+    expect(blanks(find("kd-chia", "dien-so"))).toEqual([600 / 100]);
+    expect(blanks(find("kd-do-dai", "dien-so"))).toEqual([10]);
+    expect(blanks(find("kd-dem", "dien-so"))).toEqual([300 + 100]);
+    const reading = find("kd-doc", "trac-nghiem");
+    expect(reading.options[reading.answerIndex]).toBe("Ba trăm linh sáu");
+  });
+
+  it("nhóm Suy nghĩ thêm: đủ 6 câu và đáp án tính lại đúng", () => {
+    const group = exerciseGroups.find((item) => item.id === "tu-duy")!;
+    expect(group.questions).toHaveLength(6);
+
+    const [hundreds, rest] = blanks(find("td-tach-nguoc", "dien-so"));
+    expect([hundreds, rest]).toEqual([3, 6]);
+    expect(convertArea(`${hundreds} m² ${rest} dm²`, "dm²")).toBe(306);
+
+    expect(blanks(find("td-gap", "dien-so"))).toEqual([convertArea("1 m²", "dm²")]);
+    expect(blanks(find("td-hon", "dien-so"))).toEqual([1000 - 900]);
+    expect(blanks(find("td-canh", "dien-so"))).toEqual([2 * 2]);
+
+    expect(convertArea("3 m² 9 dm²", "dm²")).toBe(309);
+    const an = find("td-loi-an", "trac-nghiem");
+    expect(an.options[an.answerIndex]).toContain("300 dm²");
+    const minh = find("td-loi-minh", "trac-nghiem");
+    expect(minh.options[minh.answerIndex]).toContain("400 dm²");
+    expect(convertArea("4 m²", "dm²") / 4).toBe(100);
   });
 });
 
