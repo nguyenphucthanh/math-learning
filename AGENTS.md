@@ -54,12 +54,46 @@ lib/lessons.ts          # registry: số bài, tên, chủ đề, tập
 ## Quy trình làm một bài
 
 1. Người dùng cung cấp nội dung SGK (ảnh, PDF hoặc text).
-2. Agent đọc, đánh giá và viết `brief.md`: mục tiêu, kiến thức cần có, lỗi con hay mắc, mục "Tư duy", ý tưởng hình ảnh/animation, dạng bài tập.
+2. Agent đọc, đánh giá và viết `brief.md` theo mục "Viết brief" bên dưới: mục tiêu, kiến thức cần có, lỗi con hay mắc, mục "Tư duy", ý tưởng hình ảnh/animation, dạng bài tập.
 3. **Dừng lại để người dùng duyệt brief. Chưa viết code trước khi được duyệt.**
 4. Viết nội dung và animation, thêm bài vào registry.
 5. Kiểm tra theo mục "Hoàn thành một bài".
 
 Ảnh và file SGK chỉ là tư liệu để agent lên nội dung. **Không copy vào repo**, kể cả `public/` và `brief.md`.
+
+## Viết brief
+
+Mục này thay cho việc đọc brief bài cũ. Không mở `brief.md` của bài khác để lấy mẫu; chỉ mở khi cần số liệu cụ thể của bài đó (ví dụ bài trước là kiến thức nền). Vị trí bài trong sách lấy từ `lib/lessons.ts`.
+
+**Thứ tự mục trong `brief.md`**
+
+1. Tiêu đề `# Brief — Bài N. Tên bài`, rồi 3 dòng: SGK (tập, trang, chủ đề); route; trạng thái (`chờ duyệt` → `đã duyệt` → `đã viết nội dung`).
+2. `## Đánh giá`: vị trí bài (bài trước, bài sau, bài ôn lại nó); cấu trúc SGK (Khám phá → Hoạt động → Luyện tập, số bài mỗi phần); mục tiêu đánh số, mỗi mục kiểm tra được; kiến thức cần có; điểm mấu chốt (chỗ SGK không giải thích, chỗ dễ lẫn với bài vừa học, bẫy trong bài của SGK).
+3. `## Lỗi con hay mắc`: bảng 3 cột Lỗi | Ví dụ sai (kèm đúng) | Cách xử lý (gắn với animation hoặc câu cụ thể).
+4. `## Tư duy`: bảng Yếu tố | Mức độ | Phục vụ, theo quy tắc ở mục "Tư duy". Có dòng "Không dùng" kèm lý do. Liệt kê khởi động, câu thử trong Lý thuyết và nhóm "Suy nghĩ thêm" bằng bảng Id | Dạng | Câu | Đáp án. Câu vượt SGK ghi riêng dưới nhãn "Vượt SGK".
+5. `## Phần Phụ huynh`: 6 mục theo mẫu, chỉ ghi ý riêng của bài (lỗi, hoạt động ôn, dấu hiệu), không chép lại khung.
+6. `## Phần Lý thuyết`: các chặng theo thứ tự cụ thể → hình ảnh → ký hiệu. Mỗi chặng ghi: một ý, animation (số bước, hình gì), `KeyFact`, `QuickCheck`. Ghi bố cục 390px nếu hình rộng.
+7. `## Phần Bài tập`: nhóm theo tiết hoặc phần SGK, giữ dạng và độ khó của SGK, đổi số liệu. Mỗi câu ghi dạng (`dien-so`, `trac-nghiem`...) và đáp án in đậm. Nhóm cuối "Suy nghĩ thêm".
+8. `## Kỹ thuật`: chỉ khi bài cần thứ mới (thư viện đơn vị, token màu, dạng bài, thay đổi kiểu). Không cần thì bỏ mục. Luôn ghi việc đặt `available` trong `lib/lessons.ts`.
+9. `## Tiêu chí duyệt nội dung`: thuật ngữ SGK, cách viết số, điều không dạy.
+10. `## Câu hỏi cần chốt`: 2-4 quyết định, mỗi câu kèm đề xuất và lý do. Đây là chỗ người dùng duyệt.
+11. `## Phụ lục: đáp án SGK`: đáp án từng bài theo trang, cho khối Phụ huynh.
+
+**Quy tắc**
+
+- Không chép lại đề SGK; chỉ ghi số bài, dạng, và số liệu đã đổi.
+- Đáp án trong brief phải tính lại, không lấy trí nhớ. Dữ kiện ngoài toán (sự kiện lịch sử, ngày tháng) chưa đối chiếu nguồn thì ghi rõ.
+- Phần vượt SGK ghi rõ là vượt, và nêu lý do.
+- Chỉ ghi điều quyết định được nội dung; không kể lại những gì đã có trong AGENTS.md (cấu trúc file, animation, định dạng số).
+
+**Bài tổng hợp, ôn tập, luyện tập chung** (như Bài 6, 9, 16, 21, 26, 32, 33-37)
+
+- Phần Lý thuyết là "Nhắc lại nhanh": gom các điểm quan trọng nhất của các bài cũ trong chương lớn (chủ đề) mà bài này ôn. Không dạy lại từ đầu, không bắt buộc có animation.
+- Trong brief, mục `## Phần Lý thuyết` có bảng: điểm cần nhắc | bài gốc | cách nhắc (`KeyFact`, ví dụ ngắn, hoặc hình tái dùng từ bài gốc). Chọn theo lỗi hay mắc và theo những gì bài tập của bài này dùng tới. Mỗi chương tối đa 5-6 điểm.
+- Mục `Đánh giá` thay "mục tiêu của bài" bằng danh sách bài nguồn; "Kiến thức cần có" chính là các bài nguồn đó.
+- Hình hoặc component đã có từ bài gốc thì tái dùng, ghi tên; dùng từ 2 bài trở lên thì chuyển lên `components/` theo quy tắc chung.
+- Khởi động có thể bỏ, thay bằng kiểm tra đầu vào: chính các câu "Nhắc lại nhanh". Nhóm bài tập chia theo bài nguồn hoặc chủ đề, không theo tiết.
+- Phần Phụ huynh: nêu bài nào nên xem lại nếu con sai nhóm nào, thay cho mục "Con học gì trong bài này".
 
 ## Làm bài theo mẫu
 
