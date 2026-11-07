@@ -1,0 +1,53 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { MassLadder } from "./_animations/mass-ladder";
+import { MassSplit } from "./_animations/mass-split";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Cá voi xanh là loài động vật nặng nhất thế giới, có con nặng tới 190 tấn. 190 tấn có lớn hơn 190 kg không nhỉ? Để đo những vật nặng như vậy, người ta dùng thêm các đơn vị lớn hơn ki-lô-gam.
+
+## Yến, tạ, tấn
+
+<MassLadder />
+
+<KeyFact unit="yen" equation="1 yến = 10 kg">
+  **Yến** là đơn vị đo khối lượng, lớn hơn ki-lô-gam.
+</KeyFact>
+
+<KeyFact unit="ta" equation="1 tạ = 10 yến = 100 kg">
+  **Tạ** lớn hơn yến. 10 yến gộp lại là 1 tạ.
+</KeyFact>
+
+<KeyFact unit="tan" equation="1 tấn = 10 tạ = 1 000 kg">
+  **Tấn** lớn hơn tạ. 10 tạ gộp lại là 1 tấn.
+</KeyFact>
+
+Con nhớ: mỗi bậc kg, yến, tạ, tấn gấp 10 lần bậc trước.
+
+<QuickCheck question={quickChecks.thang30} />
+
+## Cá voi nặng bao nhiêu ki-lô-gam?
+
+Đi từ tấn xuống ki-lô-gam, con đi ba bậc, nên gấp 1 000 lần. Cá voi xanh nặng 190 tấn, tức là 190 000 kg. Số này lớn hơn 190 kg rất nhiều.
+
+<QuickCheck question={quickChecks.tanTay} />
+
+## Số đo có hai đơn vị
+
+Khi gặp số đo có hai đơn vị, con đổi phần lớn sang đơn vị nhỏ, rồi cộng thêm phần còn lại.
+
+<MassSplit />
+
+<QuickCheck question={quickChecks.tach45} />
+
+<QuickCheck question={quickChecks.tach6040} />
+
+## Nhớ khi so sánh
+
+Hai khối lượng chỉ so sánh được khi cùng đơn vị. Ví dụ 30 tạ và 3 tấn: 3 tấn = 30 tạ, nên hai khối lượng bằng nhau, dù 30 lớn hơn 3. Khi gặp đơn vị khác nhau, con đổi về cùng một đơn vị, thường là ki-lô-gam.

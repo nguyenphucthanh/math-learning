@@ -8,6 +8,9 @@ const tones = {
   mm2: "bg-unit-mm2-soft [--tone:var(--unit-mm2)]",
   second: "bg-unit-second-soft [--tone:var(--unit-second)]",
   century: "bg-unit-century-soft [--tone:var(--unit-century)]",
+  yen: "bg-unit-yen-soft [--tone:var(--unit-yen)]",
+  ta: "bg-unit-ta-soft [--tone:var(--unit-ta)]",
+  tan: "bg-unit-tan-soft [--tone:var(--unit-tan)]",
 };
 
 /** Khối "Ghi nhớ": đơn vị, định nghĩa, viết tắt và đẳng thức chính. */

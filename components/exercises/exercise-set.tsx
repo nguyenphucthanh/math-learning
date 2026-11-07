@@ -15,6 +15,9 @@ const headingTones = {
   mm2: "text-unit-mm2",
   second: "text-unit-second",
   century: "text-unit-century",
+  yen: "text-unit-yen",
+  ta: "text-unit-ta",
+  tan: "text-unit-tan",
 };
 
 export function ExerciseSet({ lessonSlug, groups }: { lessonSlug: string; groups: ExerciseGroup[] }) {

@@ -111,17 +111,18 @@ Mục này thay cho việc đọc lại code bài cũ. Chỉ mở file khi cần
 
 | `kind` | Trường riêng |
 |---|---|
-| `dien-so` | `prompt?`, `parts: Part[]`, `conversion?` |
-| `trac-nghiem` | `prompt`, `options`, `answerIndex`, `figure?` |
+| `dien-so` | `prompt?`, `parts: Part[]`, `conversion?`, `illustration?` |
+| `trac-nghiem` | `prompt`, `options`, `answerIndex`, `figure?`, `illustration?` |
 | `noi-cap` | `prompt`, `pairs: {left, right}[]`, `rightOrder` (hoán vị, không số nào đứng đúng vị trí của nó) |
 | `loi-van` | `prompt`, `lines: Part[][]` |
 
+- `illustration` là `ReactNode`: hình SVG riêng của bài, đặt trong `_illustrations/` cạnh bài (Server Component, không `"use client"`). `bai-tap.ts` tạo bằng `createElement(Component)` để giữ đuôi `.ts`. `figure` chỉ dành cho hình diện tích của bài 18.
 - `Part` là chuỗi hoặc ô trống `{ answer: number, year?: true }`. Ô trống chỉ nhận số, nên đáp án là chữ (như tên thế kỉ) phải dùng `trac-nghiem` hoặc `noi-cap`.
 - Sau lần sai thứ hai, câu tự hiện nút xem lời giải. Câu thử trong Lý thuyết dùng `QuickCheck`, không tính tiến độ.
 
 **Component dùng chung**
 
-- `KeyFact` (`unit`, `equation`, children): khối ghi nhớ. `unit` là `m2`, `dm2`, `cm2`, `mm2`, `second`, `century`.
+- `KeyFact` (`unit`, `equation`, children): khối ghi nhớ. `unit` là `m2`, `dm2`, `cm2`, `mm2`, `second`, `century`, `yen`, `ta`, `tan`.
 - `QuickCheck` (`question`, `title?`), `Fold` (`title`, `summary`), `ActionButton` (`variant`: `primary`, `soft`, `sun`).
 - `ExerciseSet` (`lessonSlug`, `groups`) tự lo tiến độ. `ExerciseGroup` có `id`, `title`, `unit?`, `questions`.
 
@@ -146,7 +147,8 @@ Mục này thay cho việc đọc lại code bài cũ. Chỉ mở file khi cần
 
 - `lib/area-units.ts`: `convertArea`, `conversionHint`, `explainConversion`.
 - `lib/time-units.ts`: `convertTime`, `timeHint`, `explainTime`, `centuryOf`, `centuryRange`, `toRoman`, `countYears`.
-- Đơn vị đại lượng mới (như khối lượng): tạo `lib/<đại-lượng>-units.ts` cùng dạng trên, có test riêng, rồi thêm kiểu vào `conversion.to`.
+- `lib/mass-units.ts`: `convertMass`, `massHint`, `explainMass`, `toKg`, `parseMass`.
+- Đơn vị đại lượng mới (như chiều dài): tạo `lib/<đại-lượng>-units.ts` cùng dạng trên, có test riêng, rồi thêm kiểu vào `conversion.to`.
 
 **Thêm màu đơn vị mới:** sửa `--unit-x` và `--unit-x-soft` (khối `:root`), `--color-unit-x` và `--color-unit-x-soft` (`@theme`) trong `app/globals.css`; rồi `tones` trong `components/lesson/key-fact.tsx`, `headingTones` trong `components/exercises/exercise-set.tsx`, `ExerciseGroup.unit`. Tránh hue gần `--good` (160) và `--oops` (35).
 
@@ -242,7 +244,7 @@ Chọn mức thấp nhất đủ để diễn đạt ý:
 Thế giới hình ảnh là **vở ô li và mực tím**. Token nằm trong `app/globals.css`.
 
 - Nền giấy ô vuông, mực tím `--ink`, nhãn vở ở đầu mỗi bài. Nền lưới là chủ ý, không bỏ vì cảnh báo của detector.
-- Mỗi đơn vị đo có một màu cố định (`--unit-m2`, `--unit-dm2`, `--unit-cm2`, `--unit-mm2`, `--unit-second`, `--unit-minute`, `--unit-century`). Dùng đúng màu đó ở mọi nơi để con nhận ra đơn vị.
+- Mỗi đơn vị đo có một màu cố định (`--unit-m2`, `--unit-dm2`, `--unit-cm2`, `--unit-mm2`, `--unit-second`, `--unit-minute`, `--unit-century`, `--unit-yen`, `--unit-ta`, `--unit-tan`). Dùng đúng màu đó ở mọi nơi để con nhận ra đơn vị.
 - Token khác: `--ink`, `--paper`, `--sun` (điểm nhấn), `--good`, `--oops` (chỉ dùng cho phản hồi đúng/sai), `--input` (viền và phần chưa tô), `--foreground`. Mỗi đơn vị có thêm bản `-soft` làm nền, trừ `--unit-minute`.
 - Font: Baloo 2 cho tiêu đề, Nunito cho nội dung. Số trong bài tập dùng `tabular-nums`.
 - Dùng `ActionButton` thay vì `Button` của shadcn vì `Button` thấp hơn vùng chạm tối thiểu.

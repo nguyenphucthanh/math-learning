@@ -3,6 +3,7 @@ import { formatNumber, parseAnswer } from "@/lib/area-units";
 import { cn } from "@/lib/utils";
 import { CircleCheck, Lightbulb } from "lucide-react";
 import { useState, type ReactNode } from "react";
+import { MatchBoard } from "./match-board";
 import type { ChoiceQuestion, FillQuestion, MatchQuestion, Part, Question, ShapeFigure, WordQuestion } from "./types";
 
 type QuestionProps<Q extends Question> = {
@@ -156,6 +157,7 @@ function Fill({ question, solved, onSolved }: QuestionProps<FillQuestion>) {
   return (
     <>
       {question.prompt ? <Prompt>{question.prompt}</Prompt> : null}
+      {question.illustration ? <div className="my-4">{question.illustration}</div> : null}
       <BlanksForm lines={[question.parts]} question={question} solved={solved} onSolved={onSolved} />
     </>
   );
@@ -198,6 +200,7 @@ function Choice({ question, solved, onSolved }: QuestionProps<ChoiceQuestion>) {
   return (
     <>
       <Prompt>{question.prompt}</Prompt>
+      {question.illustration ? <div className="my-4">{question.illustration}</div> : null}
       {question.figure ? (
         <div className="my-4 flex flex-wrap items-end gap-x-6 gap-y-4">
           {question.figure.shapes.map((shape) => (
@@ -235,66 +238,22 @@ function Choice({ question, solved, onSolved }: QuestionProps<ChoiceQuestion>) {
 }
 
 function Match({ question, solved, onSolved }: QuestionProps<MatchQuestion>) {
-  const [selected, setSelected] = useState<number | null>(null);
-  const [matched, setMatched] = useState<number[]>([]);
   const [wrongCount, setWrongCount] = useState(0);
-  const isMatched = (index: number) => solved || matched.includes(index);
-
-  function chooseRight(index: number) {
-    if (selected === null) return;
-    if (index === selected) {
-      const next = [...matched, index];
-      setMatched(next);
-      if (next.length === question.pairs.length) onSolved(wrongCount === 0);
-    } else {
-      setWrongCount(wrongCount + 1);
-    }
-    setSelected(null);
-  }
-
-  const tile = "min-h-14 rounded-2xl border-[3px] px-3 py-2 text-left text-lg leading-snug font-bold transition-colors";
-  const done = "border-good bg-good-soft text-good";
 
   return (
     <>
       <Prompt>{question.prompt}</Prompt>
-      <p className="mb-3 text-base font-semibold text-muted-foreground">Chạm một ô bên trái, rồi chạm ô phù hợp bên phải.</p>
-      <div className="grid grid-cols-[3fr_2fr] gap-2 sm:gap-3">
-        <div className="grid content-start gap-2">
-          {question.pairs.map((pair, index) => (
-            <button
-              key={pair.left}
-              type="button"
-              aria-pressed={selected === index}
-              disabled={isMatched(index)}
-              onClick={() => setSelected(selected === index ? null : index)}
-              className={cn(
-                tile,
-                isMatched(index)
-                  ? done
-                  : selected === index
-                    ? "border-ink bg-ink text-white"
-                    : "border-input bg-white hover:bg-secondary",
-              )}
-            >
-              {pair.left}
-            </button>
-          ))}
-        </div>
-        <div className="grid content-start gap-2">
-          {question.rightOrder.map((index) => (
-            <button
-              key={question.pairs[index].right}
-              type="button"
-              disabled={isMatched(index)}
-              onClick={() => chooseRight(index)}
-              className={cn(tile, "text-center tabular-nums", isMatched(index) ? done : "border-input bg-white hover:bg-secondary")}
-            >
-              {question.pairs[index].right}
-            </button>
-          ))}
-        </div>
-      </div>
+      <p className="mb-3 text-base font-semibold text-muted-foreground">
+        Kéo chấm tròn của ô bên trái sang ô phù hợp bên phải. Hoặc chạm ô bên trái, rồi chạm ô bên phải.
+      </p>
+      <MatchBoard
+        pairs={question.pairs}
+        rightOrder={question.rightOrder}
+        solved={solved}
+        wrongCount={wrongCount}
+        onWrong={() => setWrongCount((count) => count + 1)}
+        onSolved={onSolved}
+      />
       <Feedback question={question} solved={solved} wrongCount={wrongCount} />
     </>
   );

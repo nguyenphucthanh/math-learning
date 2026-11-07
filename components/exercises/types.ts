@@ -1,5 +1,7 @@
 import type { AreaUnit } from "@/lib/area-units";
+import type { MassUnit } from "@/lib/mass-units";
 import type { TimeUnit } from "@/lib/time-units";
+import type { ReactNode } from "react";
 
 export type Blank = {
   answer: number;
@@ -28,7 +30,9 @@ export type FillQuestion = QuestionBase & {
   prompt?: string;
   parts: Part[];
   /** Có với câu đổi đơn vị, để test kiểm tra lại đáp án. */
-  conversion?: { source: string; to: AreaUnit | TimeUnit };
+  conversion?: { source: string; to: AreaUnit | TimeUnit | MassUnit };
+  /** Hình minh họa riêng của bài (SVG), hiện dưới đề. */
+  illustration?: ReactNode;
 };
 
 export type ChoiceQuestion = QuestionBase & {
@@ -37,6 +41,8 @@ export type ChoiceQuestion = QuestionBase & {
   options: string[];
   answerIndex: number;
   figure?: { pixelsPerUnit: number; shapes: ShapeFigure[] };
+  /** Hình minh họa riêng của bài (SVG), hiện dưới đề. */
+  illustration?: ReactNode;
 };
 
 export type MatchQuestion = QuestionBase & {
@@ -58,6 +64,6 @@ export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuest
 export type ExerciseGroup = {
   id: string;
   title: string;
-  unit?: "m2" | "dm2" | "cm2" | "mm2" | "second" | "century";
+  unit?: "m2" | "dm2" | "cm2" | "mm2" | "second" | "century" | "yen" | "ta" | "tan";
   questions: Question[];
 };
