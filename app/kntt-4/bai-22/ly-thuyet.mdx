@@ -1,0 +1,66 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { AlignCompare } from "./_animations/align-compare";
+import { ColumnAdd } from "./_animations/column-add";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Một trang trại nuôi bò sữa. Ngày thứ nhất trang trại thu được 180 510 l sữa. Ngày thứ hai thu được 210 365 l sữa. Cả hai ngày, trang trại thu được bao nhiêu lít sữa? Ta làm phép cộng 180 510 + 210 365, giống như con đã học với các số bé hơn.
+
+## Cộng cùng hàng, từ phải sang trái
+
+<ColumnAdd
+  a={180510}
+  b={210365}
+  perStep={3}
+  labels
+  intro="Muốn biết cả hai ngày được bao nhiêu lít sữa, ta tính 180 510 + 210 365."
+  setup="Đặt tính: viết các số thẳng cột. Hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục, và cứ thế. Rồi cộng từ phải sang trái."
+/>
+
+<KeyFact equation="Cộng từ phải sang trái">
+  Mỗi cột là một hàng. Ta chỉ cộng các chữ số cùng hàng với nhau, bắt đầu từ hàng đơn vị. Cả hai ngày trang trại thu được 390 875 l sữa.
+</KeyFact>
+
+<QuickCheck question={quickChecks.sameColumn} />
+
+## Hai số khác số chữ số
+
+Khi một số có ít chữ số hơn, con càng phải cẩn thận. Hãy xem 5 839 + 712.
+
+<AlignCompare />
+
+<KeyFact equation="Hàng đơn vị thẳng hàng đơn vị">
+  Viết số có ít chữ số hơn sao cho chữ số cuối cùng của nó thẳng với chữ số cuối cùng của số kia. Hàng nào chỉ có một số thì ta hạ số đó xuống, nhớ cộng thêm số nhớ nếu có.
+</KeyFact>
+
+<QuickCheck question={quickChecks.align} />
+
+## Cộng có nhớ
+
+<ColumnAdd
+  a={327456}
+  b={190835}
+  setup="Đặt tính 327 456 + 190 835. Ta cộng từng cột, từ phải sang trái, và để ý hàng nào có tổng từ 10 trở lên."
+/>
+
+<KeyFact equation="Từ 10 trở lên thì nhớ 1">
+  Khi tổng ở một hàng từ 10 trở lên, ta viết chữ số hàng đơn vị của tổng, rồi nhớ 1 sang hàng bên trái. Ở hàng bên trái, ta thêm 1 vào rồi mới cộng tiếp. Tổng đúng bằng 10 cũng phải nhớ 1. Vậy 327 456 + 190 835 = 518 291.
+</KeyFact>
+
+<QuickCheck question={quickChecks.carry} />
+
+## Ước lượng để kiểm tra
+
+Làm xong, con thử ước lượng xem kết quả có hợp lý không. Làm tròn mỗi số đến hàng trăm nghìn: 327 456 gần 300 000 và 190 835 gần 200 000. Tổng gần 300 000 + 200 000 = 500 000. Kết quả 518 291 gần 500 000, hợp lý. Nếu con tính ra 417 281, kết quả gần 400 000. Như vậy là lệch quá xa, con cần kiểm tra lại, có thể đã quên số nhớ.
+
+<KeyFact equation="Ước lượng chỉ để kiểm tra">
+  Làm tròn rồi cộng nhanh cho ta biết kết quả có gần đúng không. Vẫn phải đặt tính để tìm kết quả chính xác.
+</KeyFact>
+
+<QuickCheck question={quickChecks.estimate} />
