@@ -1,0 +1,65 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DatTinh } from "@/components/math/dat-tinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Chủ đề 5 xong rồi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại sáu điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Đặt tính cộng, trừ
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <DatTinh
+    top={["6", "4", "8", "2", "5"]}
+    bottom={["2", "7", "3", "9", "6"]}
+    result={["9", "2", "2", "2", "1"]}
+    label="Phép cộng 64 825 + 27 396 = 92 221"
+  />
+</figure>
+
+<KeyFact equation="Thẳng hàng từ phải sang trái">
+  Viết các chữ số **cùng hàng thẳng cột**, bắt đầu từ hàng đơn vị. Cộng thì viết chữ số đơn vị và nhớ 1 sang hàng bên trái. Trừ thì hàng nào không trừ được phải lấy 10 trừ và nhớ 1.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tru} />
+
+## 2. Thử lại bằng phép tính ngược
+
+Mẹo thêm, không có trong sách: phép trừ và phép cộng đi ngược nhau.
+
+<KeyFact equation="96 271 − 83 738 = 12 533  thì  83 738 + 12 533 = 96 271">
+  Số trừ cộng hiệu thì ra **số bị trừ**. Con dùng cách này để thử lại bài của mình.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuLai} />
+
+## 3. Tính nhẩm số tròn
+
+Tính nhẩm số tròn trăm nghìn, triệu: coi chúng là "mấy trăm nghìn". Ví dụ 1 000 000 là 10 trăm nghìn, 600 000 là 6 trăm nghìn, 200 000 là 2 trăm nghìn.
+
+10 trăm nghìn + 6 trăm nghìn − 2 trăm nghìn = 14 trăm nghìn. Vậy 1 000 000 + 600 000 − 200 000 = **1 400 000**.
+
+Có ngoặc thì làm trong ngoặc trước.
+
+## 4. Giao hoán, kết hợp, tính thuận tiện
+
+<KeyFact equation="(a + b) + c = a + (b + c)">
+  Khi cộng nhiều số, ta có thể đổi chỗ hoặc nhóm các số sao cho ra **số tròn** trước. Nếu có dấu trừ, dấu trừ **đi cùng số đứng sau nó**: 52 614 + 2 785 − 614 = (52 614 − 614) + 2 785 = 52 000 + 2 785 = 54 785.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuanTien} />
+
+## 5. Tìm hai số khi biết tổng và hiệu
+
+<KeyFact equation="Số bé = (Tổng − Hiệu) : 2     Số lớn = (Tổng + Hiệu) : 2">
+  Muốn tìm số bé thì **trừ** hiệu, muốn tìm số lớn thì **cộng** hiệu. Sau đó chia cho 2. Nhớ thử lại: hai số cộng lại bằng tổng, trừ nhau bằng hiệu.
+</KeyFact>
+
+## 6. Đọc đề cẩn thận
+
+"Ít hơn" nghĩa là **số bé**, "nhiều hơn" nghĩa là **số lớn**. Đề hỏi ai trước thì điền người đó trước.
+
+Ví dụ: tổng 20, hiệu 6 thì số bé 7, số lớn 13. Thử lại: 7 + 13 = 20 và 13 − 7 = 6.
