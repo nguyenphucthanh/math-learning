@@ -146,7 +146,3 @@ Thế giới hình ảnh là **vở ô li và mực tím**. Token nằm trong `a
 - Câu đổi đơn vị khai báo `conversion` để test tính lại đáp án bằng `lib/area-units.ts`.
 - `components/ui/` và `hooks/use-mobile.ts` là code shadcn sinh ra, đang được loại khỏi lint.
 - Dạng bài tập mới chỉ được thêm khi có bài cần. Hiện đã có `dien-so`, `trac-nghiem`, `noi-cap`, `loi-van`; trò chơi là component riêng của bài.
-
-## Setup còn thiếu
-
-- [ ] Commit toàn bộ code setup và Bài 18, đang chưa được commit.
