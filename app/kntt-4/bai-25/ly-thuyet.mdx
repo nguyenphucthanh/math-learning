@@ -1,0 +1,71 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BotPhanHon } from "./_animations/bot-phan-hon";
+import { ChuVi } from "./_animations/chu-vi";
+import { ThemPhanKem } from "./_animations/them-phan-kem";
+import { SoLeLienTiep } from "./_illustrations/so-le";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Mi có 25 cái kẹo và muốn chia cho mình và Mai, sao cho Mi có nhiều hơn Mai đúng 5 cái. Mỗi bạn được mấy cái kẹo? Con cùng bấm từng bước để tìm ra.
+
+## Cách 1: bớt phần hơn
+
+Số kẹo của hai bạn là **tổng**. Số kẹo Mi nhiều hơn Mai là **hiệu**. Bớt phần hơn đi thì hai bạn có phần bằng nhau.
+
+<BotPhanHon />
+
+<KeyFact equation="Số bé = (Tổng − Hiệu) : 2">
+  Lấy tổng bớt đi hiệu, rồi chia cho 2 để được **số bé**. Số lớn bằng số bé cộng hiệu.
+</KeyFact>
+
+<QuickCheck question={quickChecks.cachMot} />
+
+## Cách 2: thêm phần kém
+
+Còn một cách khác: thêm cho bạn có ít hơn. Khi đó hai phần cũng bằng nhau.
+
+<ThemPhanKem />
+
+<KeyFact equation="Số lớn = (Tổng + Hiệu) : 2">
+  Lấy tổng cộng với hiệu, rồi chia cho 2 để được **số lớn**. Số bé bằng tổng trừ số lớn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.cachHai} />
+
+## Chọn một cách để giải
+
+Hai cách cho cùng một kết quả. Con chọn cách nào cũng được, rồi nhớ **thử lại**: hai số cộng lại bằng tổng, trừ nhau bằng hiệu.
+
+<KeyFact equation="Bé = (Tổng − Hiệu) : 2     Lớn = (Tổng + Hiệu) : 2">
+  Muốn tìm số nào trước thì nhớ: số bé thì **trừ** hiệu, số lớn thì **cộng** hiệu. Sau đó chia cho 2.
+</KeyFact>
+
+<QuickCheck question={quickChecks.congThuc} />
+
+## Khi đề giấu tổng hoặc hiệu
+
+Có đề không ghi sẵn tổng hoặc hiệu. Con phải tự tìm ra trước khi tính.
+
+**Đề cho chu vi hình chữ nhật.** Chu vi gồm hai chiều dài và hai chiều rộng, nên nửa chu vi mới là tổng của chiều dài và chiều rộng.
+
+<ChuVi />
+
+<KeyFact equation="Nửa chu vi = dài + rộng">
+  Gặp chu vi, con tính **nửa chu vi** trước. Số đó là **tổng** của chiều dài và chiều rộng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chuVi} />
+
+**Đề cho hai số lẻ liên tiếp.** Hai số lẻ đứng liền nhau hơn kém nhau mấy?
+
+<SoLeLienTiep />
+
+<KeyFact equation="Hai số lẻ liên tiếp: hiệu là 2">
+  Số lẻ liền sau hơn số lẻ liền trước **2** đơn vị. Vậy hiệu của hai số lẻ liên tiếp là 2.
+</KeyFact>
