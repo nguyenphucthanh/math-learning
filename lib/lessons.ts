@@ -61,7 +61,7 @@ export const kntt4Topics: Topic[] = [
       lesson(17, "Yến, tạ, tấn", 56, true),
       lesson(18, "Đề-xi-mét vuông, mét vuông, mi-li-mét vuông", 60, true),
       lesson(19, "Giây, thế kỉ", 66, true),
-      lesson(20, "Thực hành và trải nghiệm sử dụng một số đơn vị đo đại lượng", 69),
+      lesson(20, "Thực hành và trải nghiệm sử dụng một số đơn vị đo đại lượng", 69, true),
       lesson(21, "Luyện tập chung", 73),
     ],
   },
