@@ -1,0 +1,89 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { MixedSplit } from "./_animations/mixed-split";
+import { TileGrid } from "./_animations/tile-grid";
+import { UnitLadder } from "./_animations/unit-ladder";
+import { quickChecks } from "./bai-tap";
+
+Con đã biết **xăng-ti-mét vuông** (cm²) từ lớp 3. Nhưng đo cả nền nhà bằng cm² thì mỏi tay lắm. Hôm nay mình làm quen với ba đơn vị mới, dùng cho những thứ to hơn và nhỏ hơn.
+
+## Đề-xi-mét vuông
+
+Một bạn nhỏ muốn lát nền nhà đồ chơi bằng những viên gạch hình vuông cạnh 1 cm. Cần bao nhiêu viên? Con bấm **Tiếp** để xem nhé.
+
+<TileGrid
+  whole="dm2"
+  cell="cm2"
+  wholeLabel="1 dm²"
+  sideLabel="10 cm = 1 dm"
+  captions={[
+    "Nền nhà là hình vuông cạnh 1 dm. Mỗi viên gạch là hình vuông cạnh 1 cm, có diện tích 1 cm².",
+    "Cạnh dài 10 cm, nên một hàng xếp được 10 viên.",
+    "Có 10 hàng như vậy: 10 × 10 = 100 viên gạch.",
+    "Cả nền nhà rộng đúng 1 dm². Vậy 1 dm² = 100 cm².",
+  ]}
+/>
+
+<KeyFact unit="dm2" equation="1 dm² = 100 cm²">
+  **Đề-xi-mét vuông** là diện tích của hình vuông có cạnh dài 1 dm. Viết tắt là **dm²**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dm2} />
+
+## Mét vuông
+
+Muốn đo cả nền căn phòng thì dm² vẫn còn quá nhỏ. Ta cần một đơn vị lớn hơn.
+
+<TileGrid
+  whole="m2"
+  cell="dm2"
+  wholeLabel="1 m²"
+  sideLabel="10 dm = 1 m"
+  captions={[
+    "Hình vuông to này có cạnh 1 m. Ô màu xanh là 1 dm², cạnh 1 dm.",
+    "Cạnh dài 10 dm, nên một hàng xếp được 10 ô.",
+    "Có 10 hàng: 10 × 10 = 100 ô 1 dm².",
+    "Cả hình rộng đúng 1 m². Vậy 1 m² = 100 dm².",
+  ]}
+/>
+
+<KeyFact unit="m2" equation="1 m² = 100 dm²">
+  **Mét vuông** là diện tích của hình vuông có cạnh dài 1 m. Viết tắt là **m²**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.m2} />
+
+## Mi-li-mét vuông
+
+Còn nếu muốn làm một cánh cửa cho chú kiến thì sao? Cửa bé tí hon, phải có đơn vị thật nhỏ để đo.
+
+<TileGrid
+  zoomIntro
+  whole="cm2"
+  cell="mm2"
+  wholeLabel="1 cm²"
+  sideLabel="10 mm = 1 cm"
+  captions={[
+    "Đây là 1 cm², chỉ cỡ móng tay út của con. Mình soi kính lúp nhé.",
+    "Phóng to lên. Cạnh của hình vuông này dài 1 cm, tức là 10 mm.",
+    "Một hàng xếp được 10 ô nhỏ, mỗi ô có cạnh 1 mm.",
+    "Có 10 hàng: 10 × 10 = 100 ô 1 mm².",
+    "Cả hình rộng 1 cm². Vậy 1 cm² = 100 mm².",
+  ]}
+/>
+
+<KeyFact unit="mm2" equation="1 cm² = 100 mm²">
+  **Mi-li-mét vuông** là diện tích của hình vuông có cạnh dài 1 mm. Viết tắt là **mm²**. Đơn vị này dùng để đo những vật rất nhỏ.
+</KeyFact>
+
+<QuickCheck question={quickChecks.mm2} />
+
+## Xếp các đơn vị lại với nhau
+
+<UnitLadder />
+
+Khi gặp số đo có hai đơn vị, con đổi từng phần rồi cộng lại.
+
+<MixedSplit />
+
+<QuickCheck question={quickChecks.mixed} />
