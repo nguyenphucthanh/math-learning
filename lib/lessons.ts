@@ -82,7 +82,7 @@ export const kntt4Topics: Topic[] = [
     lessons: [
       lesson(27, "Hai đường thẳng vuông góc", 91, true),
       lesson(28, "Thực hành và trải nghiệm vẽ hai đường thẳng vuông góc", 94, true),
-      lesson(29, "Hai đường thẳng song song", 98),
+      lesson(29, "Hai đường thẳng song song", 98, true),
       lesson(30, "Thực hành và trải nghiệm vẽ hai đường thẳng song song", 101),
       lesson(31, "Hình bình hành, hình thoi", 105),
       lesson(32, "Luyện tập chung", 110),
