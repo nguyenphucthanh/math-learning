@@ -1,0 +1,46 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GhepCap } from "./_animations/ghep-cap";
+import { PhoSoNha } from "./_animations/pho-so-nha";
+import { TiaSoChanLe } from "./_animations/tia-so-chan-le";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại, rồi tìm hiểu số chẵn và số lẻ qua ba hình.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Ghép cặp: số chẵn và số lẻ
+
+Con ghép các chấm thành từng cặp. Nhóm nào ghép **vừa đủ** thì nhóm đó chia hết cho 2.
+
+<GhepCap />
+
+<KeyFact equation="Chia hết cho 2 là số chẵn">
+  Số chia hết cho 2 là **số chẵn**. Số không chia hết cho 2 là **số lẻ**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chiaHet} />
+
+## 2. Số nhà và chữ số tận cùng
+
+Trên phố, một bên đánh số chẵn, bên kia đánh số lẻ. Muốn biết một số là chẵn hay lẻ, con **chỉ cần nhìn chữ số tận cùng**, kể cả với số lớn như 2 318 hay 1 909.
+
+<PhoSoNha />
+
+<KeyFact equation="Nhìn chữ số tận cùng">
+  Tận cùng là **0, 2, 4, 6, 8** thì là số chẵn. Tận cùng là **1, 3, 5, 7, 9** thì là số lẻ. Không nhìn chữ số đầu tiên.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tanCung} />
+
+## 3. Số chẵn, số lẻ trên tia số
+
+<TiaSoChanLe />
+
+<KeyFact equation="Hơn kém nhau 2">
+  Số chẵn và số lẻ **xen kẽ** nhau. Hai số chẵn liên tiếp hơn kém nhau **2 đơn vị**; hai số lẻ liên tiếp cũng hơn kém nhau 2 đơn vị. **Số 0 là số chẵn.**
+</KeyFact>
+
+<QuickCheck question={quickChecks.lienTiep} />
