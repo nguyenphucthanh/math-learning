@@ -124,3 +124,28 @@ export function fourthVertex(a: Point, b: Point, c: Point): Point {
 export function polygonArea(points: Point[]): number {
   return Math.abs(points.reduce((sum, p, i) => sum + (p.x * points[(i + 1) % points.length].y - points[(i + 1) % points.length].x * p.y), 0)) / 2;
 }
+
+/** Số đo góc tại đỉnh `v` giữa hai tia v→a và v→b, tính bằng độ (từ 0 đến 180). */
+export function angleAt(a: Point, v: Point, b: Point): number {
+  const ux = a.x - v.x;
+  const uy = a.y - v.y;
+  const wx = b.x - v.x;
+  const wy = b.y - v.y;
+  const cos = (ux * wx + uy * wy) / (Math.hypot(ux, uy) * Math.hypot(wx, wy));
+  return (Math.acos(Math.max(-1, Math.min(1, cos))) * 180) / Math.PI;
+}
+
+export type AngleKind = "nhọn" | "vuông" | "tù" | "bẹt";
+
+/** Loại góc theo số đo: nhọn (< 90°), vuông (90°), tù (giữa 90° và 180°), bẹt (180°). Cho phép sai số nhỏ do làm tròn tọa độ. */
+export function angleKind(degrees: number): AngleKind {
+  if (Math.abs(degrees - 90) < 0.5) return "vuông";
+  if (Math.abs(degrees - 180) < 0.5) return "bẹt";
+  return degrees < 90 ? "nhọn" : "tù";
+}
+
+/** Loại góc tại đỉnh `index` của đa giác (đỉnh theo thứ tự). */
+export function polygonAngleKind(points: Point[], index: number): AngleKind {
+  const n = points.length;
+  return angleKind(angleAt(points[(index + n - 1) % n], points[index], points[(index + 1) % n]));
+}

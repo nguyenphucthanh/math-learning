@@ -8,7 +8,7 @@ import { CatGhep } from "./_animations/cat-ghep";
 import { VeQuaDiem } from "./_animations/ve-qua-diem";
 import { AoAnh } from "./_illustrations/ao-anh";
 import { BonCachDan } from "./_illustrations/chong-hinh";
-import { DongHo } from "./_illustrations/dong-ho";
+import { DongHo } from "@/components/math/dong-ho";
 import { GapKhuc } from "./_illustrations/gap-khuc";
 import { HinhDungSai } from "./_illustrations/hinh-dung-sai";
 import { BangNguoiQue } from "./_illustrations/nguoi-que";

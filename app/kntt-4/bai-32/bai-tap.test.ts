@@ -6,7 +6,7 @@ import { DICH_SANG_PHAI, hinhBinhHanh } from "./_animations/cat-ghep";
 import { duongAB, duongCD, duongEG, eKe, hinh } from "./_animations/ve-qua-diem";
 import { duongDo } from "./_illustrations/ao-anh";
 import { hopBao } from "./_illustrations/chong-hinh";
-import { angleBetweenHands } from "./_illustrations/dong-ho";
+import { angleBetweenHands } from "@/components/math/dong-ho";
 import { doanGapKhuc } from "./_illustrations/gap-khuc";
 import { diem, doan } from "./_illustrations/hinh-dung-sai";
 import { cacDapAn, oLuoi, oThieu } from "./_illustrations/nguoi-que";

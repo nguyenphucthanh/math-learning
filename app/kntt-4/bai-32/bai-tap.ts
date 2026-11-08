@@ -2,7 +2,7 @@ import type { ExerciseGroup, Question } from "@/components/exercises/types";
 import { createElement } from "react";
 import { AoAnh } from "./_illustrations/ao-anh";
 import { BonCachDan, type MiengDan } from "./_illustrations/chong-hinh";
-import { DongHo } from "./_illustrations/dong-ho";
+import { DongHo } from "@/components/math/dong-ho";
 import { GapKhuc } from "./_illustrations/gap-khuc";
 import { HinhDungSai } from "./_illustrations/hinh-dung-sai";
 import { BangNguoiQue } from "./_illustrations/nguoi-que";

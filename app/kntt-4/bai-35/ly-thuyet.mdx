@@ -1,0 +1,46 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BonGoc, DaiHinhThoi } from "./_illustrations/hinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hình học học kì 1 gồm góc, đường thẳng vuông góc, đường thẳng song song, hình bình hành và hình thoi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại bốn điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Các loại góc
+
+<BonGoc />
+
+<KeyFact equation="Nhọn < 90°, vuông = 90°, tù giữa 90° và 180°, bẹt = 180°">
+  Góc **nhọn** bé hơn góc vuông. Góc **vuông** bằng 90°, khít với góc ê ke. Góc **tù** lớn hơn góc vuông và bé hơn góc bẹt. Góc **bẹt** bằng 180°, hai cạnh nằm trên một đường thẳng. Muốn biết một góc là loại nào, đặt ê ke vào đỉnh góc rồi so.
+</KeyFact>
+
+<QuickCheck question={quickChecks.goc} />
+
+## 2. Hai đường thẳng vuông góc
+
+<KeyFact equation="Vuông góc = cắt nhau tạo góc vuông">
+  Hai đường thẳng vuông góc với nhau cắt nhau tạo thành **bốn góc vuông**. Dùng ê ke để kiểm tra, không chỉ nhìn bằng mắt.
+</KeyFact>
+
+<QuickCheck question={quickChecks.vuongGoc} />
+
+## 3. Hai đường thẳng song song
+
+<KeyFact equation="Song song = không bao giờ cắt nhau">
+  Hai đường thẳng **song song** kéo dài mãi cũng không bao giờ cắt nhau. Một đoạn thẳng thì xét đường thẳng chứa nó. Song song không nói gì về độ dài.
+</KeyFact>
+
+<QuickCheck question={quickChecks.songSong} />
+
+## 4. Hình bình hành và hình thoi
+
+<DaiHinhThoi />
+
+<KeyFact equation="Hình bình hành: cạnh đối diện song song và bằng nhau. Hình thoi: bốn cạnh bằng nhau">
+  **Hình bình hành** có hai cặp cạnh đối diện song song và bằng nhau. **Hình thoi** có hai cặp cạnh đối diện song song và **bốn cạnh bằng nhau**. Biết một cạnh của hình thoi là biết cả bốn cạnh.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hinh} />
