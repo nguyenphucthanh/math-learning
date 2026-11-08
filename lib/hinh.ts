@@ -58,3 +58,41 @@ export function distanceToLine(point: Point, seg: Seg): number {
 export function passesThrough(seg: Seg, point: Point, tolerance = 0.6): boolean {
   return distanceToLine(point, seg) < tolerance;
 }
+
+/** Hai đường thẳng chứa `a` và `b` song song: cùng hướng và không trùng nhau. Cho phép sai số nhỏ do làm tròn tọa độ. */
+export function isParallel(a: Seg, b: Seg): boolean {
+  return angleBetween(a, b) < 0.5 && distanceToLine(b[0], a) > 0.6;
+}
+
+/** Giao điểm của hai đường thẳng chứa `a` và `b`; `null` khi chúng cùng hướng. */
+export function lineIntersection(a: Seg, b: Seg): Point | null {
+  const u = direction(a);
+  const v = direction(b);
+  const det = u.x * v.y - u.y * v.x;
+  if (Math.abs(det) < 1e-9) return null;
+  const t = ((b[0].x - a[0].x) * v.y - (b[0].y - a[0].y) * v.x) / det;
+  return { x: round1(a[0].x + t * u.x), y: round1(a[0].y + t * u.y) };
+}
+
+/** Mọi cặp cạnh của đa giác song song với nhau (theo thứ tự đỉnh), ví dụ ["AB", "DC"]. */
+export function parallelEdgePairs(points: Point[], names: string[]): [string, string][] {
+  const edges = points.map((point, index) => ({ name: names[index] + names[(index + 1) % points.length], seg: [point, points[(index + 1) % points.length]] as Seg }));
+  return edges.flatMap((edge, i) => edges.slice(i + 1).flatMap((other) => (isParallel(edge.seg, other.seg) ? [[edge.name, other.name] as [string, string]] : [])));
+}
+
+/** Điểm đường thẳng chứa `seg` đi qua tại hoành độ `x` (đường không thẳng đứng). */
+export function pointAtX(seg: Seg, x: number): Point {
+  const u = direction(seg);
+  return { x, y: round1(seg[0].y + ((x - seg[0].x) * u.y) / u.x) };
+}
+
+/** Mũi tên nhỏ tại `tip`, chỉ theo hướng từ `from` tới `tip`; trả về chuỗi `points` của <polygon>. */
+export function arrowHead(tip: Point, from: Point, size = 11): string {
+  const length = Math.hypot(tip.x - from.x, tip.y - from.y);
+  const ux = (tip.x - from.x) / length;
+  const uy = (tip.y - from.y) / length;
+  const bx = tip.x - ux * size;
+  const by = tip.y - uy * size;
+  const f = (n: number) => Math.round(n * 10) / 10;
+  return `${f(tip.x)},${f(tip.y)} ${f(bx - uy * size * 0.45)},${f(by + ux * size * 0.45)} ${f(bx + uy * size * 0.45)},${f(by - ux * size * 0.45)}`;
+}

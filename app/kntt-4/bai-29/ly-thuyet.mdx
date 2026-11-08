@@ -1,0 +1,46 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { CapCanhSongSong } from "./_animations/cap-canh-song-song";
+import { HaiDuongKeoDai } from "./_animations/hai-duong-keo-dai";
+import { KeoDaiSongSong } from "./_animations/keo-dai-song-song";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh ba câu để nhớ lại hình chữ nhật và đường thẳng nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Con tàu đang chạy trên hai thanh ray. Hai thanh ray kéo dài mãi mà không bao giờ gặp nhau. Thế nào là hai đường thẳng song song? Mình cùng tìm hiểu nhé.
+
+## 1. Từ hình chữ nhật đến hai đường thẳng song song
+
+<KeoDaiSongSong />
+
+<KeyFact equation="Hai đường thẳng song song">
+  Kéo dài hai cạnh đối diện AB và DC của hình chữ nhật ABCD, ta được hai đường thẳng **song song** với nhau.
+</KeyFact>
+
+<QuickCheck question={quickChecks.songSong} />
+
+## 2. Song song thì không bao giờ cắt nhau
+
+Có hai cặp đoạn thẳng. Con chọn từng cặp, kéo dài ra và xem chúng có cắt nhau không.
+
+<HaiDuongKeoDai />
+
+<KeyFact equation="Hai đường thẳng song song không bao giờ cắt nhau">
+  Hai đường thẳng **song song** kéo dài mãi cũng **không bao giờ cắt nhau**. Hai đoạn thẳng chưa chạm nhau thì chưa chắc đã song song: con kéo dài ra để xem.
+</KeyFact>
+
+<QuickCheck question={quickChecks.khongCat} />
+
+## 3. Cặp cạnh song song trong hình
+
+<CapCanhSongSong />
+
+<KeyFact equation="Cạnh đối song song, cạnh liền nhau vuông góc">
+  Hình chữ nhật có **2 cặp cạnh song song**: các cặp cạnh đối diện. Hình vuông cũng vậy. Hai cạnh liền nhau của hình chữ nhật thì cắt nhau và vuông góc với nhau.
+</KeyFact>
+
+<QuickCheck question={quickChecks.haiCap} />
