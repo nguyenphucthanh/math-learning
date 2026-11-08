@@ -1,0 +1,46 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChuNhatKeoDai } from "./_animations/chu-nhat-keo-dai";
+import { EKe } from "./_animations/e-ke";
+import { XoayDuong } from "./_animations/xoay-duong";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh ba câu để nhớ lại góc vuông và ê ke nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Rô-bốt đang buộc hai thanh tre vuông góc với nhau để làm con diều. Thế nào là hai đường thẳng vuông góc? Mình cùng tìm hiểu nhé.
+
+## 1. Từ hình chữ nhật đến hai đường thẳng vuông góc
+
+<ChuNhatKeoDai />
+
+<KeyFact equation="Hai đường thẳng vuông góc">
+  Kéo dài hai cạnh liền nhau của hình chữ nhật, ta được hai đường thẳng **vuông góc** với nhau. Chúng cắt nhau và tạo ra **góc vuông**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chuNhat} />
+
+## 2. Dùng ê ke để kiểm tra
+
+<EKe />
+
+<KeyFact equation="Hai đường thẳng OM và ON vuông góc">
+  Hai đường thẳng vuông góc cắt nhau tạo thành **bốn góc vuông** có chung đỉnh O. Ta dùng **ê ke** để kiểm tra hoặc vẽ hai đường thẳng vuông góc với nhau.
+</KeyFact>
+
+<QuickCheck question={quickChecks.bonGoc} />
+
+## 3. Cắt nhau chưa chắc vuông góc
+
+Hai đường thẳng cắt nhau có thể nghiêng nhiều kiểu khác nhau. Con thử chọn góc và xem ê ke có khít không.
+
+<XoayDuong />
+
+<KeyFact equation="Vuông góc thì cắt nhau tạo góc vuông">
+  Hai đường thẳng vuông góc luôn cắt nhau. Nhưng hai đường thẳng cắt nhau **chưa chắc** vuông góc. Muốn biết, con đặt ê ke vào chỗ chúng cắt nhau.
+</KeyFact>
+
+<QuickCheck question={quickChecks.khong} />
