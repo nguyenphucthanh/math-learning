@@ -3,7 +3,7 @@
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import type { Point } from "@/lib/hinh";
 import { useRef, useState } from "react";
-import { DauBangNhau } from "./dau";
+import { DauBangNhau } from "@/components/math/dau";
 
 /** Tờ giấy hình chữ nhật 240 × 160, góc trên bên trái ở (50, 40). */
 export const paper = { x: 50, y: 40, width: 240, height: 160 };

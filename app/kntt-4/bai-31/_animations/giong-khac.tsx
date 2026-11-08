@@ -3,7 +3,7 @@
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import type { Point, Seg } from "@/lib/hinh";
 import { useRef, useState } from "react";
-import { DauBangNhau, DauSongSong } from "./dau";
+import { DauBangNhau, DauSongSong } from "@/components/math/dau";
 
 const CELL = 10;
 const GAP = 165;

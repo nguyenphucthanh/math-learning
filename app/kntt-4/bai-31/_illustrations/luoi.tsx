@@ -1,6 +1,6 @@
 import { Khung } from "@/components/math/khung";
 import { fourthVertex, type Point } from "@/lib/hinh";
-import { NenLuoi } from "../_animations/dau";
+import { NenLuoi } from "@/components/math/dau";
 
 const CELL = 12;
 const MARGIN = 14;
