@@ -1,0 +1,64 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BangHangSau } from "./_animations/bang-hang-sau";
+import { LienSauTrieu } from "./_animations/lien-sau-trieu";
+import { TramNghin } from "./_animations/tram-nghin";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Số 99 999 có 5 chữ số. Số liền sau của nó là 100 000, có 6 chữ số. Hôm nay mình học các số có sáu chữ số, và số 1 000 000.
+
+## Số có sáu chữ số
+
+<BangHangSau value={226372} reading="hai trăm hai mươi sáu nghìn ba trăm bảy mươi hai" />
+
+<KeyFact equation="226 372: hai trăm hai mươi sáu nghìn ba trăm bảy mươi hai">
+  Bảng hàng có thêm **hàng trăm nghìn** ở bên trái hàng chục nghìn. Đọc phần trước chữ “nghìn” như số có ba chữ số, đọc “nghìn”, rồi đọc ba chữ số cuối.
+</KeyFact>
+
+<QuickCheck question={quickChecks.viet} />
+
+## Số có chữ số 0
+
+<BangHangSau value={300475} reading="ba trăm nghìn bốn trăm bảy mươi lăm" />
+
+<KeyFact equation="300 475: ba trăm nghìn bốn trăm bảy mươi lăm">
+  Hàng nào không có thẻ thì **ghi 0**, không bỏ trống. Sau chữ “nghìn”, hàng trăm là 0 thì đọc “**không trăm**”, như 650 032 đọc là sáu trăm năm mươi nghìn **không trăm** ba mươi hai.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+## Số 1 000 000
+
+<TramNghin />
+
+<KeyFact equation="10 thẻ 100 000 = 1 000 000">
+  Đếm thêm từng 100 000 đến lần thứ mười thì được **một triệu**, viết là 1 000 000.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dem} />
+
+## Số liền sau của 999 999
+
+<LienSauTrieu />
+
+<KeyFact equation="999 999 + 1 = 1 000 000">
+  Số liền sau của 999 999 là **1 000 000**, đọc là **một triệu**. Số này có **7 chữ số**: chữ số 1 và sáu chữ số 0.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lienSau} />
+
+## Phân tích số thành tổng
+
+Giống như số có năm chữ số, mỗi chữ số có giá trị theo hàng của nó.
+
+<KeyFact equation="882 936 = 800 000 + 80 000 + 2 000 + 900 + 30 + 6">
+  Hàng có chữ số 0 thì **không có số hạng** trong tổng, như 620 405 = 600 000 + 20 000 + 400 + 5.
+</KeyFact>
+
+<QuickCheck question={quickChecks.phanTich} />
