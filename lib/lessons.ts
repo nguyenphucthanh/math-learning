@@ -28,8 +28,8 @@ export const kntt4Topics: Topic[] = [
       lesson(2, "Ôn tập các phép tính trong phạm vi 100 000", 9, true),
       lesson(3, "Số chẵn, số lẻ", 12, true),
       lesson(4, "Biểu thức chứa chữ", 14, true),
-      lesson(5, "Giải bài toán có ba bước tính", 19),
-      lesson(6, "Luyện tập chung", 21),
+      lesson(5, "Giải bài toán có ba bước tính", 19, true),
+      lesson(6, "Luyện tập chung", 21, true),
     ],
   },
   {

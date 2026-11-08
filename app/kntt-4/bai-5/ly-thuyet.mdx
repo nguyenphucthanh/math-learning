@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { SoDoBaDoi } from "./_animations/so-do-ba-doi";
+import { ThungDau } from "./_animations/thung-dau";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại hơn, kém, nhân và chia, rồi học cách giải bài toán có ba bước tính.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Đọc đề và vẽ sơ đồ
+
+Có bài toán cần tính **nhiều lần** mới ra đáp số. Ta đọc đề, tự hỏi: đề cho gì, hỏi gì? Rồi vẽ mỗi số một đoạn thẳng.
+
+<SoDoBaDoi />
+
+<KeyFact equation="Tìm lần lượt từng số">
+  Đội Ba ít hơn **đội Hai**, nên phải tìm số cây của đội Hai trước, rồi mới tìm đội Ba. Mỗi lần tìm xong một số là một **bước tính**. Bài này có ba bước: đội Hai, đội Ba, rồi cả ba đội.
+</KeyFact>
+
+<QuickCheck question={quickChecks.baDoi} />
+
+## 2. Viết bài giải
+
+Mỗi bước tính viết một dòng. Dòng nào cũng có **câu lời giải**, **phép tính** và **đơn vị** trong ngoặc. Cuối cùng viết **Đáp số**.
+
+> Số cây đội Hai trồng được là: 60 + 20 = 80 (cây)
+>
+> Số cây đội Ba trồng được là: 80 − 10 = 70 (cây)
+>
+> Số cây cả ba đội trồng được là: 60 + 80 + 70 = 210 (cây)
+>
+> *Đáp số:* 210 cây.
+
+<KeyFact equation="Mỗi bước một dòng">
+  Câu lời giải nói rõ số vừa tìm được là **số gì**. Con viết đủ ba dòng, mỗi dòng có đơn vị, rồi mới viết Đáp số.
+</KeyFact>
+
+<QuickCheck question={quickChecks.vietBai} />
+
+## 3. Ba bước, nhưng bước cuối khác nhau
+
+Ba bước tính có thể là cộng, trừ, nhân, chia. Cái làm con nhớ là **bước cuối**: đề hỏi gì thì bước cuối làm việc đó.
+
+<ThungDau />
+
+<KeyFact equation="Hỏi gì thì làm bước cuối ấy">
+  Hỏi **tất cả** thì cộng các số. Hỏi **còn lại** thì lấy số ban đầu trừ đi số đã dùng. Hỏi **nhiều hơn mấy** thì lấy số lớn trừ số bé.
+</KeyFact>
+
+<QuickCheck question={quickChecks.conLai} />
+
+<QuickCheck question={quickChecks.buocCuoi} />

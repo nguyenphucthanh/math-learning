@@ -1,0 +1,62 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DatTinh } from "@/components/math/dat-tinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Chủ đề 1 xong rồi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại năm điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Số chẵn, số lẻ (Bài 3)
+
+<KeyFact equation="Nhìn chữ số tận cùng">
+  Chữ số tận cùng là 0, 2, 4, 6, 8 thì là **số chẵn**. Chữ số tận cùng là 1, 3, 5, 7, 9 thì là **số lẻ**. Hai số chẵn hoặc hai số lẻ liên tiếp hơn kém nhau 2.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chanLe} />
+
+## 2. So sánh và làm tròn (Bài 1)
+
+Muốn **so sánh** hai số, con so từ hàng cao nhất. Muốn **làm tròn**, con nhìn chữ số ngay **bên phải** hàng cần làm tròn.
+
+<KeyFact equation="Từ 5 trở lên: làm tròn lên">
+  Chữ số đó **từ 5 trở lên** thì hàng cần làm tròn tăng thêm 1; **bé hơn 5** thì giữ nguyên. Các hàng bên phải đều thành 0. Cách này dùng cho hàng chục, hàng nghìn, hàng chục nghìn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lamTron} />
+
+## 3. Đặt tính và thử lại (Bài 2)
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <DatTinh
+    top={["6", "3", "7", "5", "8"]}
+    bottom={["", "5", "3", "6", "4"]}
+    result={["5", "8", "3", "9", "4"]}
+    sign="−"
+    label="Phép trừ 63 758 − 5 364 = 58 394"
+  />
+</figure>
+
+<KeyFact equation="Mỗi phép tính có cách thử lại">
+  Cộng, trừ, nhân, chia đều đặt tính từ hàng đơn vị (chia thì từ hàng cao nhất). Nhân thì thử lại bằng chia. Chia có dư thì thử lại: **thương × số chia + số dư = số bị chia**. Số dư luôn **bé hơn số chia**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuLai} />
+
+## 4. Thứ tự phép tính (Bài 2, Bài 4)
+
+<KeyFact equation="Ngoặc, rồi nhân chia, rồi cộng trừ">
+  Có ngoặc thì tính trong ngoặc trước. Không có ngoặc thì nhân, chia làm trước, cộng, trừ làm sau. Biểu thức có chữ thì **thay chữ bằng số** rồi mới tính.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuTu} />
+
+## 5. Bài toán nhiều bước (Bài 5)
+
+<KeyFact equation="Đề hỏi gì, tìm số nào trước?">
+  Viết mỗi bước một dòng, có câu lời giải, phép tính và đơn vị. **Trả lại tiền** thì tìm tiền mua rồi lấy số tiền đưa trừ đi. **Nhiều hơn mấy** thì lấy số lớn trừ số bé.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tienThoi} />
