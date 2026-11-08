@@ -1,7 +1,7 @@
 "use client";
 
 import { ActionButton } from "@/components/lesson/action-button";
-import { RightMark } from "../_illustrations/khung";
+import { RightMark } from "@/components/math/khung";
 import { useState } from "react";
 
 const O = { x: 150, y: 150 };

@@ -46,3 +46,15 @@ export function obliqueEdgePairs(points: Point[], names: string[]): [string, str
     return isPerpendicular(edge.seg, next.seg) ? [] : [[edge.name, next.name] as [string, string]];
   });
 }
+
+/** Khoảng cách từ điểm đến đường thẳng đi qua đoạn `seg`. */
+export function distanceToLine(point: Point, seg: Seg): number {
+  const u = direction(seg);
+  const cross = u.x * (point.y - seg[0].y) - u.y * (point.x - seg[0].x);
+  return Math.abs(cross) / Math.hypot(u.x, u.y);
+}
+
+/** Đường thẳng đi qua đoạn `seg` có đi qua `point` không (sai số `tolerance`, đơn vị tọa độ). */
+export function passesThrough(seg: Seg, point: Point, tolerance = 0.6): boolean {
+  return distanceToLine(point, seg) < tolerance;
+}

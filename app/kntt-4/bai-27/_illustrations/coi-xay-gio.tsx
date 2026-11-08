@@ -1,5 +1,5 @@
-import { lineThrough, type Point, type Seg } from "../hinh";
-import { Khung } from "./khung";
+import { lineThrough, type Point, type Seg } from "@/lib/hinh";
+import { Khung } from "@/components/math/khung";
 
 const HUB: Point = { x: 160, y: 84 };
 

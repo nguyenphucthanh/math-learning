@@ -1,5 +1,5 @@
-import type { Point, Seg } from "../hinh";
-import { Khung } from "./khung";
+import type { Point, Seg } from "@/lib/hinh";
+import { Khung } from "@/components/math/khung";
 
 export type Pipe = { name: "M" | "N" | "P"; seg: Seg };
 

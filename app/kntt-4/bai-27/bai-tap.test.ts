@@ -3,10 +3,10 @@ import { describe, expect, it } from "vitest";
 import { gocArms } from "./_illustrations/cac-goc";
 import { capDuongSegments } from "./_illustrations/cap-duong";
 import { windmill } from "./_illustrations/coi-xay-gio";
-import { isRightAt } from "./_illustrations/da-giac";
+import { isRightAt } from "@/components/math/da-giac";
 import { CABIN_ANGLES, cabinNumbers, spokesPerpendicular } from "./_illustrations/du-quay";
 import { pipePlans } from "./_illustrations/ong-nuoc";
-import { angleBetween, isPerpendicular, obliqueEdgePairs, perpendicularEdgePairs, type Seg } from "./hinh";
+import { angleBetween, isPerpendicular, obliqueEdgePairs, perpendicularEdgePairs, type Seg } from "@/lib/hinh";
 import { clockHours, exerciseGroups, pentagon, quickChecks, rectangle, trapezoid, warmUpAngles, warmUps, wheel } from "./bai-tap";
 
 const questions: Question[] = [

@@ -1,10 +1,10 @@
 import type { ExerciseGroup, Question } from "@/components/exercises/types";
 import { createElement } from "react";
-import type { Point } from "./hinh";
+import type { Point } from "@/lib/hinh";
 import { CacGoc, type GocSpec } from "./_illustrations/cac-goc";
 import { CapDuong } from "./_illustrations/cap-duong";
 import { CoiXayGio } from "./_illustrations/coi-xay-gio";
-import { DaGiac } from "./_illustrations/da-giac";
+import { DaGiac } from "@/components/math/da-giac";
 import { DuQuay } from "./_illustrations/du-quay";
 import { GapGiay } from "./_illustrations/gap-giay";
 import { OngNuoc } from "./_illustrations/ong-nuoc";
