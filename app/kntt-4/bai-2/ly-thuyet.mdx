@@ -1,0 +1,81 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DatTinh } from "@/components/math/dat-tinh";
+import { ChiaDatTinh } from "./_animations/chia-dat-tinh";
+import { NhanDatTinh } from "./_animations/nhan-dat-tinh";
+import { SoDoLan } from "./_illustrations/so-do-lan";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại, rồi đọc lại năm điều quan trọng của bốn phép tính trong phạm vi 100 000.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Cộng, trừ và tính nhẩm
+
+Số tròn nghìn thì nhẩm theo “mấy nghìn”: 8 000 + 7 000 là 8 nghìn + 7 nghìn = 15 nghìn, tức **15 000**.
+
+Số không tròn thì đặt tính. Viết các chữ số **cùng hàng thẳng cột**, tính từ hàng đơn vị.
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <DatTinh
+    top={["3", "8", "5", "0", "2"]}
+    bottom={["", "6", "8", "4", "7"]}
+    result={["3", "1", "6", "5", "5"]}
+    sign="−"
+    label="Phép trừ 38 502 − 6 847 = 31 655"
+  />
+</figure>
+
+<KeyFact equation="Thẳng hàng từ phải sang trái">
+  Cộng: cộng được từ 10 trở lên thì viết chữ số đơn vị và **nhớ 1**. Trừ: hàng nào không trừ được thì **lấy 10 trừ** và nhớ 1; hàng bên trái trừ thêm 1.
+</KeyFact>
+
+<QuickCheck question={quickChecks.congTru} />
+
+## 2. Nhân với số có một chữ số
+
+<NhanDatTinh a={2807} b={6} />
+
+<KeyFact equation="Nhân từng chữ số, nhớ sang trái">
+  Nhân từ hàng đơn vị. Viết **chữ số đơn vị** của tích, **nhớ** phần chục sang hàng bên trái. Ở hàng kế tiếp, nhân xong **nhớ cộng thêm** vào. Chữ số 0 vẫn phải nhân: 0 × 6 = 0, rồi cộng số nhớ.
+</KeyFact>
+
+<QuickCheck question={quickChecks.nhan} />
+
+## 3. Chia cho số có một chữ số
+
+<ChiaDatTinh a={8305} divisor={4} />
+
+<KeyFact equation="Chia, nhân, trừ, hạ">
+  Chia từ **hàng cao nhất**. Mỗi bước: chia, nhân, trừ rồi hạ chữ số tiếp theo. Chưa chia được thì **viết 0 ở thương**. Số dư luôn **bé hơn số chia**. Thử lại: thương × số chia + số dư = số bị chia.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chia} />
+
+## 4. Thứ tự thực hiện phép tính
+
+Biểu thức có nhiều phép tính thì con xem kĩ trước khi làm.
+
+- Chỉ có cộng, trừ hoặc chỉ có nhân, chia: làm **từ trái sang phải**. Ví dụ 6 000 × 5 : 3 = 30 000 : 3 = 10 000.
+- Có ngoặc: làm **trong ngoặc trước**. Ví dụ 57 670 − (29 653 − 2 653) = 57 670 − 27 000 = 30 670.
+- Có cả nhân, chia và cộng, trừ: **nhân, chia trước**, cộng, trừ sau.
+
+<KeyFact equation="Ngoặc → nhân, chia → cộng, trừ">
+  Cùng cấp thì làm từ trái sang phải. Viết kết quả từng bước ra giấy nháp để không sót.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuTu} />
+
+## 5. Bài toán: hơn, gấp, giảm đi
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <SoDoLan smallName="Số bé" bigName="Gấp 4 lần số bé" smallText="1 phần" bigText="4 phần bằng nhau" times={4} />
+</figure>
+
+<KeyFact equation="Gấp: nhân. Giảm đi: chia">
+  “Nhiều hơn” thì **cộng**. “Gấp lên 4 lần” thì **nhân với 4**. “Giảm đi 4 lần” thì **chia cho 4**. Giảm đi 4 **lần** khác bớt 4 **đơn vị**. Đọc kĩ câu hỏi: hỏi “tất cả” thì phải cộng các phần lại.
+</KeyFact>
+
+<QuickCheck question={quickChecks.giamLan} />
