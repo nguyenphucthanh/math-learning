@@ -154,7 +154,7 @@ Nhóm theo bài nguồn, giữ dạng và độ khó SGK, đổi số liệu và
 
 - Chuyển `dong-ho.tsx` từ `bai-32/_illustrations/` lên `components/math/dong-ho.tsx` vì Bài 35 dùng lại (đúng quy tắc "từ 2 bài trở lên"). Đổi import trong 3 file của Bài 32.
 - Thêm vào `lib/hinh.ts`: `angleAt`, `angleKind`, `polygonAngleKind` (tính góc từ tọa độ để test mọi câu về loại góc).
-- Hình mới trong `_illustrations/` (Server Component): `hinh.tsx` (nhiều hình nhỏ), `que-tam-giac.tsx`, `bon-dong-ho.tsx`; toạ độ gom ở `hinh-hoc.ts` để test tính lại.
+- Hình mới trong `_illustrations/` (Server Component): `hinh.tsx` (nhiều hình nhỏ), `que-tam-giac.tsx`; `BonDongHo` nằm ở `components/math/bon-dong-ho.tsx` (dùng chung với Bài 8); toạ độ gom ở `hinh-hoc.ts` để test tính lại.
 - Trò chơi trong `_game/`: `que.ts` (logic `hasShape`), `lay-que.tsx` (giao diện, `"use client"`).
 - Không thêm dạng bài tập mới, không thêm màu đơn vị mới.
 - Đặt `available: true` cho Bài 35 trong `lib/lessons.ts`.

@@ -5,7 +5,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { LayQue } from "./_game/lay-que";
-import { BonDongHo } from "./_illustrations/bon-dong-ho";
+import { BonDongHo } from "@/components/math/bon-dong-ho";
 import { BinhHanhCanh, BonGoc, BonHinh, ChuNhatMN, DaGiacGoc, DaiHinhThoi, HaiGocLuoi, NhaMaiTu, ThoiCanh } from "./_illustrations/hinh";
 import { hinhChonBinhHanh, hinhThang } from "./_illustrations/hinh-hoc";
 import { QueTamGiac } from "./_illustrations/que-tam-giac";

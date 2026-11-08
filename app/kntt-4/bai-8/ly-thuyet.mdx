@@ -1,0 +1,46 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BaLoaiGoc } from "./_animations/ba-loai-goc";
+import { GocDongHo } from "./_animations/goc-dong-ho";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học thêm ba loại góc: **góc nhọn**, **góc tù** và **góc bẹt**. Con làm nhanh ba câu để nhớ lại những điều đã biết nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Góc nhọn, góc tù, góc bẹt
+
+Con đã biết góc vuông. Con bấm từng bước để so các góc với góc vuông của ê ke.
+
+<BaLoaiGoc />
+
+<KeyFact equation="Nhọn < vuông < tù < bẹt">
+  Góc **nhọn** bé hơn góc vuông. Góc **tù** lớn hơn góc vuông và bé hơn góc bẹt. Góc **bẹt** bằng hai góc vuông, hai cạnh của góc bẹt nằm trên một đường thẳng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.loai} />
+
+<QuickCheck question={quickChecks.bet} />
+
+## 2. Dùng ê ke để xếp loại góc
+
+Muốn biết một góc thuộc loại nào, con không nhìn bằng mắt mà dùng ê ke: đặt góc vuông của ê ke vào đỉnh góc, một cạnh của ê ke trùng với một cạnh của góc.
+
+- Cạnh còn lại của góc nằm **trong** góc vuông ê ke: góc **nhọn**.
+- Cạnh còn lại **khít** với cạnh ê ke: góc **vuông**.
+- Cạnh còn lại nằm **ngoài** góc vuông ê ke: góc **tù**.
+- Hai cạnh nằm trên một đường thẳng: góc **bẹt**.
+
+## 3. Góc tạo bởi hai kim đồng hồ
+
+Kim giờ và kim phút của đồng hồ cũng tạo thành góc. Con bấm từng bước để xem lúc 3, 2, 4 và 6 giờ.
+
+<GocDongHo />
+
+<KeyFact equation="3 giờ, 9 giờ: góc vuông. 6 giờ: góc bẹt">
+  Lúc 3 giờ và lúc 9 giờ, hai kim tạo thành **góc vuông**. Lúc 6 giờ, hai kim nằm trên một đường thẳng, tạo thành **góc bẹt**. Lúc 2 giờ, hai kim tạo thành góc **nhọn**; lúc 4 giờ, góc **tù**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dongHo} />
