@@ -5,10 +5,10 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeAll, describe, expect, it } from "vitest";
 import { DoGoc } from "./_animations/do-goc";
-import { DocDungThang } from "./_animations/doc-dung-thang";
-import { GocGhiSo } from "./_illustrations/goc-ghi-so";
+import { DocDungThang } from "@/components/math/doc-dung-thang";
+import { GocGhiSo } from "@/components/math/goc-ghi-so";
 import { HaiGoc } from "./_illustrations/hai-goc";
-import { ThuocDo } from "./_illustrations/thuoc-do";
+import { ThuocDo } from "@/components/math/thuoc-do";
 import { exerciseGroups, quad } from "./bai-tap";
 
 beforeAll(() => {

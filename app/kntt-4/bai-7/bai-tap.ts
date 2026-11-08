@@ -1,9 +1,9 @@
 import type { ExerciseGroup, FillQuestion, Question } from "@/components/exercises/types";
 import { angleBetweenHands, DongHo } from "@/components/math/dong-ho";
 import { createElement } from "react";
-import { GocGhiSo } from "./_illustrations/goc-ghi-so";
+import { GocGhiSo } from "@/components/math/goc-ghi-so";
 import { HaiGoc } from "./_illustrations/hai-goc";
-import { ThuocDo, type Base } from "./_illustrations/thuoc-do";
+import { ThuocDo, type Base } from "@/components/math/thuoc-do";
 
 /** Thước đo góc đặt sẵn: số đo, cạnh nằm trên đường kính ở bên nào, tên đỉnh và hai cạnh. */
 export type ReadingSpec = { angle: number; base: Base; vertex?: string; arm?: string; baseName?: string };

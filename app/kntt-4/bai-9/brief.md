@@ -2,7 +2,9 @@
 
 - SGK: Toán 4 KNTT tập một, trang 31-32, chủ đề 2 "Góc và đơn vị đo góc".
 - Route: `/kntt-4/bai-9`
-- Trạng thái: chờ duyệt
+- Trạng thái: đã viết nội dung (đã duyệt theo đề xuất ở Câu hỏi cần chốt)
+
+> Cập nhật sau duyệt: Bài 7 đã có trong repo nên tái dùng thước đo, hình ghi số đo, đồng hồ và animation "đọc đúng vòng số" (chuyển lên `components/math/`). Bài 8 chưa có nên Nhắc lại nhanh tự giải thích nhọn/vuông/tù/bẹt. Nhóm bài tập khi làm có chỉnh so với bản nháp: thêm nhóm "Góc trên mặt đồng hồ" (4 câu), nhóm Đ/S có 4 câu (hình SGLD và tam giác ABC có điểm D), hình ghép dùng số 40°/90°/130°. Id câu xem `bai-tap.ts`.
 
 > Lưu ý: yêu cầu ban đầu ghi "bài 10", nhưng hai PDF là trang 31-32 (Bài 9 trong `lib/lessons.ts`). Đã xác nhận làm Bài 9. Bài 10 (số có sáu chữ số, trang 33) cần PDF khác.
 
@@ -148,11 +150,11 @@ Các bài SGK không đưa vào bài tập (không chấm được trên app): t
 
 ## Kỹ thuật
 
-- Thêm `components/math/goc.tsx` (Server Component): vẽ một góc theo `soDo`, hướng `huong`, có nhãn đỉnh/cạnh, tùy chọn `thuoc` (thước đo góc nửa đường tròn, cạnh thứ nhất ở 0°). Hình tĩnh dùng cho Lý thuyết và `illustration`. Tọa độ làm tròn tránh lệch hydration.
-- Hình riêng của bài đặt trong `_illustrations/`: bậc thang (nhóm 2), 3 hình A/B/C (nhóm 3), hình thang (nhóm 5). `bai-tap.ts` tạo bằng `createElement`.
-- Animation `_animations/doc-thuoc.tsx` (3 bước) theo mẫu bước chuẩn.
-- Test: `bai-tap.test.ts` (không trùng id; câu "số đo" tính lại bằng hàm hình học: ví dụ `soDoGocTu(goc xiên) = 180 - 70`; trắc nghiệm hợp lệ), test tương tác bấm hết bước animation. Test của `Goc` kiểm tra tọa độ đầu mút từ số đo.
-- Không thêm đơn vị, màu hay dạng bài mới. Đặt `available: true` cho Bài 9 trong `lib/lessons.ts`.
+- Chuyển `ThuocDo`/`ThuocDoSvg`, `GocGhiSo`, `DocDungThang` từ bài 7 lên `components/math/` vì Bài 9 dùng lại; bài 7 đổi import.
+- Hình riêng trong `_illustrations/`: `phan-loai-goc`, `chon-hinh`, `tam-giac-diem`. Hình SGLD dùng `GocGhiSo`.
+- Không viết animation mới; không thêm đơn vị, màu, dạng bài.
+- Test: `bai-tap.test.ts` tính lại đáp án từ hình (góc từ tọa độ, loại góc bằng `angleKind`, hình đúng ở câu chọn hình, đồng hồ); `lesson-ui.test.tsx`.
+- `lib/lessons.ts`: Bài 9 `available: true`.
 
 ## Tiêu chí duyệt nội dung
 
