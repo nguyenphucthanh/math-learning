@@ -48,7 +48,7 @@ export const kntt4Topics: Topic[] = [
       lesson(10, "Số có sáu chữ số. Số 1 000 000", 33, true),
       lesson(11, "Hàng và lớp", 37, true),
       lesson(12, "Các số trong phạm vi lớp triệu", 41, true),
-      lesson(13, "Làm tròn số đến hàng trăm nghìn", 45),
+      lesson(13, "Làm tròn số đến hàng trăm nghìn", 45, true),
       lesson(14, "So sánh các số có nhiều chữ số", 47),
       lesson(15, "Làm quen với dãy số tự nhiên", 50),
       lesson(16, "Luyện tập chung", 52),
