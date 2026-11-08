@@ -5,7 +5,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { LamTron } from "./_animations/lam-tron";
-import { BangHangLop } from "./_illustrations/bang-hang-lop";
+import { BangHangLop } from "@/components/math/bang-hang-lop";
 import { exerciseGroups } from "./bai-tap";
 
 beforeAll(() => {

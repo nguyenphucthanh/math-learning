@@ -1,0 +1,90 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { quickChecks } from "./bai-tap";
+
+Đây là bài ôn cuối học kì 1. Con nhắc lại bảy ý quan trọng, mỗi ý thử một câu. Câu nào sai thì bấm vào bài cũ để xem lại.
+
+## Hàng, lớp và cách đọc số
+
+<KeyFact equation="Đọc từng lớp, từ trái sang phải">
+  Mỗi lớp có ba hàng: lớp đơn vị, lớp nghìn, lớp triệu. Đọc xong số của lớp thì đọc tên lớp. Lớp nào có chữ số 0 ở giữa vẫn phải đọc, ví dụ {"2 050 300"} đọc là hai triệu không trăm năm mươi nghìn ba trăm.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hangLop} />
+
+<QuickCheck question={quickChecks.doc} />
+
+<ReviewLink slug="bai-11">Xem lại Bài 11. Hàng và lớp</ReviewLink>
+
+<ReviewLink slug="bai-12">Xem lại Bài 12. Các số trong phạm vi lớp triệu</ReviewLink>
+
+## So sánh các số
+
+<KeyFact equation="Nhiều chữ số hơn thì lớn hơn">
+  Hai số khác số chữ số thì số có nhiều chữ số hơn lớn hơn. Hai số cùng số chữ số thì so từng hàng từ trái sang phải, gặp hàng khác nhau đầu tiên thì dừng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soSanh} />
+
+<ReviewLink slug="bai-14">Xem lại Bài 14. So sánh các số có nhiều chữ số</ReviewLink>
+
+## Cộng, trừ có nhớ
+
+<KeyFact equation="Từ phải sang trái, nhớ 1 sang hàng bên trái">
+  Đặt các chữ số thẳng hàng. Khi trừ, hàng nào không trừ được thì "mượn" 10 từ hàng bên trái, và hàng bên trái nhớ trừ đi 1. Số có chữ số 0 ở giữa như 6 004 hay gặp lỗi này.
+</KeyFact>
+
+<QuickCheck question={quickChecks.catTru} />
+
+<ReviewLink slug="bai-22">Xem lại Bài 22. Phép cộng các số có nhiều chữ số</ReviewLink>
+
+<ReviewLink slug="bai-23">Xem lại Bài 23. Phép trừ các số có nhiều chữ số</ReviewLink>
+
+## Thứ tự thực hiện phép tính
+
+<KeyFact equation="Ngoặc trước, nhân chia, cộng trừ sau">
+  Biểu thức có ngoặc thì tính trong ngoặc trước. Không có ngoặc thì nhân, chia trước; cộng, trừ sau. Cùng loại phép tính thì làm từ trái sang phải.
+</KeyFact>
+
+<QuickCheck question={quickChecks.bieuThuc} />
+
+## Đổi đơn vị đo
+
+<KeyFact unit="ta" equation="Khối lượng: mỗi bậc gấp 10">
+  1 tấn = 10 tạ = 100 yến = {"1 000"} kg. Đổi sang đơn vị bé hơn thì nhân, sang đơn vị lớn hơn thì chia.
+</KeyFact>
+
+<QuickCheck question={quickChecks.khoiLuong} />
+
+<KeyFact unit="m2" equation="Diện tích: mỗi bậc gấp 100">
+  1 m² = 100 dm²; 1 dm² = 100 cm²; 1 cm² = 100 mm². Số đo ghép như 1 m² 24 dm² thì đổi từng phần rồi cộng lại. So sánh số đo thì đổi cả hai về cùng một đơn vị.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dienTich} />
+
+<ReviewLink slug="bai-17">Xem lại Bài 17. Yến, tạ, tấn</ReviewLink>
+
+<ReviewLink slug="bai-18">Xem lại Bài 18. Đề-xi-mét vuông, mét vuông, mi-li-mét vuông</ReviewLink>
+
+## Hình thoi, hình bình hành
+
+<KeyFact equation="Hình thoi: bốn cạnh bằng nhau">
+  Hình bình hành có hai cặp cạnh đối diện song song và bằng nhau. Hình thoi là hình bình hành có bốn cạnh bằng nhau. Hai đường thẳng vuông góc tạo thành bốn góc vuông.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hinhThoi} />
+
+<ReviewLink slug="bai-31">Xem lại Bài 31. Hình bình hành, hình thoi</ReviewLink>
+
+## Bài toán tổng và hiệu, chu vi
+
+<KeyFact equation="Số bé = (tổng − hiệu) : 2">
+  Biết tổng và hiệu: tìm số bé bằng (tổng − hiệu) : 2, rồi số lớn bằng số bé + hiệu. Chu vi hình chữ nhật bằng (chiều dài + chiều rộng) × 2. Bài hỏi bằng đơn vị khác với đề thì nhớ đổi ở đầu hoặc cuối bài.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tongHieu} />
+
+<QuickCheck question={quickChecks.chuVi} />
+
+<ReviewLink slug="bai-25">Xem lại Bài 25. Tìm hai số biết tổng và hiệu của hai số đó</ReviewLink>
