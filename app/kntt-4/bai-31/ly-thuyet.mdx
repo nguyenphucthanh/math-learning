@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GapGiay } from "./_animations/gap-giay";
+import { GiongKhac } from "./_animations/giong-khac";
+import { HinhBinhHanh } from "./_animations/hinh-binh-hanh";
+import { HinhThoi } from "./_animations/hinh-thoi";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con làm quen với hai hình mới: **hình bình hành** và **hình thoi**. Con làm nhanh ba câu để nhớ lại những điều đã học nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Hình bình hành
+
+Các bạn xếp con gà từ những mảnh ghép. Đuôi con gà là một hình bình hành. Con bấm từng bước để nhìn kĩ các cạnh của hình bình hành ABCD.
+
+<HinhBinhHanh />
+
+<KeyFact equation="AB // DC, AD // BC, AB = DC, AD = BC">
+  Hình bình hành có **hai cặp cạnh đối diện song song và bằng nhau**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.binhHanh} />
+
+## 2. Hình thoi
+
+Kim nam châm của la bàn có dạng hình thoi. Con bấm từng bước để nhìn kĩ các cạnh của hình thoi ABCD.
+
+<HinhThoi />
+
+<KeyFact equation="AB // DC, AD // BC, AB = BC = CD = DA">
+  Hình thoi có **hai cặp cạnh đối diện song song và bốn cạnh bằng nhau**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hinhThoi} />
+
+## 3. Giống nhau và khác nhau
+
+Hình bình hành và hình thoi nhìn khá giống nhau. Con so sánh hai hình xem chúng giống và khác nhau ở đâu.
+
+<GiongKhac />
+
+<QuickCheck question={quickChecks.giongKhac} />
+
+## 4. Gấp giấy và cắt hình thoi
+
+Con có thể tự làm một hình thoi bằng giấy. Gấp một tờ giấy hình chữ nhật hai lần, cắt một đường, rồi mở ra. Hình dưới vẽ tờ giấy khi mở phẳng, để con thấy đường cắt nằm ở đâu.
+
+<GapGiay />
+
+<QuickCheck question={quickChecks.gapGiay} />
+
+Con thử làm với tờ giấy thật ở nhà cùng người lớn nhé.
