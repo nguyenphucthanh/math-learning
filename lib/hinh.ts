@@ -96,3 +96,31 @@ export function arrowHead(tip: Point, from: Point, size = 11): string {
   const f = (n: number) => Math.round(n * 10) / 10;
   return `${f(tip.x)},${f(tip.y)} ${f(bx - uy * size * 0.45)},${f(by + ux * size * 0.45)} ${f(bx + uy * size * 0.45)},${f(by - ux * size * 0.45)}`;
 }
+
+/** Độ dài đoạn thẳng. */
+export const lengthOf = (seg: Seg): number => Math.hypot(seg[1].x - seg[0].x, seg[1].y - seg[0].y);
+
+/** Tứ giác (đỉnh theo thứ tự) có hai cặp cạnh đối diện song song và bằng nhau: A + C = B + D và không bị dẹt. Tọa độ nguyên nên so sánh chính xác. */
+export function isParallelogram(points: Point[]): boolean {
+  if (points.length !== 4) return false;
+  const [a, b, c, d] = points;
+  const cross = (b.x - a.x) * (d.y - a.y) - (b.y - a.y) * (d.x - a.x);
+  return Math.abs(a.x + c.x - b.x - d.x) < 1e-9 && Math.abs(a.y + c.y - b.y - d.y) < 1e-9 && Math.abs(cross) > 1e-9;
+}
+
+/** Hình bình hành có bốn cạnh bằng nhau. */
+export function isRhombus(points: Point[]): boolean {
+  if (!isParallelogram(points)) return false;
+  const sides = points.map((p, i) => lengthOf([p, points[(i + 1) % 4]]));
+  return sides.every((side) => Math.abs(side - sides[0]) < 1e-9);
+}
+
+/** Đỉnh thứ tư D để ABCD là hình bình hành: D = A + C − B (đối diện B). */
+export function fourthVertex(a: Point, b: Point, c: Point): Point {
+  return { x: a.x + c.x - b.x, y: a.y + c.y - b.y };
+}
+
+/** Diện tích đa giác (công thức dây giày). */
+export function polygonArea(points: Point[]): number {
+  return Math.abs(points.reduce((sum, p, i) => sum + (p.x * points[(i + 1) % points.length].y - points[(i + 1) % points.length].x * p.y), 0)) / 2;
+}
