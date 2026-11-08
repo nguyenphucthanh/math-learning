@@ -1,0 +1,60 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { quickChecks } from "./bai-tap";
+
+Con đã học xong khối lượng, diện tích, thời gian và góc. Hôm nay con nhắc lại sáu ý quan trọng, mỗi ý thử một câu. Câu nào sai thì bấm vào bài cũ để xem lại.
+
+## Khối lượng: mỗi bậc gấp 10
+
+<KeyFact unit="ta" equation="1 tấn = 10 tạ = 100 yến = 1 000 kg">
+  1 yến = 10 kg, 1 tạ = 10 yến = 100 kg, 1 tấn = 10 tạ = 1 000 kg. Đổi sang đơn vị bé hơn thì nhân, sang đơn vị lớn hơn thì chia.
+</KeyFact>
+
+<QuickCheck question={quickChecks.mass} />
+
+<ReviewLink slug="bai-17">Xem lại Bài 17. Yến, tạ, tấn</ReviewLink>
+
+## Diện tích: mỗi bậc gấp 100
+
+<KeyFact unit="m2" equation="1 m² = 100 dm²; 1 dm² = 100 cm²; 1 cm² = 100 mm²">
+  Đơn vị diện tích nhảy 100, không nhảy 10 như khối lượng. Muốn đổi m² ra cm², đi hai bậc: 1 m² = 100 dm² = {"10 000"} cm².
+</KeyFact>
+
+<QuickCheck question={quickChecks.area} />
+
+<ReviewLink slug="bai-18">Xem lại Bài 18. Đề-xi-mét vuông, mét vuông, mi-li-mét vuông</ReviewLink>
+
+## So sánh số đo ghép
+
+<KeyFact equation="Đổi về cùng đơn vị rồi mới so">
+  Số đo có hai đơn vị như 2 tạ 50 kg thì đổi từng phần rồi cộng lại: 200 kg + 50 kg = 250 kg. Sau đó so sánh với số đo kia. Đừng so theo chữ số đứng trước.
+</KeyFact>
+
+<QuickCheck question={quickChecks.compare} />
+
+<ReviewLink slug="bai-20">Xem lại Bài 20. Thực hành và trải nghiệm sử dụng một số đơn vị đo đại lượng</ReviewLink>
+
+## Thời gian: phút, giây, thế kỉ
+
+<KeyFact unit="second" equation="1 phút = 60 giây; 1 thế kỉ = 100 năm">
+  2 phút 20 giây = 120 giây + 20 giây = 140 giây. Đổi từng phần rồi cộng, đừng viết dính 2 và 20 thành 220.
+</KeyFact>
+
+<QuickCheck question={quickChecks.time} />
+
+<ReviewLink slug="bai-19">Xem lại Bài 19. Giây, thế kỉ</ReviewLink>
+
+## Các loại góc
+
+Góc nhọn bé hơn góc vuông. Góc vuông là 90°. Góc tù lớn hơn góc vuông và nhỏ hơn góc bẹt. Góc bẹt là 180°.
+
+<QuickCheck question={quickChecks.angle} />
+
+## Diện tích hình chữ nhật
+
+<KeyFact equation="Diện tích = chiều dài × chiều rộng">
+  Bài toán cho "chiều dài hơn chiều rộng mấy mét" thì tìm chiều rộng trước: chiều rộng = chiều dài − phần hơn. Sau đó mới nhân.
+</KeyFact>
+
+<QuickCheck question={quickChecks.rectangle} />
