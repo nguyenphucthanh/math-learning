@@ -1,0 +1,52 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChonChuSo } from "./_animations/chon-chu-so";
+import { HangVaLop } from "./_animations/hang-va-lop";
+import { LopTrieu } from "./_animations/lop-trieu";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Số càng lớn thì càng dài và càng khó đọc. Người ta chia số thành từng nhóm ba chữ số để đọc cho dễ. Mỗi nhóm có tên riêng gọi là **lớp**.
+
+## Hàng và lớp
+
+<HangVaLop />
+
+<KeyFact equation="3 hàng = 1 lớp">
+  Hàng đơn vị, hàng chục, hàng trăm hợp thành **lớp đơn vị**. Hàng nghìn, hàng chục nghìn, hàng trăm nghìn hợp thành **lớp nghìn**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lop} />
+
+## Chữ số ở hàng nào, giá trị bao nhiêu?
+
+Cùng một chữ số, đứng ở hàng khác nhau thì giá trị khác nhau. Con chạm thử nhé.
+
+<ChonChuSo />
+
+<KeyFact equation="2 ở hàng nghìn = 2 000">
+  Chữ số ở hàng nào thì giá trị của nó là chữ số đó nhân với hàng ấy. Chữ số 2 ở hàng nghìn có giá trị 2 000. Chữ số 2 ở hàng chục có giá trị 20.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hang} />
+
+<QuickCheck question={quickChecks.giaTri} />
+
+## Lớp triệu
+
+Số dân của Việt Nam là khoảng một trăm triệu người. Một triệu viết là 1 000 000, có sáu chữ số 0. Con xem số tăng lên mỗi lần thêm một hàng nhé.
+
+<LopTrieu />
+
+<KeyFact equation="1 triệu → 10 triệu → 100 triệu">
+  Hàng triệu, hàng chục triệu, hàng trăm triệu hợp thành **lớp triệu**. Mười triệu hay một chục triệu viết là 10 000 000. Một trăm triệu viết là 100 000 000.
+</KeyFact>
+
+<QuickCheck question={quickChecks.mot_tram_trieu} />
+
+<QuickCheck question={quickChecks.lopTrieu} />
