@@ -191,6 +191,7 @@ function Match({ question, solved, onSolved }: QuestionProps<MatchQuestion>) {
   return (
     <>
       <Prompt>{question.prompt}</Prompt>
+      {question.illustration ? <div className="my-4">{question.illustration}</div> : null}
       <p className="mb-3 text-base font-semibold text-muted-foreground">
         Kéo chấm tròn của ô bên trái sang ô phù hợp bên phải. Hoặc chạm ô bên trái, rồi chạm ô bên phải.
       </p>

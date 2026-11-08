@@ -51,6 +51,8 @@ export type MatchQuestion = QuestionBase & {
   pairs: { left: string; right: string }[];
   /** Thứ tự hiển thị cột phải, viết cố định để server và client giống nhau. */
   rightOrder: number[];
+  /** Hình minh họa riêng của bài (SVG), hiện dưới đề. */
+  illustration?: ReactNode;
 };
 
 export type WordQuestion = QuestionBase & {
