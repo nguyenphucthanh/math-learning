@@ -1,0 +1,63 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BangHangLop } from "./_illustrations/bang-hang-lop";
+import { LamTron } from "./_animations/lam-tron";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Chủ đề 3 xong rồi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại năm điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Hàng và lớp
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <BangHangLop value={380506142} />
+</figure>
+
+<KeyFact equation="3 hàng = 1 lớp">
+  Số có chín chữ số chia thành ba lớp: **lớp đơn vị**, **lớp nghìn**, **lớp triệu**. Mỗi lớp có ba hàng: trăm, chục và đơn vị của lớp đó. Chữ số 0 vẫn chiếm một ô.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hangLop} />
+
+## 2. Đọc số
+
+Số 380 506 142 có lớp triệu là 380, lớp nghìn là 506, lớp đơn vị là 142. Đọc từng lớp từ trái sang phải, đọc xong mỗi lớp thì đọc tên lớp.
+
+**ba trăm tám mươi triệu năm trăm linh sáu nghìn một trăm bốn mươi hai**
+
+<KeyFact equation="Đọc từng lớp, trái sang phải">
+  Chữ số 0 vẫn phải đọc: 506 đọc là năm trăm **linh** sáu, 050 đọc là **không trăm** năm mươi.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+## 3. Giá trị của chữ số, viết thành tổng
+
+Trong số 4 297 603, chữ số 7 đứng ở hàng nghìn nên có giá trị 7 000. Viết số thành tổng các hàng:
+
+4 297 603 = 4 000 000 + 200 000 + 90 000 + 7 000 + 600 + 3
+
+<KeyFact equation="Giá trị = chữ số × hàng">
+  Chữ số giống nhau nhưng đứng ở hàng khác thì giá trị khác nhau. Hàng có chữ số 0 thì không có số hạng trong tổng.
+</KeyFact>
+
+## 4. So sánh số
+
+<KeyFact equation="Nhiều chữ số hơn thì lớn hơn">
+  Hai số **cùng số chữ số** thì so từng hàng từ trái sang phải, gặp hàng khác nhau đầu tiên thì dừng. Nếu một bên là tổng, **viết tổng thành số** trước rồi mới so: 30 000 + 7 000 + 20 = 37 020.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soSanh} />
+
+## 5. Làm tròn số
+
+<LamTron />
+
+<KeyFact equation="Nhìn chữ số bên phải">
+  Muốn làm tròn đến một hàng, chỉ nhìn chữ số **ngay bên phải** hàng đó. Bé hơn 5 thì **giữ nguyên**, từ 5 trở lên thì **tăng 1**. Các chữ số bên phải đều thành 0.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lamTron} />
