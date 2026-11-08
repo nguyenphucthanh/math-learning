@@ -1,0 +1,64 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DoGoc } from "./_animations/do-goc";
+import { DocDungThang } from "./_animations/doc-dung-thang";
+import { HaiGoc } from "./_illustrations/hai-goc";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh ba câu để nhớ lại góc và đồng hồ nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Rô-bốt muốn biết hai góc nào lớn hơn. Cậu ấy sẽ dùng thước đo góc. Mình cùng xem cách đo nhé.
+
+## 1. Vì sao phải đo góc?
+
+Nhìn hai góc dưới đây, con thấy góc nào lớn hơn?
+
+<HaiGoc />
+
+<QuickCheck question={quickChecks.canhDai} />
+
+<KeyFact equation="Phải đo mới biết">
+  Nhìn bằng mắt, ta dễ nhầm. Muốn biết một góc bằng bao nhiêu và so sánh các góc, ta dùng **thước đo góc**.
+</KeyFact>
+
+## 2. Độ và cách đo góc
+
+<DoGoc />
+
+<KeyFact equation="Độ, kí hiệu °">
+  **Độ** là đơn vị đo góc, kí hiệu là **°**. Ba mươi độ viết là **30°**.
+
+  Cách đo góc bằng thước đo góc:
+
+  - Đặt thước sao cho **tâm của thước** trùng với **đỉnh** của góc.
+  - **Một cạnh** của góc nằm trên **đường kính** của nửa hình tròn của thước.
+  - **Cạnh còn lại** đi qua một vạch trên nửa đường tròn của thước. Số ở vạch đó là số đo góc.
+</KeyFact>
+
+<QuickCheck question={quickChecks.kyHieu} />
+
+## 3. Đọc đúng vòng số
+
+Thước đo góc có **hai vòng số** chạy ngược chiều nhau. Con đọc vòng nào? Mình xem nhé.
+
+<DocDungThang />
+
+<KeyFact equation="Sát vạch 0 ở vòng nào, đọc vòng đó">
+  Nhìn cạnh nằm trên đường kính: nó sát **vạch 0** của vòng số nào thì đọc **vòng số đó**. Rồi so với góc vuông để kiểm tra lại: góc bé hơn góc vuông thì số đo bé hơn 90.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+<QuickCheck question={quickChecks.vong} />
+
+## 4. Những số đo thường gặp
+
+<KeyFact equation="Góc vuông bằng 90°">
+  **Góc vuông** có số đo là **90°**. Khi hai cạnh của góc thẳng hàng về hai phía, số đo góc là **180°**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.vuong} />
