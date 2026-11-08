@@ -1,4 +1,4 @@
-import type { Point } from "../hinh";
+import type { Point } from "@/lib/hinh";
 import { Khung, RightMark } from "./khung";
 
 const f = (n: number) => Math.round(n * 10) / 10;

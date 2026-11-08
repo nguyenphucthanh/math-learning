@@ -1,0 +1,61 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { KhungTranh } from "./_animations/khung-tranh";
+import { ThietKeDieu } from "./_animations/thiet-ke-dieu";
+import { VeVuongGoc } from "./_animations/ve-vuong-goc";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Lớp 4A đang làm dự án trang trí lớp học. Trước khi bắt tay vào làm, con làm nhanh ba câu để nhớ lại bài trước nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Bài này con không học khái niệm mới. Con dùng ê ke để **vẽ** hai đường thẳng vuông góc, rồi dùng chúng làm khung tranh và con diều.
+
+## 1. Dùng ê ke vẽ đường thẳng vuông góc
+
+Con chọn điểm H nằm trên hay nằm ngoài đường thẳng AB, rồi bấm từng bước. Cách làm giống nhau cả hai trường hợp.
+
+<VeVuongGoc />
+
+<KeyFact equation="Vẽ đường thẳng CD đi qua H và vuông góc với AB">
+  Một cạnh góc vuông của ê ke **trùng với AB**. Trượt ê ke cho cạnh góc vuông thứ hai **gặp điểm H**. Vạch đường thẳng theo cạnh góc vuông thứ hai đó. Nếu AB nằm nghiêng thì con cứ xoay ê ke nghiêng theo.
+</KeyFact>
+
+<QuickCheck question={quickChecks.canhEKe} />
+
+## 2. Làm khung tranh bằng que gỗ
+
+Khung tranh kỉ niệm làm từ bốn que gỗ. Mỗi chỗ ghép là hai que **vuông góc** với nhau.
+
+<KhungTranh />
+
+<KeyFact equation="Que gỗ nằm trên hai đường thẳng vuông góc">
+  Muốn ghép hai que thành một góc vuông, ta đặt chúng dọc theo hai đường thẳng vuông góc đã vẽ bằng ê ke. Khung tranh có **4 góc vuông**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.que} />
+
+## 3. Thiết kế con diều
+
+Trước khi làm diều thật, ta vẽ bản thiết kế trên giấy. Hai thanh tre của con diều đặt vuông góc với nhau, giống hai đoạn thẳng AB và CD.
+
+<ThietKeDieu />
+
+<KeyFact equation="AB vuông góc với CD tại H">
+  H là **trung điểm** của AB nên AH = HB. CD đi qua H và vuông góc với AB. Nối các đầu A, C, B, D ta được hình con diều.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dieu} />
+
+## 4. Làm con diều thật
+
+Sau khi thiết kế xong, con làm diều ở nhà cùng người lớn. Cần chuẩn bị: 2 thanh tre (dài, ngắn khác nhau), 1 tờ giấy báo, cuộn dây, keo dán, kéo.
+
+1. Đặt 2 thanh tre **vuông góc** với nhau và buộc lại.
+2. Đặt 2 thanh tre lên giấy báo, vẽ đường nối các đầu của thanh tre trên giấy.
+3. Vẽ thêm đường nét đứt bên ngoài và cắt theo đường nét đứt.
+4. Gập viền tờ giấy theo các đoạn thẳng ở bước 2 rồi dán mép giấy.
+5. Buộc một đầu của cuộn dây với con diều.
+6. Làm thêm đuôi diều và trang trí.

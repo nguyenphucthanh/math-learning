@@ -1,5 +1,5 @@
-import { polar, type Point } from "../hinh";
-import { Khung } from "./khung";
+import { polar, type Point } from "@/lib/hinh";
+import { Khung } from "@/components/math/khung";
 
 export type GocSpec = { name: string; /** Hướng cạnh thứ nhất, độ. */ rotation: number; /** Số đo góc, độ. */ degrees: number };
 

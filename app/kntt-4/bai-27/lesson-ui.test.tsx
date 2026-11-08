@@ -10,7 +10,7 @@ import { XoayDuong } from "./_animations/xoay-duong";
 import { CacGoc } from "./_illustrations/cac-goc";
 import { CapDuong } from "./_illustrations/cap-duong";
 import { CoiXayGio } from "./_illustrations/coi-xay-gio";
-import { DaGiac } from "./_illustrations/da-giac";
+import { DaGiac } from "@/components/math/da-giac";
 import { DuQuay } from "./_illustrations/du-quay";
 import { GapGiay } from "./_illustrations/gap-giay";
 import { OngNuoc } from "./_illustrations/ong-nuoc";

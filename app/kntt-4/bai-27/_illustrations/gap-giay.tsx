@@ -1,4 +1,4 @@
-import { Khung } from "./khung";
+import { Khung } from "@/components/math/khung";
 
 /** Tờ giấy có đường thẳng AB, không có ê ke. */
 export function GapGiay() {

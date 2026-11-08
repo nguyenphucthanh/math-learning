@@ -1,5 +1,5 @@
-import type { Point } from "../hinh";
-import { Khung } from "./khung";
+import type { Point } from "@/lib/hinh";
+import { Khung } from "@/components/math/khung";
 
 const CENTER: Point = { x: 160, y: 130 };
 const RADIUS = 98;

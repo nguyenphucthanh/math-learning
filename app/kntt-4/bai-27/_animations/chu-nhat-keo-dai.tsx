@@ -1,7 +1,7 @@
 "use client";
 
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
-import { RightMark } from "../_illustrations/khung";
+import { RightMark } from "@/components/math/khung";
 import { useRef, useState } from "react";
 
 const A = { x: 130, y: 70 };
