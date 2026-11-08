@@ -95,7 +95,7 @@ export const kntt4Topics: Topic[] = [
       lesson(33, "Ôn tập các số đến lớp triệu", 114, true),
       lesson(34, "Ôn tập phép cộng, phép trừ", 118, true),
       lesson(35, "Ôn tập hình học", 121, true),
-      lesson(36, "Ôn tập đo lường", 125),
+      lesson(36, "Ôn tập đo lường", 125, true),
       lesson(37, "Ôn tập chung", 127),
     ],
   },
