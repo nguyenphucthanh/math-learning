@@ -1,0 +1,71 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BangHangLop } from "@/components/math/bang-hang-lop";
+import { BanTinh } from "./_illustrations/ban-tinh";
+import { DocSoLopTrieu } from "./_animations/doc-so-lop-trieu";
+import { MotTi } from "./_animations/mot-ti";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Số càng lớn thì càng nhiều chữ số. Hôm nay con học đọc, viết các số có đến chín chữ số, và gặp số "một tỉ". Con làm nhanh ba câu để nhớ lại bài cũ nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Bảng hàng và lớp
+
+Trái Đất cách Mặt Trời khoảng 149 597 876 km. Số này có chín chữ số. Con xem nó đứng vào bảng hàng và lớp thế nào.
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <BangHangLop value={149597876} />
+</figure>
+
+<KeyFact equation="3 hàng = 1 lớp">
+  Số có chín chữ số có ba lớp: **lớp đơn vị**, **lớp nghìn**, **lớp triệu**. Mỗi lớp có ba hàng: trăm, chục và đơn vị của lớp đó. Hàng **chục triệu** và hàng **trăm triệu** thuộc lớp triệu.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hangLop} />
+
+## 2. Đọc số
+
+<DocSoLopTrieu />
+
+<KeyFact equation="Đọc từng lớp, trái sang phải">
+  Đọc lớp triệu trước, rồi lớp nghìn, rồi lớp đơn vị. Đọc xong lớp nào thì đọc tên lớp đó (lớp đơn vị không đọc tên lớp). Lớp nghìn là 000 thì không đọc. Chữ số 0 ở giữa vẫn phải đọc: 072 đọc là **không trăm** bảy mươi hai, 305 đọc là ba trăm **linh** năm.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+## 3. Viết số thành tổng
+
+Số 109 140 903 gồm 1 trăm triệu, 9 triệu, 1 trăm nghìn, 4 chục nghìn, 9 trăm và 3 đơn vị. Hàng chục triệu và hàng nghìn là chữ số 0 nên không có số hạng.
+
+109 140 903 = 100 000 000 + 9 000 000 + 100 000 + 40 000 + 900 + 3
+
+<KeyFact equation="Mỗi chữ số, một số hạng">
+  Viết số thành tổng: mỗi chữ số khác 0 cho một số hạng, bằng chữ số nhân với giá trị của hàng. Hàng có chữ số 0 thì bỏ qua.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tong} />
+
+## 4. Bàn tính
+
+Trên bàn tính, mỗi cột là một hàng. Số hạt trên cột là chữ số của hàng đó. Con nhìn bàn tính ghi số 372 100 425.
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <BanTinh value={372100425} />
+</figure>
+
+<KeyFact equation="Số hạt = chữ số">
+  Đọc từ trái sang phải, từng lớp một: lớp triệu 3, 7, 2 hạt; lớp nghìn 1, 0, 0 hạt; lớp đơn vị 4, 2, 5 hạt. **Cột không có hạt là chữ số 0**, đừng bỏ qua nó.
+</KeyFact>
+
+## 5. Một tỉ
+
+<MotTi />
+
+<KeyFact equation="999 999 999 + 1 = 1 000 000 000">
+  Số liền sau của 999 999 999 là 1 000 000 000, đọc là **một tỉ**. Một tỉ có 10 chữ số: chữ số 1 và chín chữ số 0.
+</KeyFact>
+
+<QuickCheck question={quickChecks.motTi} />
