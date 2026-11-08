@@ -36,16 +36,16 @@ export const kntt4Topics: Topic[] = [
     number: 2,
     title: "Góc và đơn vị đo góc",
     lessons: [
-      lesson(7, "Đo góc, đơn vị đo góc", 23),
+      lesson(7, "Đo góc, đơn vị đo góc", 23, true),
       lesson(8, "Góc nhọn, góc tù, góc bẹt", 26, true),
-      lesson(9, "Luyện tập chung", 31),
+      lesson(9, "Luyện tập chung", 31, true),
     ],
   },
   {
     number: 3,
     title: "Số có nhiều chữ số",
     lessons: [
-      lesson(10, "Số có sáu chữ số. Số 1 000 000", 33),
+      lesson(10, "Số có sáu chữ số. Số 1 000 000", 33, true),
       lesson(11, "Hàng và lớp", 37),
       lesson(12, "Các số trong phạm vi lớp triệu", 41),
       lesson(13, "Làm tròn số đến hàng trăm nghìn", 45),
