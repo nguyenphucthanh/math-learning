@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DayTuNhien } from "./_animations/day-tu-nhien";
+import { QuyLuatDay } from "./_animations/quy-luat-day";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con đã đếm 1, 2, 3, … từ lúc còn bé. Nhưng đếm bắt đầu từ đâu, và đếm đến bao giờ thì hết? Hôm nay con làm quen với **dãy số tự nhiên**. Con làm nhanh ba câu để nhớ lại bài cũ nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Dãy số tự nhiên
+
+Con xem các số trên tia số và bấm từng bước.
+
+<DayTuNhien />
+
+<KeyFact equation="0, 1, 2, 3, …">
+  Các số tự nhiên sắp xếp từ bé đến lớn tạo thành dãy số tự nhiên. Số tự nhiên bé nhất là 0. Không có số tự nhiên lớn nhất. Hai số tự nhiên liên tiếp hơn kém nhau 1 đơn vị.
+</KeyFact>
+
+<QuickCheck question={quickChecks.beNhat} />
+
+<QuickCheck question={quickChecks.lonNhat} />
+
+## 2. Số liền trước, số liền sau
+
+Muốn tìm **số liền sau**, con thêm 1. Muốn tìm **số liền trước**, con bớt 1. Con chú ý khi đổi hàng.
+
+<KeyFact equation="9 999 thêm 1 là 10 000">
+  Số liền sau của 9 999 là 10 000, vì chữ số 9 thêm 1 thành 10 và nhớ sang hàng bên trái. Ngược lại, số liền trước của 10 000 là 9 999. Số 0 không có số tự nhiên liền trước.
+</KeyFact>
+
+<QuickCheck question={quickChecks.sau} />
+
+<QuickCheck question={quickChecks.truoc} />
+
+<QuickCheck question={quickChecks.khong} />
+
+## 3. Dãy số có quy luật
+
+Một dãy số có quy luật khi hai số liền nhau luôn hơn kém nhau cùng một số. Con tìm quy luật rồi điền tiếp.
+
+<QuyLuatDay terms={[5, 10, 15, 20, 25, 30, 35]} given={4} />
+
+Đây là một dãy khác, hai số liền nhau hơn kém nhau 1 đơn vị.
+
+<QuyLuatDay terms={[1969, 1970, 1971, 1972, 1973, 1974, 1975]} given={4} />
+
+<KeyFact equation="Tìm hiệu hai số liền nhau">
+  Con lấy hai số liền nhau trừ nhau để tìm quy luật, rồi cộng tiếp từ số cuối. Không chỉ nhìn số cuối, vì dãy 2, 4, 6, 8 thêm 2 chứ không thêm 1.
+</KeyFact>
+
+<QuickCheck question={quickChecks.quyLuat} />

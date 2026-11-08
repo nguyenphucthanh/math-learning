@@ -1,0 +1,75 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { SoSanhSo } from "./_animations/so-sanh-so";
+import { XepThe } from "./_animations/xep-the";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Sao Hỏa và Sao Kim, hành tinh nào cách Mặt Trời xa hơn? Muốn trả lời, con phải so sánh hai số rất lớn: 230 000 000 km và 108 000 000 km. Con làm nhanh ba câu để nhớ lại bài cũ nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Nhiều chữ số hơn thì lớn hơn
+
+Trước hết, con **đếm chữ số**. Con xem hai số 278 992 000 và 278 999.
+
+<SoSanhSo a={278992000} b={278999} />
+
+<KeyFact equation="Nhiều chữ số hơn thì lớn hơn">
+  Trong hai số, số nào có nhiều chữ số hơn thì số đó lớn hơn. Chữ số đầu tiên lớn hay bé không quan trọng: 99 999 999 vẫn bé hơn 100 000 000.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chuSo} />
+
+## 2. Cùng số chữ số: so từ trái sang phải
+
+Sao Hỏa 230 000 000 km và Sao Kim 108 000 000 km đều có 9 chữ số. Con so từng cặp chữ số ở **cùng một hàng**, bắt đầu từ bên **trái**.
+
+<SoSanhSo a={230000000} b={108000000} />
+
+<KeyFact equation="So từng cặp, từ trái sang phải">
+  Hai số có cùng số chữ số thì so sánh từng cặp chữ số ở cùng một hàng, kể từ trái sang phải. Cặp đầu tiên khác nhau cho biết số nào lớn hơn. Vì hàng bên trái có giá trị lớn hơn nên nó quyết định trước.
+</KeyFact>
+
+Nếu các hàng đầu giống nhau thì con đi tiếp sang phải. Con xem 37 338 449 và 37 839 449.
+
+<SoSanhSo a={37338449} b={37839449} />
+
+<QuickCheck question={quickChecks.cung} />
+
+Bạn Việt trong sách đã so chữ số **tận cùng** (bên phải). Cách đó sai: chữ số tận cùng có giá trị nhỏ nhất, không quyết định số nào lớn hơn.
+
+## 3. So sánh với tổng
+
+Khi một vế là tổng, con **viết tổng thành số** trước rồi mới so sánh. Ví dụ 3 000 000 + 400 000 + 5 000 = 3 405 000.
+
+<KeyFact equation="Viết tổng thành số trước">
+  Tổng 6 000 000 + 500 000 + 7 000 bằng 6 507 000, có 7 chữ số. Số 650 700 chỉ có 6 chữ số nên bé hơn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tong} />
+
+## 4. Sắp xếp các số
+
+Muốn sắp xếp nhiều số, con đếm chữ số của từng số để chia nhóm. Nhóm nhiều chữ số hơn lớn hơn. Trong từng nhóm cùng số chữ số, con so từng cặp từ trái sang phải.
+
+<KeyFact equation="Từ bé đến lớn, hoặc từ lớn đến bé">
+  Tìm số bé nhất (hoặc lớn nhất) trước, rồi tìm tiếp trong các số còn lại. Xếp xong, con đọc lại từng cặp liền nhau để kiểm tra.
+</KeyFact>
+
+<QuickCheck question={quickChecks.xep} />
+
+## 5. Lập số từ các tấm thẻ
+
+Có sáu tấm thẻ chữ số. Con dùng hết các thẻ để lập số lớn nhất và số bé nhất.
+
+<XepThe cards={[3, 0, 5, 0, 8, 2]} />
+
+<KeyFact equation="Số 0 không đứng đầu">
+  Số lớn nhất: chữ số lớn đứng hàng cao, xếp từ lớn đến bé. Số bé nhất: chữ số đầu phải khác 0, nên chọn thẻ bé nhất khác 0 đứng đầu, các thẻ còn lại xếp từ bé đến lớn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.theLon} />
+
+<QuickCheck question={quickChecks.theBe} />
