@@ -1,0 +1,75 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { LamTronSo } from "./_animations/lam-tron-so";
+import { TiaSoLamTron } from "./_animations/tia-so-lam-tron";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Khi nghe bản tin, ít ai nói "hai triệu bảy trăm mười hai nghìn sáu trăm mười lăm chiếc xe". Người ta nói "khoảng hai triệu bảy trăm nghìn chiếc xe". Hôm nay con học cách tìm số "khoảng" đó, gọi là **làm tròn số**. Con làm nhanh ba câu để nhớ lại bài cũ nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Làm tròn trên tia số
+
+Một công ty bán ra 2 712 615 chiếc xe máy trong năm 2020. Con xem số này đứng ở đâu trên tia số.
+
+<TiaSoLamTron />
+
+<KeyFact equation="Số tròn trăm nghìn gần nhất">
+  Làm tròn số đến hàng trăm nghìn là tìm **số tròn trăm nghìn** gần nó nhất. Số tròn trăm nghìn là các số như 2 600 000, 2 700 000, 2 800 000, có năm chữ số 0 ở cuối.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tia} />
+
+## 2. Quy tắc làm tròn
+
+Không phải lúc nào cũng có tia số để nhìn. Con dùng quy tắc: nhìn **một chữ số** là đủ.
+
+<LamTronSo value={2712615} position={5} />
+
+<KeyFact equation="Bé hơn 5 thì xuống, còn lại thì lên">
+  Khi làm tròn số đến hàng trăm nghìn, ta so sánh chữ số hàng chục nghìn với 5. Nếu chữ số đó bé hơn 5 thì làm tròn xuống, còn lại thì làm tròn lên. Các chữ số bên phải hàng trăm nghìn đều thành 0.
+</KeyFact>
+
+<QuickCheck question={quickChecks.xuong} />
+
+Con xem thêm một số làm tròn lên.
+
+<LamTronSo value={1867340} position={5} />
+
+<QuickCheck question={quickChecks.len} />
+
+## 3. Chữ số bằng 5
+
+Số 2 750 000 nằm **đúng giữa** 2 700 000 và 2 800 000, cách hai số đều 50 000. Người ta thống nhất làm tròn lên.
+
+<KeyFact equation="Chữ số bằng 5 thì làm tròn lên">
+  5 không bé hơn 5, nên làm tròn lên. Ví dụ 4 350 000 làm tròn đến hàng trăm nghìn là 4 400 000, không phải 4 300 000.
+</KeyFact>
+
+<QuickCheck question={quickChecks.bangNam} />
+
+## 4. Làm tròn đến hàng chục nghìn
+
+Quy tắc không đổi, chỉ đổi hàng. Làm tròn đến hàng nào thì nhìn chữ số ở hàng **ngay bên phải** hàng đó.
+
+<LamTronSo value={5122381} position={4} />
+
+<KeyFact equation="Nhìn hàng bên phải">
+  Làm tròn đến hàng chục nghìn thì nhìn chữ số hàng nghìn. Làm tròn đến hàng trăm nghìn thì nhìn chữ số hàng chục nghìn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chucNghin} />
+
+## 5. Khi gặp chữ số 9
+
+Làm tròn 1 960 000 đến hàng trăm nghìn. Chữ số hàng chục nghìn là 6, nên làm tròn lên. Nhưng chữ số hàng trăm nghìn là 9, thêm 1 thì sao?
+
+<LamTronSo value={1960000} position={5} />
+
+<KeyFact equation="9 + 1 = 10, nhớ sang bên trái">
+  Chữ số 9 thêm 1 thành 10: viết 0 và nhớ 1 sang hàng bên trái. Vì vậy 1 960 000 làm tròn thành 2 000 000.
+</KeyFact>
+
+<QuickCheck question={quickChecks.nhoSang} />
