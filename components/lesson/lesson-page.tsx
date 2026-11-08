@@ -1,14 +1,9 @@
 import { lessonNeighbors, type Lesson } from "@/lib/lessons";
-import { ArrowLeft, ArrowRight, House, Pencil } from "lucide-react";
+import { ArrowLeft, ArrowRight, Pencil } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Fold } from "./fold";
-
-const anchors = [
-  { href: "#phu-huynh", label: "Phụ huynh" },
-  { href: "#ly-thuyet", label: "Lý thuyết" },
-  { href: "#bai-tap", label: "Bài tập" },
-];
+import { SectionNav } from "./section-nav";
 
 /** Khung chung của mọi bài: nhãn vở → Phụ huynh (thu gọn) → Lý thuyết → Bài tập. */
 export function LessonPage({
@@ -45,29 +40,7 @@ export function LessonPage({
         </div>
       </header>
 
-      <nav aria-label="Các phần của bài" className="sticky top-0 z-20 bg-white/95 shadow-sm backdrop-blur-sm">
-        <ul className="mx-auto flex max-w-3xl">
-          <li>
-            <Link
-              href={coursePath}
-              aria-label="Về danh sách bài"
-              className="flex min-h-13 min-w-13 items-center justify-center px-3 text-ink hover:bg-secondary"
-            >
-              <House aria-hidden className="size-6" />
-            </Link>
-          </li>
-          {anchors.map((anchor) => (
-            <li key={anchor.href} className="flex-1">
-              <a
-                href={anchor.href}
-                className="flex min-h-13 items-center justify-center px-2 text-center text-lg font-bold text-ink hover:bg-secondary"
-              >
-                {anchor.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <SectionNav coursePath={coursePath} />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 pb-16">
         <section id="phu-huynh" className="pt-8">

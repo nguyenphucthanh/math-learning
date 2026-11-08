@@ -18,6 +18,26 @@ function lesson(number: number, title: string, page: number, available = false):
   return { number, slug: `bai-${number}`, title, page, available };
 }
 
+export type Course = {
+  href: string;
+  title: string;
+  /** Dòng phụ: sách, bộ sách, học kì. */
+  subtitle: string;
+  description: string;
+  available: boolean;
+};
+
+/** Các sách trên trang chủ. Thêm tập 2 hoặc Toán 5 bằng cách thêm một mục ở đây. */
+export const courses: Course[] = [
+  {
+    href: "/kntt-4",
+    title: "Toán 4, tập một",
+    subtitle: "Kết nối tri thức với cuộc sống",
+    description: "Học kì 1 · 7 chủ đề · 37 bài",
+    available: true,
+  },
+];
+
 /** Toán 4 Kết nối tri thức, tập một (học kì 1). */
 export const kntt4Topics: Topic[] = [
   {
