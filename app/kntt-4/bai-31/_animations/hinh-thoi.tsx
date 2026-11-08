@@ -4,7 +4,7 @@ import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import { RightMark } from "@/components/math/khung";
 import type { Point, Seg } from "@/lib/hinh";
 import { useRef, useState } from "react";
-import { DauBangNhau, DauSongSong, NenLuoi } from "./dau";
+import { DauBangNhau, DauSongSong, NenLuoi } from "@/components/math/dau";
 
 const CELL = 20;
 const OFFSET = 10;

@@ -1,0 +1,71 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { CatGhep } from "./_animations/cat-ghep";
+import { VeQuaDiem } from "./_animations/ve-qua-diem";
+import { AoAnh } from "./_illustrations/ao-anh";
+import { Thang } from "./_illustrations/thang";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Chủ đề 6 xong rồi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại năm điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Hai đường thẳng vuông góc
+
+Hai đường thẳng vuông góc với nhau thì cắt nhau tạo thành **góc vuông**. Con dùng ê ke để kiểm tra, không chỉ nhìn bằng mắt.
+
+<KeyFact equation="Vuông góc = góc vuông">
+  Đặt đỉnh góc vuông của ê ke vào chỗ hai đường gặp nhau. Hai cạnh góc vuông của ê ke trùng với hai đường thì hai đường **vuông góc**. Đoạn thẳng cũng vậy: nó nằm trên một đường thẳng, nên ta xét đường thẳng chứa nó.
+</KeyFact>
+
+## 2. Hai đường thẳng song song
+
+<Thang />
+
+<KeyFact equation="Song song = không bao giờ cắt nhau">
+  Hai đường thẳng **song song** kéo dài mãi cũng không bao giờ cắt nhau. Song song không nói gì về độ dài: hai bậc thang song song nhưng bậc dưới dài hơn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.songSong} />
+
+## 3. Vẽ đường thẳng đi qua một điểm
+
+Cho đường thẳng AB và điểm H nằm ngoài AB. Con bấm từng bước để xem cách vẽ đường vuông góc và đường song song đi qua H.
+
+<VeQuaDiem />
+
+<KeyFact equation="Ê ke để vuông góc, thước để dẫn đường">
+  Muốn vẽ đường thẳng đi qua H **vuông góc** với AB: đặt một cạnh góc vuông của ê ke trên AB, trượt cho cạnh góc vuông kia chạm H rồi vẽ. Muốn vẽ đường thẳng đi qua H **song song** với AB: vẽ nó cùng hướng với AB, kéo dài mãi cũng không cắt AB.
+</KeyFact>
+
+<QuickCheck question={quickChecks.veQuaDiem} />
+
+## 4. Hình bình hành, hình thoi và cắt ghép
+
+<KeyFact equation="Hình bình hành: 2 cặp cạnh đối diện song song và bằng nhau. Hình thoi: thêm 4 cạnh bằng nhau">
+  **Hình bình hành** có hai cặp cạnh đối diện song song và bằng nhau. **Hình thoi** có hai cặp cạnh đối diện song song và bốn cạnh bằng nhau.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hinh} />
+
+Con có thể cắt một hình bình hành thành hai phần rồi ghép lại thành hình chữ nhật. Con bấm từng bước.
+
+<CatGhep />
+
+<KeyFact equation="Cắt theo đường vuông góc, dịch sang bên kia">
+  Vẽ đường thẳng từ một đỉnh vuông góc với cạnh đáy, cắt rồi dịch tam giác sang bên kia thì được **hình chữ nhật**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.catGhep} />
+
+## 5. Đừng tin mắt, hãy dùng thước và ê ke
+
+Hai đường màu đỏ trong hình này nhìn như cong vào và cong ra. Thật ra chúng là hai đường thẳng song song.
+
+<AoAnh />
+
+<KeyFact equation="Mắt có thể nhìn nhầm">
+  Muốn biết hai đường có song song hay vuông góc, con **dùng thước và ê ke để kiểm tra**. Đặt thước dọc theo một đường: nếu nó thẳng khít thì đường đó không cong.
+</KeyFact>

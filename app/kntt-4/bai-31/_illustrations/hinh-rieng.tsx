@@ -1,6 +1,6 @@
 import { Khung } from "@/components/math/khung";
 import type { Point } from "@/lib/hinh";
-import { NenLuoi } from "../_animations/dau";
+import { NenLuoi } from "@/components/math/dau";
 
 const f = (n: number) => Math.round(n * 10) / 10;
 const poly = (points: Point[]) => points.map((p) => `${f(p.x)},${f(p.y)}`).join(" ");

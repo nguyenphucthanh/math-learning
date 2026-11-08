@@ -137,7 +137,7 @@ Không có trong app, kèm lý do:
 ## Kỹ thuật
 
 - Thêm vào `lib/hinh.ts`: `lengthOf`, `isParallelogram`, `isRhombus`, `fourthVertex`, `polygonArea` (dùng trong test để tính lại đáp án).
-- `_animations/dau.tsx`: dấu song song (mũi tên), dấu bằng nhau (gạch) và nền lưới dùng chung bốn animation và các hình minh họa của bài. Chưa chuyển lên `components/` vì mới dùng trong một bài.
+- `components/math/dau.tsx` (chuyển lên từ `_animations/` ở Bài 32): dấu song song (mũi tên), dấu bằng nhau (gạch) và nền lưới dùng chung bốn animation và các hình minh họa của bài. 
 - Đặt `available: true` cho Bài 31 trong `lib/lessons.ts`.
 
 ## Tiêu chí duyệt nội dung
