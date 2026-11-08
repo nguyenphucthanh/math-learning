@@ -37,7 +37,7 @@ export const kntt4Topics: Topic[] = [
     title: "Góc và đơn vị đo góc",
     lessons: [
       lesson(7, "Đo góc, đơn vị đo góc", 23),
-      lesson(8, "Góc nhọn, góc tù, góc bẹt", 26),
+      lesson(8, "Góc nhọn, góc tù, góc bẹt", 26, true),
       lesson(9, "Luyện tập chung", 31),
     ],
   },
