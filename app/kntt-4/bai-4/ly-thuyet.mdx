@@ -1,0 +1,61 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChuThayCho } from "./_animations/chu-thay-cho";
+import { ThayChu } from "./_animations/thay-chu";
+import { CongThucChuVi } from "./_animations/cong-thuc-chu-vi";
+import { ThuTuTinh } from "./_animations/thu-tu-tinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại, rồi tìm hiểu biểu thức chứa chữ qua bốn hình.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chữ thay cho số
+
+Có lúc ta chưa biết một số là bao nhiêu. Khi đó ta dùng **chữ** thay cho số ấy.
+
+<ChuThayCho />
+
+<KeyFact equation="2 + a là biểu thức chứa chữ">
+  Chữ **a** thay cho một số. Mỗi lần thay chữ a bằng một số, ta tính được một **giá trị** của biểu thức.
+</KeyFact>
+
+<QuickCheck question={quickChecks.viet} />
+
+## 2. Tính giá trị của biểu thức
+
+Muốn tính giá trị của biểu thức chứa chữ, con **thay chữ bằng số** rồi tính.
+
+<ThayChu />
+
+<KeyFact equation="Thay chữ bằng số">
+  Nếu b = 15 thì 40 − b = 40 − 15 = 25. Số 25 là một giá trị của biểu thức 40 − b. Thay số khác thì được giá trị khác.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thay} />
+
+## 3. Công thức chu vi
+
+Công thức tính chu vi cũng là biểu thức chứa chữ. Chữ trong công thức thay cho số đo các cạnh.
+
+<CongThucChuVi />
+
+<KeyFact equation="Một chữ, hai chữ, ba chữ">
+  Biểu thức có thể chứa một chữ như **a × 4**, hai chữ như **(a + b) × 2**, ba chữ như **a + b + c**. Con thay từng chữ bằng số rồi tính.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chuVi} />
+
+## 4. Thứ tự khi tính
+
+Thay chữ bằng số xong, con vẫn tính **theo thứ tự quen**.
+
+<ThuTuTinh />
+
+<KeyFact equation="Nhân, chia trước; cộng, trừ sau">
+  Biểu thức có dấu ngoặc thì tính trong ngoặc trước. Có cả nhân, chia và cộng, trừ thì nhân, chia làm trước. Sau khi thay số, con không cộng vội: 35 + 5 × 6 = 35 + 30 = 65, không phải 40 × 6.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuTu} />
