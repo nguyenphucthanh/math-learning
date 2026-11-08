@@ -2,7 +2,7 @@ import type { ChoiceQuestion, ExerciseGroup, Question } from "@/components/exerc
 import { DaGiac } from "@/components/math/da-giac";
 import { DongHo } from "@/components/math/dong-ho";
 import { createElement } from "react";
-import { BonDongHo } from "./_illustrations/bon-dong-ho";
+import { BonDongHo } from "@/components/math/bon-dong-ho";
 import { BinhHanhCanh, BonHinh, ChuNhatMN, DaGiacGoc, DaiHinhThoi, HaiGocLuoi, NhaMaiTu, ThoiCanh } from "./_illustrations/hinh";
 import { dieu, hinhChonBinhHanh, hinhChonSongVuong, hinhThang, tuGiac } from "./_illustrations/hinh-hoc";
 import { QueTamGiac } from "./_illustrations/que-tam-giac";

@@ -2,7 +2,7 @@ import type { ChoiceQuestion, FillQuestion, Question, WordQuestion } from "@/com
 import { angleBetweenHands } from "@/components/math/dong-ho";
 import { angleAt, polar } from "@/lib/hinh";
 import { describe, expect, it } from "vitest";
-import { armDirections, CENTER, readScale, scaleFor } from "./_illustrations/thuoc-do";
+import { armDirections, CENTER, readScale, scaleFor } from "@/components/math/thuoc-do";
 import { clockHours, exerciseGroups, flagTriangle, quad, quickChecks, readingSpecs, riverTriangle, warmUps } from "./bai-tap";
 
 const questions: Question[] = [...exerciseGroups.flatMap((group) => group.questions), ...Object.values(quickChecks), ...warmUps];

@@ -2,7 +2,7 @@
 
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import { useRef, useState } from "react";
-import { CENTER, ThuocDoSvg } from "../_illustrations/thuoc-do";
+import { CENTER, ThuocDoSvg } from "@/components/math/thuoc-do";
 
 const captions = [
   "Góc đỉnh O; cạnh OA, OB. Góc này bằng bao nhiêu? Ta đo bằng thước đo góc. Đơn vị đo góc là độ, kí hiệu °.",

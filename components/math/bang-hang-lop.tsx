@@ -12,15 +12,18 @@ const GAP = 8;
  * Bảng hàng và lớp của một số đến 9 chữ số. `mark` là các vị trí chữ số cần tô vàng, đếm từ hàng đơn vị (0).
  * Ô của hàng không có chữ số để trống.
  */
-export function BangHangLop({ value, mark = [] }: { value: number; mark?: number[] }) {
+export function BangHangLop({ value, mark = [], classes = 3 }: { value: number; mark?: number[]; classes?: 2 | 3 }) {
   const digits = String(value).padStart(9, " ").split("");
+  const first = 3 - classes;
+  const width = classes * 3 * COL + (classes - 1) * GAP + 8;
   const read = (from: number) => digits.slice(from, from + 3).join("").trim().split("").join(", ");
-  const label = `Bảng hàng và lớp của số ${formatNumber(value)}: lớp triệu ${read(0) || "trống"}; lớp nghìn ${read(3) || "trống"}; lớp đơn vị ${read(6)}`;
+  const label = `Bảng hàng và lớp của số ${formatNumber(value)}: ${classes === 3 ? `lớp triệu ${read(0) || "trống"}; ` : ""}lớp nghìn ${read(3) || "trống"}; lớp đơn vị ${read(6)}`;
 
   return (
-    <svg viewBox="0 0 440 118" role="img" aria-label={label} className="block w-full" fontWeight={800}>
-      {CLASSES.map((cls, c) => {
-        const x0 = 4 + c * (3 * COL + GAP);
+    <svg viewBox={`0 0 ${width} 118`} role="img" aria-label={label} className="block w-full" fontWeight={800}>
+      {CLASSES.slice(first).map((cls, shown) => {
+        const c = first + shown;
+        const x0 = 4 + shown * (3 * COL + GAP);
         return (
           <g key={cls.name}>
             <rect x={x0} y={2} width={3 * COL} height={28} rx={6} fill="var(--ink)" />
