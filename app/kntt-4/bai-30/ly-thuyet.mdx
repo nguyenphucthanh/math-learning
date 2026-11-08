@@ -1,0 +1,61 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GhepHinh } from "./_animations/ghep-hinh";
+import { ThietKeDuongChay } from "./_animations/thiet-ke-duong-chay";
+import { VeSongSong } from "./_animations/ve-song-song";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay Rô-bốt và các bạn làm hai dự án: một bộ đồ chơi ghép hình và một đường chạy ở sân thể dục. Cả hai đều cần vẽ hai đường thẳng song song. Con làm nhanh ba câu để nhớ lại những điều đã học nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Bài này con không học khái niệm mới. Con dùng ê ke để **vẽ** hai đường thẳng song song, rồi dùng chúng để làm đồ chơi và thiết kế đường chạy.
+
+## 1. Dùng ê ke vẽ hai đường thẳng song song
+
+Con chọn AB nằm ngang hay nằm nghiêng, rồi bấm từng bước. Ta vẽ hai lần đường thẳng vuông góc.
+
+<VeSongSong />
+
+<KeyFact equation="Vẽ đường thẳng CD đi qua H và song song với AB">
+  **Bước 1:** vẽ đường thẳng MN đi qua H và vuông góc với AB. **Bước 2:** vẽ đường thẳng CD đi qua H và vuông góc với MN. Khi đó AB và CD cùng vuông góc với MN, nên CD **song song** với AB.
+</KeyFact>
+
+<QuickCheck question={quickChecks.buoc2} />
+
+## 2. Làm bộ đồ chơi ghép hình
+
+Rô-bốt cắt một hình vuông thành 6 mảnh để ghép thành mèo, máy bay, lạc đà, cá. Con bấm từng bước để xem cách vẽ và cắt.
+
+<GhepHinh />
+
+<KeyFact equation="PQ song song với AM">
+  M, N, O, P là các **trung điểm**. Đoạn thẳng PQ được vẽ **song song** với AM, điểm Q ở trên MN. Hình vuông được cắt thành **6 mảnh**: 4 mảnh hình tam giác và 2 mảnh có bốn cạnh.
+</KeyFact>
+
+<QuickCheck question={quickChecks.trungDiem} />
+
+## 3. Thiết kế đường chạy
+
+Việt muốn vẽ đường chạy trên sân thể dục. Trước hết Việt vẽ **bản thiết kế** trên giấy, để biết cần làm những việc gì và dùng dụng cụ nào.
+
+<ThietKeDuongChay />
+
+<KeyFact equation="MP, HK, NQ song song với nhau">
+  MP, HK và NQ cùng vuông góc với vạch xuất phát MN, nên chúng **song song** với nhau và dài bằng nhau. H là trung điểm của MN nên mỗi đường chạy rộng bằng MH (hoặc HN).
+</KeyFact>
+
+<QuickCheck question={quickChecks.lan} />
+
+## 4. Từ tờ giấy ra sân thể dục
+
+Cuối cùng, cả lớp ra sân thể dục để vẽ đường chạy thật. Ý tưởng trên giấy được chuyển ra mặt sân theo các bước giống nhau:
+
+1. Đo vạch xuất phát MN bằng thước, tìm trung điểm H.
+2. Dùng ê ke để vẽ MP vuông góc với MN.
+3. Vẽ HK, NQ song song với MP, rồi nối P với Q để được vạch đích.
+4. Ghi chữ XUẤT PHÁT, ĐÍCH và đánh số các đường chạy.
+
+Con làm phần này ở trường hoặc ở nhà cùng người lớn.
