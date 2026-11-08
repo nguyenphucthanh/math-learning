@@ -2,7 +2,7 @@
 
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import { useRef, useState } from "react";
-import { ThuocDoSvg, type Base, type Scale } from "../_illustrations/thuoc-do";
+import { ThuocDoSvg, type Base, type Scale } from "@/components/math/thuoc-do";
 
 type Frame = { base: Base; scale: Scale | "ca-hai"; marks: Scale[]; rightLine: boolean; label: string; caption: string };
 

@@ -1,0 +1,45 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DocDungThang } from "@/components/math/doc-dung-thang";
+import { ThuocDo } from "@/components/math/thuoc-do";
+import { PhanLoaiGoc } from "./_illustrations/phan-loai-goc";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Bài này ôn lại cách đo góc và các loại góc. Trước hết, con làm nhanh ba câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Nhắc lại: đo góc bằng thước
+
+Góc đỉnh O; cạnh OA, OB. Cạnh OB nằm trên đường kính của thước, cạnh OA đi qua một vạch.
+
+<ThuocDo angle={50} base="right" scale="xanh" marks={["xanh"]} sector label="Thước đo góc: cạnh OB bên phải, cạnh OA đi qua số 50 ở vòng xanh" />
+
+Thước có hai vòng số. Con đọc đúng vòng nào? Mình xem lại nhé.
+
+<DocDungThang />
+
+<KeyFact equation="Sát vạch 0 ở vòng nào, đọc vòng đó">
+  **Độ** là đơn vị đo góc, kí hiệu **°**. Cạnh nằm trên đường kính sát **vạch 0** của vòng số nào thì đọc **vòng số đó**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+<QuickCheck question={quickChecks.vong} />
+
+## 2. Nhắc lại: các loại góc
+
+<PhanLoaiGoc />
+
+<KeyFact equation="Góc vuông = 90°, góc bẹt = 180°">
+  - **Góc nhọn** bé hơn 90°.
+  - **Góc vuông** bằng 90°. Dùng **ê ke** để kiểm tra.
+  - **Góc tù** lớn hơn 90° và bé hơn 180°.
+  - **Góc bẹt** bằng 180°: hai cạnh thẳng hàng về hai phía.
+</KeyFact>
+
+<QuickCheck question={quickChecks.loai} />
+
+<QuickCheck question={quickChecks.eke} />
