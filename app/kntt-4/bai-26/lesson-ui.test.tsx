@@ -8,7 +8,7 @@ import { DatTinhDS } from "./_illustrations/dat-tinh-ds";
 import { HoaDon } from "./_illustrations/hoa-don";
 import { ODoSo } from "./_illustrations/o-do-so";
 import { SauThe } from "./_illustrations/sau-the";
-import { SoDoDon } from "./_illustrations/so-do-don";
+import { SoDoDon } from "@/components/math/so-do-don";
 import { bills, cardsStart, exerciseGroups, oSoRows } from "./bai-tap";
 
 beforeAll(() => {

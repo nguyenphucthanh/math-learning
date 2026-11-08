@@ -7,7 +7,7 @@ import { DatTinhDS } from "./_illustrations/dat-tinh-ds";
 import { HoaDon, type Item } from "./_illustrations/hoa-don";
 import { ODoSo, type OSoRow } from "./_illustrations/o-do-so";
 import { SauThe } from "./_illustrations/sau-the";
-import { SoDoDon } from "./_illustrations/so-do-don";
+import { SoDoDon } from "@/components/math/so-do-don";
 
 const n = formatNumber;
 
