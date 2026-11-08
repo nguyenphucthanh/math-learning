@@ -1,0 +1,66 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { DatTinh } from "@/components/math/dat-tinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Phép cộng, phép trừ xong rồi. Con làm nhanh ba câu để xem còn nhớ gì, rồi đọc lại năm điều quan trọng nhất.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Tính nhẩm số tròn
+
+Coi các số tròn là "mấy chục nghìn", "mấy trăm nghìn" hay "mấy triệu".
+
+12 triệu − 5 triệu + 4 triệu = 11 triệu. Vậy 12 000 000 − 5 000 000 + 4 000 000 = **11 000 000**.
+
+<KeyFact equation="Từ trái sang phải, ngoặc làm trước">
+  Biểu thức chỉ có cộng và trừ thì tính **từ trái sang phải**. Có ngoặc thì làm **trong ngoặc trước**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.nham} />
+
+## 2. Đặt tính cộng, trừ
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <DatTinh
+    top={["1", "7", "2", "6", "4", "0"]}
+    bottom={["", "9", "4", "7", "8", "5"]}
+    result={["", "7", "7", "8", "5", "5"]}
+    sign="−"
+    label="Phép trừ 172 640 − 94 785 = 77 855"
+  />
+</figure>
+
+<KeyFact equation="Thẳng hàng từ phải sang trái">
+  Viết các chữ số **cùng hàng thẳng cột**, bắt đầu từ hàng đơn vị. Cộng thì viết chữ số đơn vị và nhớ 1 sang hàng bên trái. Trừ thì hàng nào không trừ được phải lấy 10 trừ và nhớ 1.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tru} />
+
+## 3. Tính thuận tiện
+
+<KeyFact equation="(a + b) + c = a + (b + c)">
+  Khi cộng nhiều số, ta có thể đổi chỗ hoặc nhóm các số sao cho ra **số tròn** trước. Có dấu trừ thì dấu trừ **đi cùng số đứng sau nó**: 38 450 + 6 700 − 1 450 = (38 450 − 1 450) + 6 700 = 37 000 + 6 700 = 43 700.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuanTien} />
+
+## 4. Tìm hai số khi biết tổng và hiệu
+
+<KeyFact equation="Số bé = (Tổng − Hiệu) : 2     Số lớn = (Tổng + Hiệu) : 2">
+  Muốn tìm số bé thì **trừ** hiệu, muốn tìm số lớn thì **cộng** hiệu. Sau đó chia cho 2. Nhớ thử lại: hai số cộng lại bằng tổng, trừ nhau bằng hiệu.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tongHieu} />
+
+## 5. So sánh và kiểm tra phép tính
+
+Muốn so sánh hai biểu thức, **tính từng vế ra một số** rồi mới so. Muốn biết phép tính đúng hay sai, tính lại rồi đối chiếu với kết quả đã viết.
+
+<KeyFact equation="Tính từng vế rồi mới so">
+  Đừng đoán theo chữ số đầu. Vế nào có ngoặc thì làm trong ngoặc trước.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dungSai} />
