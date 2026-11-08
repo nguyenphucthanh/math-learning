@@ -24,7 +24,7 @@ export const kntt4Topics: Topic[] = [
     number: 1,
     title: "Ôn tập và bổ sung",
     lessons: [
-      lesson(1, "Ôn tập các số đến 100 000", 6),
+      lesson(1, "Ôn tập các số đến 100 000", 6, true),
       lesson(2, "Ôn tập các phép tính trong phạm vi 100 000", 9),
       lesson(3, "Số chẵn, số lẻ", 12),
       lesson(4, "Biểu thức chứa chữ", 14),

@@ -63,6 +63,17 @@ export type WordQuestion = QuestionBase & {
   illustration?: ReactNode;
 };
 
+export type Sign = ">" | "<" | "=";
+
+export type CompareQuestion = QuestionBase & {
+  kind: "so-sanh";
+  prompt?: string;
+  /** Mỗi hàng là một phép so sánh; `left` và `right` là số hoặc tổng viết sẵn, `answer` là dấu đúng. */
+  rows: { left: string; right: string; answer: Sign }[];
+  /** Hình minh họa riêng của bài (SVG), hiện dưới đề. */
+  illustration?: ReactNode;
+};
+
 export type DatTinhQuestion = QuestionBase & {
   kind: "dat-tinh";
   /** Phép tính, mặc định là cộng. */
@@ -76,7 +87,7 @@ export type DatTinhQuestion = QuestionBase & {
   hide?: { a?: number[]; b?: number[]; sum?: number[] };
 };
 
-export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuestion | DatTinhQuestion;
+export type Question = FillQuestion | ChoiceQuestion | MatchQuestion | WordQuestion | CompareQuestion | DatTinhQuestion;
 
 export type ExerciseGroup = {
   id: string;

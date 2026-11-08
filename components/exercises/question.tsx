@@ -5,7 +5,7 @@ import { useState, type ReactNode } from "react";
 import { DatTinhForm } from "./dat-tinh-form";
 import { Feedback } from "./feedback";
 import { MatchBoard } from "./match-board";
-import type { ChoiceQuestion, FillQuestion, MatchQuestion, Part, Question, ShapeFigure, WordQuestion } from "./types";
+import type { ChoiceQuestion, CompareQuestion, FillQuestion, MatchQuestion, Part, Question, ShapeFigure, Sign, WordQuestion } from "./types";
 
 type QuestionProps<Q extends Question> = {
   question: Q;
@@ -208,6 +208,87 @@ function Match({ question, solved, onSolved }: QuestionProps<MatchQuestion>) {
   );
 }
 
+const SIGNS: { sign: Sign; label: string }[] = [
+  { sign: ">", label: "lớn hơn" },
+  { sign: "<", label: "bé hơn" },
+  { sign: "=", label: "bằng" },
+];
+
+function Compare({ question, solved, onSolved }: QuestionProps<CompareQuestion>) {
+  const [choices, setChoices] = useState<(Sign | undefined)[]>([]);
+  const [checked, setChecked] = useState<(boolean | undefined)[]>([]);
+  const [wrongCount, setWrongCount] = useState(0);
+  const [notice, setNotice] = useState<string>();
+
+  function submit(event: { preventDefault(): void }) {
+    event.preventDefault();
+    if (solved) return;
+    if (question.rows.some((_, index) => !choices[index])) {
+      setNotice("Con chọn dấu cho đủ các hàng rồi kiểm tra nhé.");
+      return;
+    }
+    setNotice(undefined);
+    const results = question.rows.map((row, index) => choices[index] === row.answer);
+    setChecked(results);
+    if (results.every(Boolean)) onSolved(wrongCount === 0);
+    else setWrongCount(wrongCount + 1);
+  }
+
+  return (
+    <form onSubmit={submit}>
+      {question.prompt ? <Prompt>{question.prompt}</Prompt> : null}
+      {question.illustration ? <div className="my-4">{question.illustration}</div> : null}
+      <div className="space-y-3">
+        {question.rows.map((row, index) => {
+          const shown = solved ? row.answer : choices[index];
+          const status = solved ? true : checked[index];
+          return (
+            <div
+              key={index}
+              role="group"
+              aria-label={`${row.left} so với ${row.right}`}
+              className="flex flex-wrap items-center gap-x-3 gap-y-2 text-2xl font-bold tabular-nums"
+            >
+              <span>{row.left}</span>
+              <span className="flex gap-1.5">
+                {SIGNS.map(({ sign, label }) => (
+                  <button
+                    key={sign}
+                    type="button"
+                    aria-label={label}
+                    aria-pressed={shown === sign}
+                    disabled={solved}
+                    onClick={() => {
+                      setChoices(Object.assign([], choices, { [index]: sign }));
+                      setChecked(Object.assign([], checked, { [index]: undefined }));
+                    }}
+                    className={cn(
+                      "size-13 rounded-xl border-[3px] bg-white text-2xl font-extrabold disabled:opacity-100",
+                      shown !== sign && "border-input",
+                      shown === sign && status === undefined && "border-ink bg-secondary",
+                      shown === sign && status === true && "border-good bg-good-soft text-good",
+                      shown === sign && status === false && "border-oops bg-oops-soft text-oops",
+                    )}
+                  >
+                    {sign}
+                  </button>
+                ))}
+              </span>
+              <span>{row.right}</span>
+            </div>
+          );
+        })}
+      </div>
+      {solved ? null : (
+        <ActionButton type="submit" className="mt-4 w-full sm:w-auto">
+          Kiểm tra
+        </ActionButton>
+      )}
+      <Feedback question={question} solved={solved} wrongCount={wrongCount} notice={notice} />
+    </form>
+  );
+}
+
 export function QuestionBody({ question, solved, onSolved }: QuestionProps<Question>) {
   switch (question.kind) {
     case "dien-so":
@@ -218,6 +299,8 @@ export function QuestionBody({ question, solved, onSolved }: QuestionProps<Quest
       return <Choice question={question} solved={solved} onSolved={onSolved} />;
     case "noi-cap":
       return <Match question={question} solved={solved} onSolved={onSolved} />;
+    case "so-sanh":
+      return <Compare question={question} solved={solved} onSolved={onSolved} />;
     case "dat-tinh":
       return <DatTinhForm question={question} solved={solved} onSolved={onSolved} />;
   }
