@@ -1,0 +1,75 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BangHang } from "./_animations/bang-hang";
+import { LamTron } from "./_animations/lam-tron";
+import { SoSanh } from "./_animations/so-sanh";
+import { TiaSo } from "./_animations/tia-so";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Trước khi vào bài, con làm nhanh vài câu để nhớ lại nhé.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+Năm lớp 3, con đã học các số đến 100 000. Hôm nay mình nhắc lại nhanh: cách đọc, viết, so sánh và làm tròn những số này.
+
+## Hàng, đọc số và viết số
+
+<BangHang value={36515} reading="ba mươi sáu nghìn năm trăm mười lăm" />
+
+<KeyFact equation="36 515 = 30 000 + 6 000 + 500 + 10 + 5">
+  Mỗi chữ số có một hàng. **Hàng nào không có chữ số thì ghi 0.** Đọc số từ trái sang phải, đọc hết phần nghìn rồi mới đọc phần còn lại.
+</KeyFact>
+
+Khi có chữ số 0, con để ý cách đọc nhé.
+
+<BangHang value={20809} reading="hai mươi nghìn tám trăm linh chín" />
+
+<KeyFact equation="20 809: tám trăm linh chín">
+  Hàng chục là 0 và hàng đơn vị khác 0 thì đọc “**linh**”. Hàng trăm là 0 thì đọc “**không trăm**”, như 61 034 đọc là sáu mươi mốt nghìn không trăm ba mươi tư.
+</KeyFact>
+
+<QuickCheck question={quickChecks.viet} />
+
+<QuickCheck question={quickChecks.giaTri} />
+
+## Phân tích số thành tổng
+
+Giá trị của chữ số phụ thuộc vào hàng của nó. Viết số thành tổng của các giá trị này.
+
+<KeyFact equation="20 809 = 20 000 + 800 + 9">
+  Hàng có chữ số 0 thì **không có số hạng** trong tổng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.phanTich} />
+
+## Tia số, số liền trước và số liền sau
+
+<TiaSo />
+
+<KeyFact equation="liền trước + 1 = số đã cho = liền sau − 1">
+  Số liền sau hơn số đã cho 1 đơn vị. Số liền trước kém 1 đơn vị. Số liền sau của 99 999 là **100 000**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lienTruoc} />
+
+## So sánh các số
+
+<SoSanh />
+
+<KeyFact equation="Nhiều chữ số hơn thì lớn hơn">
+  Hai số có **cùng số chữ số** thì so từ **trái sang phải**, bắt đầu từ hàng cao nhất. Gặp chữ số khác nhau đầu tiên thì dừng: chữ số nào lớn hơn thì số đó lớn hơn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soSanh} />
+
+## Làm tròn đến hàng nghìn
+
+<LamTron />
+
+<KeyFact equation="Hàng trăm ≥ 5: làm tròn lên">
+  Làm tròn đến hàng nghìn: **nhìn chữ số hàng trăm**. Từ 5 trở lên thì làm tròn lên, bé hơn 5 thì giữ nguyên hàng nghìn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lamTron} />

@@ -2,7 +2,7 @@
 
 - SGK: Toán 4 KNTT, tập một, trang 6-8, Chủ đề 1 "Ôn tập và bổ sung".
 - Route: `/kntt-4/bai-1`
-- Trạng thái: chờ duyệt
+- Trạng thái: đã viết nội dung
 
 ## Đánh giá
 
@@ -157,8 +157,8 @@ Nhóm theo phần SGK. Số liệu đổi so với SGK; đáp án in đậm.
 
 | Id | Dạng | Câu | Đáp án |
 |---|---|---|---|
-| C1 | dien-so + illustration | Tia số bước nhảy 1: 24 391, 24 392, 24 393, ①, 24 395, ②, ③, 24 398 | **24 394, 24 396, 24 397** |
-| C2 | dien-so + illustration | Tia số: 20 000, 30 000, ①, 50 000, ②, ③, 80 000, ④ | **40 000, 60 000, 70 000, 90 000** |
+| C1 | dien-so + illustration | Tia số 7 vạch, bước nhảy 1: 24 391, 24 392, ①, 24 394, ②, ③, 24 397 | **24 393, 24 395, 24 396** |
+| C2 | dien-so + illustration | Tia số 7 vạch, bước nhảy 10 000: 20 000, 30 000, ①, 50 000, ②, ③, 80 000 | **40 000, 60 000, 70 000** |
 | C3 | dien-so | Số liền trước và liền sau của 63 280 | **63 279; 63 281** |
 | C4 | dien-so | Số liền trước và liền sau của 70 000 | **69 999; 70 001** |
 | C5 | dien-so | Số liền trước và liền sau của 99 999 | **99 998; 100 000** |
@@ -184,7 +184,7 @@ E1, E2, E3 ở mục "Tư duy" trên. E1 dùng hình que tính SVG (`_illustrati
 
 ## Kỹ thuật
 
-- Dạng `so-sanh` mới (câu D1): một câu có nhiều hàng, mỗi hàng chọn một trong `>`, `<`, `=` bằng ba nút lớn; dữ liệu `rows: { left, right, answer }[]` (xem câu hỏi 1). Có test cho renderer và test đáp án tính lại bằng phép tính.
+- Dạng `so-sanh` mới (câu D1): một câu có nhiều hàng, mỗi hàng chọn một trong `>`, `<`, `=` bằng ba nút lớn; dữ liệu `rows: { left, right, answer }[]` (đã duyệt). Có test cho renderer và test đáp án tính lại bằng phép tính.
 - Animation riêng trong `_animations/`: `BangHang` (bảng 5 hàng, không lớp, để không lẫn với `BangHangLop` của Bài 11, 33-37), `TiaSo`, `SoSanh`, `LamTron`. `BangHang` và `TiaSo` có thể chuyển lên `components/math/` khi Bài 10-14 dùng lại.
 - `lib/lessons.ts`: đặt `available` của Bài 1 thành `true`.
 - Không cần thư viện đơn vị, token màu hay đơn vị `KeyFact` mới. `KeyFact` dùng không `unit`.
