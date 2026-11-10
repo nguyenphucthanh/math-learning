@@ -2,6 +2,7 @@ import { lessonNeighbors, type Lesson } from "@/lib/lessons";
 import { ArrowLeft, ArrowRight, Pencil } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { DraftPaper } from "./draft-paper";
 import { Fold } from "./fold";
 import { SectionNav } from "./section-nav";
 
@@ -78,6 +79,8 @@ export function LessonPage({
           ) : null}
         </nav>
       </main>
+
+      <DraftPaper />
     </>
   );
 }
