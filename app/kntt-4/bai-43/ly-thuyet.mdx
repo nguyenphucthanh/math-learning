@@ -1,0 +1,61 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { NhanHaiChuSo } from "./_animations/nhan-hai-chu-so";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại nhân với một chữ số, nhân với 10 và cách tách một số thành tổng. Rồi con học nhân với số có hai chữ số.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Tách số 12
+
+Mỗi ô tô chở 34 học sinh. 12 ô tô như thế chở bao nhiêu học sinh? Ta tính **34 × 12**.
+
+Con tách 12 = 10 + 2, rồi nhân 34 với từng số:
+
+- 34 × 12 = 34 × (10 + 2)
+- = 34 × 10 + 34 × 2
+- = 340 + 68
+- = **408**
+
+<KeyFact equation="34 × 12 = 34 × 10 + 34 × 2">
+  Nhân với 12 là nhân với **10** và nhân với **2**, rồi cộng hai kết quả lại.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tong} />
+
+## 2. Đặt tính
+
+Cách tách vừa rồi chính là cách đặt tính. Con bấm từng bước và chú ý tích riêng thứ hai **lùi sang trái một cột**.
+
+<NhanHaiChuSo a={34} b={12} />
+
+<KeyFact equation="34 × 12 = 68 + 340 = 408">
+  **68** là tích riêng thứ nhất (68 đơn vị). **34** là tích riêng thứ hai (34 chục, hay 340). Viết tích riêng thứ hai **lùi sang trái một cột**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.lui} />
+
+## 3. Có nhớ
+
+Số lớn hơn thì mỗi tích riêng có thể có nhớ, như khi nhân với một chữ số.
+
+<NhanHaiChuSo a={134} b={32} />
+
+<KeyFact equation="134 × 32 = 268 + 4 020 = 4 288">
+  Mỗi tích riêng tính như nhân với một chữ số. Tích riêng thứ hai (402 chục) vẫn viết **lùi sang trái một cột**.
+</KeyFact>
+
+## 4. Nhân với số tròn chục
+
+Khi số nhân là 30, 40, 60,... con tách thành số chục nhân 10: 24 × 30 = (24 × 3) × 10 = 72 × 10 = **720**.
+
+Với 130 × 20: 130 × 20 = (13 × 2) × 100 = 26 × 100 = **2 600**.
+
+<KeyFact equation="24 × 30 = (24 × 3) × 10">
+  Nhân với số chục trước, rồi viết thêm các chữ số 0 ở cuối.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.tronChuc} />
