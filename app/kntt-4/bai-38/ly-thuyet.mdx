@@ -1,0 +1,53 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { NhanDatTinh } from "@/components/math/nhan-dat-tinh";
+import { SoDoLan } from "@/components/math/so-do-lan";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại bảng nhân, nhân có nhớ và cách đọc số sáu chữ số. Rồi con học nhân số lớn hơn với số có một chữ số.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Vì sao nhân?
+
+Mỗi ngày nhà máy làm 160 140 chiếc khẩu trang. Sau 7 ngày, số khẩu trang là 7 lần của 160 140. Nhiều lần như nhau thì ta **nhân**.
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <SoDoLan smallName="Một ngày" bigName="7 ngày" smallText="160 140 chiếc" bigText="? chiếc" times={7} />
+</figure>
+
+<KeyFact equation="7 ngày, mỗi ngày 160 140: 160 140 × 7">
+  Mỗi phần bằng nhau, có **nhiều phần**: ta nhân số ở một phần với số phần.
+</KeyFact>
+
+<QuickCheck question={quickChecks.ngay} />
+
+## 2. Đặt tính từng cột
+
+Con bấm từng bước. Chú ý lời đọc của mỗi cột.
+
+<NhanDatTinh a={160140} b={7} />
+
+<KeyFact equation="160 140 × 7 = 1 120 980">
+  Nhân từng chữ số, từ **phải sang trái**, nhớ sang hàng bên trái. Đến chữ số cuối cùng, ta viết **cả số**: 7 nhân 1 bằng 7, thêm 4 bằng 11, viết 11.
+</KeyFact>
+
+Con kiểm tra lại bằng cách tách: 160 140 = 160 000 + 140.
+
+- 160 000 × 7 = 1 120 000 (160 nghìn × 7 = 1 120 nghìn).
+- 140 × 7 = 980.
+- 1 120 000 + 980 = **1 120 980**. Khớp với phép đặt tính.
+
+## 3. Chữ số 0 và số nhớ
+
+Chữ số 0 vẫn phải nhân. 0 nhân số nào cũng bằng 0, nhưng nếu hàng bên phải có **nhớ** thì con phải cộng số nhớ vào.
+
+<NhanDatTinh a={30708} b={4} />
+
+<KeyFact equation="Chữ số 0 vẫn phải cộng số nhớ">
+  Ở hàng chục, 0 × 4 = 0, thêm số nhớ 3 bằng **3**. Không được viết 0 rồi bỏ số nhớ.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chuSoKhong} />

@@ -5,7 +5,7 @@ import { explainColumnDiv } from "@/lib/column-div";
 import { explainColumnMul } from "@/lib/column-mul";
 import { explainColumnSub } from "@/lib/column-sub";
 import { createElement } from "react";
-import { SoDoLan } from "./_illustrations/so-do-lan";
+import { SoDoLan } from "@/components/math/so-do-lan";
 
 const n = formatNumber;
 

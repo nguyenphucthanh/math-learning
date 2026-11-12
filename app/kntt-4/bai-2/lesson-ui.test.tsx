@@ -5,7 +5,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { ChiaDatTinh, chiaCaptions } from "./_animations/chia-dat-tinh";
-import { NhanDatTinh, nhanCaptions } from "./_animations/nhan-dat-tinh";
+import { NhanDatTinh, nhanCaptions } from "@/components/math/nhan-dat-tinh";
 import { exerciseGroups } from "./bai-tap";
 
 beforeAll(() => {
@@ -30,7 +30,7 @@ describe("nhân đặt tính", () => {
     render(<NhanDatTinh a={2807} b={6} />);
     expect(screen.getByRole("img").getAttribute("aria-label")).toContain("chưa nhân");
     const steps = nhanCaptions(2807, 6).length;
-    expect(steps).toBe(6);
+    expect(steps).toBe(5);
     const user = await clickThrough(steps - 1);
     const label = screen.getByRole("img").getAttribute("aria-label")!;
     expect(label).toContain("16842");
