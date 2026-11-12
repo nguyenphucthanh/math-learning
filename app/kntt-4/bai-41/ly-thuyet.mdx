@@ -1,0 +1,44 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ThemSoKhong } from "./_animations/them-so-0";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại hàng của số. Rồi con khám phá cách nhân, chia nhẩm với 10, 100, 1 000.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Nhân với 10: 1 chục × 36
+
+Có 10 dây cờ, mỗi dây có 36 lá cờ. Ta tính 36 × 10. Đổi chỗ: 36 × 10 = 10 × 36. Nhẩm: 1 chục × 36 = 36 chục = 360.
+
+Con bấm từng bước, xem các chữ số dời sang trái trong bảng hàng.
+
+<ThemSoKhong />
+
+<KeyFact equation="36 × 10 = 360">
+  Khi **nhân** một số tự nhiên với 10, 100, 1 000,... ta **viết thêm** một, hai, ba,... chữ số 0 vào **bên phải** số đó.
+</KeyFact>
+
+Ví dụ: 36 × 100 = 3 600 và 36 × 1 000 = 36 000.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhan} />
+
+## 2. Chia cho 10, 100, 1 000
+
+Chia là phép tính ngược của nhân. Từ 36 × 10 = 360 ta có 360 : 10 = 36. Từ 36 × 100 = 3 600 ta có 3 600 : 100 = 36.
+
+<KeyFact equation="3 600 : 100 = 36">
+  Khi **chia** số tròn chục, tròn trăm, tròn nghìn,... cho 10, 100, 1 000,... ta **bỏ bớt đi** một, hai, ba,... chữ số 0 ở **bên phải** số đó.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chia} />
+
+## 3. Nhớ cách suy ngược
+
+Biết một phép nhân thì suy ra được phép chia. Con đoán xem sao.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.suyNguoc} />
+
+Chú ý: nhân với 100 thì viết thêm **hai** chữ số 0, không phải một. Đếm số chữ số 0 của 10, 100, 1 000 trước khi viết.
