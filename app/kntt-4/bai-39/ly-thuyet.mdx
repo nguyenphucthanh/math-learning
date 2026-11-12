@@ -1,0 +1,56 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChiaDatTinh } from "./_animations/chia-dat-tinh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại bảng chia, phép chia có dư và chữ số 0 ở thương. Rồi con học chia số lớn cho số có một chữ số.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Vì sao chia?
+
+Trong tổ kiến có 125 730 kiến thợ. Cứ 5 kiến thợ khênh được một hạt gạo. Muốn biết cả tổ khênh được bao nhiêu hạt gạo, ta chia 125 730 cho 5. Chia đều thành các nhóm bằng nhau thì ta **chia**.
+
+<KeyFact equation="125 730 : 5 = ?">
+  Chia một số thành các nhóm bằng nhau: ta **chia**. Phép chia hết thì không dư; không chia hết thì còn **số dư**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chiaDeu} />
+
+## 2. Đặt tính: hạ từng chữ số
+
+Con bấm từng bước. Chú ý chữ số được **hạ** xuống ở mỗi bước.
+
+<ChiaDatTinh a={125730} divisor={5} />
+
+<KeyFact equation="125 730 : 5 = 25 146">
+  Chia từ **hàng cao nhất** sang phải. Mỗi lần chia xong, hạ một chữ số xuống rồi chia tiếp.
+</KeyFact>
+
+Con thử lại bằng phép nhân: 25 146 × 5 = 125 730. Khớp với số bị chia.
+
+## 3. Phép chia có dư
+
+Đổi chữ số cuối thành 4, ta có 125 734 : 5. Các bước đầu giống hệt, chỉ khác bước cuối.
+
+<ChiaDatTinh a={125734} divisor={5} />
+
+<KeyFact equation="125 734 : 5 = 25 146 (dư 4)">
+  Số dư luôn **bé hơn** số chia. Thử lại: thương nhân số chia, rồi cộng số dư: 25 146 × 5 + 4 = 125 734.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.du} />
+
+## 4. Chưa chia được thì viết 0
+
+Có lúc số vừa hạ xuống còn bé hơn số chia, như 0 hoặc 5 khi chia cho 6. Khi đó thương viết **0**, rồi hạ chữ số tiếp theo.
+
+<ChiaDatTinh a={36054} divisor={6} />
+
+<KeyFact equation="Chưa chia được: viết 0 ở thương">
+  Mỗi chữ số hạ xuống thì thương có thêm một chữ số, kể cả 0. Thương 6 009, không phải 69.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chuSoKhong} />

@@ -1,18 +1,20 @@
 "use client";
 
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
-import { CELL, columnCenter, signCenter, VIEW_WIDTH } from "@/components/math/column-layout";
+import { CELL, columnCenter, signCenter, viewWidth } from "@/components/math/column-layout";
 import { formatNumber } from "@/lib/area-units";
 import { digitsOf } from "@/lib/column-add";
 import { columnMul, readMulColumn } from "@/lib/column-mul";
 import { useRef, useState } from "react";
 
 export function nhanCaptions(a: number, b: number): string[] {
-  const columns = columnMul(a, b);
+  const digitColumns = columnMul(a, b).filter((column) => column.digit !== null);
   return [
     `Đặt tính: hàng đơn vị thẳng hàng đơn vị. Con nhân ${b} lần lượt với từng chữ số của ${formatNumber(a)}, từ phải sang trái.`,
-    ...columns.map((column, index) =>
-      index === columns.length - 1 ? `${readMulColumn(column, b)}. Vậy ${formatNumber(a)} × ${b} = ${formatNumber(a * b)}.` : `${readMulColumn(column, b)}.`,
+    ...digitColumns.map((column, index) =>
+      index === digitColumns.length - 1
+        ? `${readMulColumn(column, b, true)}. Vậy ${formatNumber(a)} × ${b} = ${formatNumber(a * b)}.`
+        : `${readMulColumn(column, b)}.`,
     ),
   ];
 }
@@ -25,16 +27,20 @@ export function NhanDatTinh({ a, b }: { a: number; b: number }) {
 
   const columns = columnMul(a, b);
   const size = columns.length;
+  const digitCount = digitsOf(a).length;
+  const width = viewWidth(size);
+  /** Cột số nhớ cuối hiện cùng bước với cột chữ số cuối, vì SGK viết cả hai chữ số một lần. */
+  const stepOf = (position: number) => Math.min(position + 1, digitCount);
   const captions = nhanCaptions(a, b);
   const index = (position: number) => size - 1 - position;
   const topDigits = digitsOf(a);
-  const done = columns.filter((column) => step >= column.position + 1);
+  const done = columns.filter((column) => step >= stepOf(column.position));
   const finished = step === captions.length - 1;
   const partial = done
     .map((column) => column.write)
     .reverse()
     .join("");
-  const current = columns.find((column) => column.position + 1 === step);
+  const current = columns.find((column) => column.digit !== null && column.position + 1 === step);
 
   const carryY = 76;
   const topY = 116;
@@ -45,14 +51,14 @@ export function NhanDatTinh({ a, b }: { a: number; b: number }) {
   return (
     <figure ref={scope} className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
       <svg
-        viewBox={`0 0 ${VIEW_WIDTH} 262`}
+        viewBox={`0 0 ${width} 262`}
         role="img"
         aria-label={`Phép nhân ${formatNumber(a)} × ${b}. ${partial ? `Đã nhân ${done.length} cột, kết quả đến lúc này ${partial}.` : "Đã đặt tính, chưa nhân."}`}
         className="block w-full"
         fontWeight={800}
         textAnchor="middle"
       >
-        <text x={VIEW_WIDTH / 2} y={30} fontSize={22} fill="var(--ink)">
+        <text x={width / 2} y={30} fontSize={22} fill="var(--ink)">
           {formatNumber(a)} × {b} = {finished ? formatNumber(a * b) : "?"}
         </text>
 
@@ -81,10 +87,10 @@ export function NhanDatTinh({ a, b }: { a: number; b: number }) {
         <text x={columnCenter(size - 1, size)} y={bottomY + 10} fontSize={30} fill="var(--ink)">
           {b}
         </text>
-        <rect x={signCenter(size) - CELL / 2 + 4} y={lineY} width={VIEW_WIDTH - 2 * (signCenter(size) - CELL / 2 + 4)} height={3} rx={1.5} fill="var(--ink)" />
+        <rect x={signCenter(size) - CELL / 2 + 4} y={lineY} width={width - 2 * (signCenter(size) - CELL / 2 + 4)} height={3} rx={1.5} fill="var(--ink)" />
 
         {columns.map((column) =>
-          column.digit !== null && column.carryOut > 0 && step >= column.position + 1 ? (
+          column.digit !== null && column.position < digitCount - 1 && column.carryOut > 0 && step >= column.position + 1 ? (
             <g key={`carry-${column.position}`} data-enter={column.position + 1} data-scale={0.3}>
               <circle cx={columnCenter(index(column.position + 1), size)} cy={carryY} r={13} fill="var(--sun)" />
               <text x={columnCenter(index(column.position + 1), size)} y={carryY + 6} fontSize={18} fill="var(--ink)">
@@ -98,7 +104,7 @@ export function NhanDatTinh({ a, b }: { a: number; b: number }) {
           <text
             key={`write-${column.position}`}
             data-testid={`write-${column.position}`}
-            data-enter={column.position + 1}
+            data-enter={stepOf(column.position)}
             x={columnCenter(index(column.position), size)}
             y={resultY + 10}
             fontSize={30}

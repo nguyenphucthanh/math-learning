@@ -13,9 +13,14 @@ function gridWidth(columns: number): number {
   return CELL * (columns + 1) + GAP * gaps;
 }
 
+/** Bề rộng viewBox: 340, hoặc rộng hơn khi có từ 7 cột (số 7 chữ số) để không bị cắt. */
+export function viewWidth(columns: number): number {
+  return Math.max(VIEW_WIDTH, gridWidth(columns) + 24);
+}
+
 /** Tâm ngang của cột thứ `index` tính từ bên trái (0 là cột hàng cao nhất). */
 export function columnCenter(index: number, columns: number): number {
-  const start = (VIEW_WIDTH - gridWidth(columns)) / 2;
+  const start = (viewWidth(columns) - gridWidth(columns)) / 2;
   let x = start + CELL;
   for (let i = 0; i <= index; i++) {
     if (hasGap(i, columns)) x += GAP;
@@ -26,7 +31,7 @@ export function columnCenter(index: number, columns: number): number {
 
 /** Tâm ngang của cột dấu phép tính. */
 export function signCenter(columns: number): number {
-  return Math.round((VIEW_WIDTH - gridWidth(columns)) / 2 + CELL / 2);
+  return Math.round((viewWidth(columns) - gridWidth(columns)) / 2 + CELL / 2);
 }
 
 export const PLACE_LABELS: Record<number, [string, string]> = {

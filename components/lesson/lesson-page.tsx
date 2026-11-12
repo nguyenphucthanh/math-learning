@@ -36,7 +36,7 @@ export function LessonPage({
             {lesson.title}
           </h1>
           <div className="mt-4 border-t-2 border-dotted border-input pt-3 text-base text-muted-foreground">
-            Sách Kết nối tri thức, trang {lesson.page}
+            Sách Kết nối tri thức, tập {lesson.volume === 2 ? "hai" : "một"}, trang {lesson.page}
           </div>
         </div>
       </header>

@@ -43,11 +43,11 @@ components/
   math/                 # PhanSo, DatTinh, TiaSo...
   ui/                   # shadcn, không sửa trừ khi cần thiết
 hooks/use-lesson-progress.ts
-lib/lessons.ts          # registry: số bài, tên, chủ đề, tập
+lib/lessons.ts          # registry: số bài, tên, chủ đề; tập một `kntt4Topics`, tập hai `kntt4Tap2Topics`, gộp ở `allLessons`
 ```
 
 - Layout không nhận dữ liệu từ page và không re-render khi chuyển bài. `layout.tsx` chỉ giữ khung chung; thứ tự các phần của bài do `<LessonPage>` đảm nhận.
-- Bài mới phải được thêm vào `lib/lessons.ts`. Registry là nguồn duy nhất cho mục lục và điều hướng trước/sau.
+- Tập hai nằm cùng `app/kntt-4/` (số bài nối tiếp tập một: Bài 38-73, `page` là trang trong tập hai). Bài mới phải được thêm vào `lib/lessons.ts`. Registry là nguồn duy nhất cho mục lục và điều hướng trước/sau.
 - Component dùng từ 2 bài trở lên thì chuyển từ `_animations/` hoặc folder bài lên `components/`.
 - Chưa dùng KaTeX. Biểu diễn toán bằng component trong `components/math/`, đặc biệt là đặt tính theo cột và phân số.
 

@@ -11,6 +11,13 @@ describe("columnMul", () => {
     expect(readMulColumn(columns[0], 6)).toBe("7 nhân 6 bằng 42, viết 2 nhớ 4");
     expect(readMulColumn(columns[1], 6)).toBe("0 nhân 6 bằng 0, thêm 4 bằng 4, viết 4");
     expect(readMulColumn(columns[4], 6)).toBe("Hạ số nhớ 1, viết 1");
+    expect(readMulColumn(columns[3], 6, true)).toBe("2 nhân 6 bằng 12, thêm 4 bằng 16, viết 16");
+  });
+
+  it("160 140 × 7: cột cuối đọc như SGK", () => {
+    const columns = columnMul(160140, 7);
+    expect(columns.map((column) => column.write).reverse().join("")).toBe("1120980");
+    expect(readMulColumn(columns[5], 7, true)).toBe("1 nhân 7 bằng 7, thêm 4 bằng 11, viết 11");
   });
 
   it("kết quả đúng với mọi cặp trong khoảng", () => {

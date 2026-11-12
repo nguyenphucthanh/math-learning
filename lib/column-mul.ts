@@ -31,10 +31,13 @@ export function columnMul(a: number, b: number): MulColumn[] {
   return columns;
 }
 
-/** Lời đọc một cột theo mẫu SGK: "8 nhân 6 bằng 48, thêm 4 bằng 52, viết 2 nhớ 5". */
-export function readMulColumn(column: MulColumn, b: number): string {
+/**
+ * Lời đọc một cột theo mẫu SGK: "8 nhân 6 bằng 48, thêm 4 bằng 52, viết 2 nhớ 5".
+ * Cột chữ số cuối cùng (`last`) viết cả số, như SGK: "7 nhân 1 bằng 7, thêm 4 bằng 11, viết 11".
+ */
+export function readMulColumn(column: MulColumn, b: number, last = false): string {
   if (column.digit === null) return `Hạ số nhớ ${column.carryIn}, viết ${column.write}`;
-  const ending = `viết ${column.write}${column.carryOut ? ` nhớ ${column.carryOut}` : ""}`;
+  const ending = last ? `viết ${column.total}` : `viết ${column.write}${column.carryOut ? ` nhớ ${column.carryOut}` : ""}`;
   const product = column.digit * b;
   return column.carryIn
     ? `${column.digit} nhân ${b} bằng ${product}, thêm ${column.carryIn} bằng ${column.total}, ${ending}`

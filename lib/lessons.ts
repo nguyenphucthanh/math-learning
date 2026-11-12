@@ -6,6 +6,8 @@ export type Lesson = {
   page: number;
   /** True once the lesson's route exists. */
   available: boolean;
+  /** Tập sách: 1 hoặc 2. Số bài nối tiếp giữa hai tập. */
+  volume: 1 | 2;
 };
 
 export type Topic = {
@@ -14,8 +16,13 @@ export type Topic = {
   lessons: Lesson[];
 };
 
-function lesson(number: number, title: string, page: number, available = false): Lesson {
-  return { number, slug: `bai-${number}`, title, page, available };
+function lesson(number: number, title: string, page: number, available = false, volume: 1 | 2 = 1): Lesson {
+  return { number, slug: `bai-${number}`, title, page, available, volume };
+}
+
+/** Bài của tập hai; `page` là số trang trong tập hai. */
+function lesson2(number: number, title: string, page: number, available = false): Lesson {
+  return lesson(number, title, page, available, 2);
 }
 
 export type Course = {
@@ -34,6 +41,13 @@ export const courses: Course[] = [
     title: "Toán 4, tập một",
     subtitle: "Kết nối tri thức với cuộc sống",
     description: "Học kì 1 · 7 chủ đề · 37 bài",
+    available: true,
+  },
+  {
+    href: "/kntt-4#tap-hai",
+    title: "Toán 4, tập hai",
+    subtitle: "Kết nối tri thức với cuộc sống",
+    description: "Học kì 2 · 6 chủ đề · 36 bài",
     available: true,
   },
 ];
@@ -121,9 +135,88 @@ export const kntt4Topics: Topic[] = [
   },
 ];
 
+/** Toán 4 Kết nối tri thức, tập hai (học kì 2). Số bài nối tiếp tập một. */
+export const kntt4Tap2Topics: Topic[] = [
+  {
+    number: 8,
+    title: "Phép nhân và phép chia",
+    lessons: [
+      lesson2(38, "Nhân với số có một chữ số", 4, true),
+      lesson2(39, "Chia cho số có một chữ số", 6, true),
+      lesson2(40, "Tính chất giao hoán và kết hợp của phép nhân", 9),
+      lesson2(41, "Nhân, chia với 10, 100, 1 000,...", 14),
+      lesson2(42, "Tính chất phân phối của phép nhân đối với phép cộng", 17),
+      lesson2(43, "Nhân với số có hai chữ số", 20),
+      lesson2(44, "Chia cho số có hai chữ số", 23),
+      lesson2(45, "Thực hành và trải nghiệm ước lượng trong tính toán", 27),
+      lesson2(46, "Tìm số trung bình cộng", 29),
+      lesson2(47, "Bài toán liên quan đến rút về đơn vị", 31),
+      lesson2(48, "Luyện tập chung", 33),
+    ],
+  },
+  {
+    number: 9,
+    title: "Làm quen với yếu tố thống kê, xác suất",
+    lessons: [
+      lesson2(49, "Dãy số liệu thống kê", 36),
+      lesson2(50, "Biểu đồ cột", 39),
+      lesson2(51, "Số lần xuất hiện của một sự kiện", 43),
+      lesson2(52, "Luyện tập chung", 47),
+    ],
+  },
+  {
+    number: 10,
+    title: "Phân số",
+    lessons: [
+      lesson2(53, "Khái niệm phân số", 49),
+      lesson2(54, "Phân số và phép chia số tự nhiên", 52),
+      lesson2(55, "Tính chất cơ bản của phân số", 56),
+      lesson2(56, "Rút gọn phân số", 59),
+      lesson2(57, "Quy đồng mẫu số các phân số", 62),
+      lesson2(58, "So sánh phân số", 64),
+      lesson2(59, "Luyện tập chung", 69),
+    ],
+  },
+  {
+    number: 11,
+    title: "Phép cộng, phép trừ phân số",
+    lessons: [
+      lesson2(60, "Phép cộng phân số", 74),
+      lesson2(61, "Phép trừ phân số", 80),
+      lesson2(62, "Luyện tập chung", 83),
+    ],
+  },
+  {
+    number: 12,
+    title: "Phép nhân, phép chia phân số",
+    lessons: [
+      lesson2(63, "Phép nhân phân số", 86),
+      lesson2(64, "Phép chia phân số", 91),
+      lesson2(65, "Tìm phân số của một số", 95),
+      lesson2(66, "Luyện tập chung", 98),
+    ],
+  },
+  {
+    number: 13,
+    title: "Ôn tập cuối năm",
+    lessons: [
+      lesson2(67, "Ôn tập số tự nhiên", 102),
+      lesson2(68, "Ôn tập phép tính với số tự nhiên", 105),
+      lesson2(69, "Ôn tập phân số", 107),
+      lesson2(70, "Ôn tập phép tính với phân số", 110),
+      lesson2(71, "Ôn tập hình học và đo lường", 112),
+      lesson2(72, "Ôn tập một số yếu tố thống kê và xác suất", 114),
+      lesson2(73, "Ôn tập chung", 116),
+    ],
+  },
+];
+
+/** Tất cả bài, theo thứ tự sách (tập một rồi tập hai). */
+export const allLessons: Lesson[] = [...kntt4Topics, ...kntt4Tap2Topics].flatMap((topic) => topic.lessons);
+
 /** Bài có sẵn liền trước và liền sau, bỏ qua các bài chưa làm. */
 export function lessonNeighbors(slug: string): { previous?: Lesson; next?: Lesson } {
-  const available = kntt4Topics.flatMap((topic) => topic.lessons).filter((item) => item.available);
+  const available = allLessons.filter((item) => item.available);
   const index = available.findIndex((item) => item.slug === slug);
   return { previous: available[index - 1], next: index < 0 ? undefined : available[index + 1] };
 }
