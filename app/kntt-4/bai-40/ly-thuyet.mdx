@@ -1,0 +1,51 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GiaoHoan } from "./_animations/giao-hoan";
+import { KetHop } from "./_animations/ket-hop";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại bảng nhân và cách nhân số tròn. Rồi con khám phá hai tính chất giúp nhân nhẩm nhanh hơn.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Đổi chỗ các thừa số
+
+Con bấm từng bước. Cùng một bảng mặt cười, ta đếm theo hai cách.
+
+<GiaoHoan />
+
+<KeyFact equation="a × b = b × a">
+  Khi **đổi chỗ** các thừa số trong một tích thì **tích không thay đổi**. Đây là **tính chất giao hoán** của phép nhân.
+</KeyFact>
+
+Con thử với số khác: 3 × 5 = 15 và 5 × 3 = 15. 4 × 6 = 24 và 6 × 4 = 24. 5 × 8 = 40 và 8 × 5 = 40.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.giaoHoan} />
+
+## 2. Nhóm các thừa số
+
+Khối hộp chữ nhật này xếp từ 24 khối lập phương nhỏ. Ta đếm theo hai cách nhóm khác nhau.
+
+<KetHop />
+
+<KeyFact equation="(a × b) × c = a × (b × c)">
+  Khi nhân một tích hai số với số thứ ba, ta có thể nhân số thứ nhất với tích của số thứ hai và số thứ ba. Đây là **tính chất kết hợp** của phép nhân.
+</KeyFact>
+
+Con thử với số khác: (5 × 4) × 2 = 20 × 2 = 40 và 5 × (4 × 2) = 5 × 8 = 40.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.ketHop} />
+
+## 3. Tính bằng hai cách
+
+Với tích ba thừa số, con tính theo hai cách như mẫu của sách.
+
+<KeyFact equation="4 × 3 × 2 = 24">
+  Cách 1: 4 × 3 × 2 = (4 × 3) × 2 = 12 × 2 = 24. Cách 2: 4 × 3 × 2 = 4 × (3 × 2) = 4 × 6 = 24. Cách nào cũng ra **24**.
+</KeyFact>
+
+Cách nào dễ nhẩm thì con chọn cách đó. Thường ta nhóm hai thừa số có tích **tròn chục, tròn trăm** trước, như 2 × 5 = 10, 4 × 25 = 100.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhomNham} />

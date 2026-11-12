@@ -143,7 +143,7 @@ export const kntt4Tap2Topics: Topic[] = [
     lessons: [
       lesson2(38, "Nhân với số có một chữ số", 4, true),
       lesson2(39, "Chia cho số có một chữ số", 6, true),
-      lesson2(40, "Tính chất giao hoán và kết hợp của phép nhân", 9),
+      lesson2(40, "Tính chất giao hoán và kết hợp của phép nhân", 9, true),
       lesson2(41, "Nhân, chia với 10, 100, 1 000,...", 14),
       lesson2(42, "Tính chất phân phối của phép nhân đối với phép cộng", 17),
       lesson2(43, "Nhân với số có hai chữ số", 20),
