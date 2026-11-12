@@ -1,0 +1,68 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { SanDeu } from "./_animations/san-deu";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại phép cộng nhiều số và phép chia. Rồi con học tìm số trung bình cộng.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chia đều cho hai số
+
+Hôm qua Mai tập thể dục 10 phút, hôm nay tập 50 phút. Nếu hai ngày tập **đều nhau** thì mỗi ngày tập mấy phút? Con bấm từng bước để xem hai cột được san đều.
+
+<SanDeu values={[10, 50]} />
+
+<KeyFact equation="(10 + 50) : 2 = 30">
+  **30** là **số trung bình cộng** của hai số 10 và 50.
+</KeyFact>
+
+## 2. Ba số
+
+Với ba số 13, 14 và 18, con cũng làm như vậy: cộng lại, rồi chia đều cho **3** cột.
+
+<SanDeu values={[13, 14, 18]} />
+
+<KeyFact equation="(13 + 14 + 18) : 3 = 15">
+  **15** là số trung bình cộng của ba số 13, 14 và 18.
+</KeyFact>
+
+<QuickCheck question={quickChecks.tinh} />
+
+## 3. Cách tìm
+
+Muốn tìm số trung bình cộng của nhiều số, ta **tính tổng** của các số đó, rồi **chia tổng** đó cho **số các số hạng**.
+
+<KeyFact equation="trung bình cộng = tổng : số các số hạng">
+  Có mấy số thì chia cho mấy. Con nhớ cộng hết các số rồi mới chia.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.soHang} />
+
+Số trung bình cộng luôn nằm **giữa** số bé nhất và số lớn nhất. Con dùng điều này để kiểm tra kết quả.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.giua} />
+
+## 4. Bài toán có nhóm
+
+Nhà bác Vân có 8 bao thóc tẻ nặng 400 kg và 4 bao thóc nếp nặng 224 kg. Trung bình mỗi bao nặng bao nhiêu?
+
+- Số bao: 8 + 4 = **12** bao (không phải 2 loại thóc).
+- Số ki-lô-gam: 400 + 224 = 624 kg.
+- Trung bình mỗi bao: 624 : 12 = **52** kg.
+
+<KeyFact equation="(400 + 224) : (8 + 4) = 52">
+  Chia tổng số ki-lô-gam cho **tổng số bao**.
+</KeyFact>
+
+## 5. Tìm một số khi biết số trung bình cộng
+
+Nếu biết trung bình cộng của 3 số là 10, thì tổng 3 số là 10 × 3 = 30. Đây là phép tính ngược của chia.
+
+<KeyFact equation="tổng = trung bình cộng × số các số hạng">
+  Biết tổng và các số khác, con tìm được số còn lại.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nguoc} />

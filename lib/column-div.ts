@@ -17,11 +17,11 @@ export type DivStep = {
 export type Division = { steps: DivStep[]; quotient: number; remainder: number };
 
 /**
- * Chia số nhiều chữ số cho số có một chữ số theo cột (chia viết). Bắt đầu từ nhóm chữ số đầu tiên
+ * Chia số nhiều chữ số cho số có một hoặc hai chữ số theo cột (chia viết). Bắt đầu từ nhóm chữ số đầu tiên
  * đủ lớn để chia được, rồi hạ từng chữ số xuống; bước nào chưa chia được thì thương viết 0.
  */
 export function columnDiv(a: number, divisor: number): Division {
-  if (!Number.isInteger(divisor) || divisor < 1 || divisor > 9) throw new Error("Số chia phải có một chữ số");
+  if (!Number.isInteger(divisor) || divisor < 1) throw new Error("Số chia phải là số nguyên dương");
   const digits = digitsOf(a).reverse();
   let start = 0;
   let current = digits[0];

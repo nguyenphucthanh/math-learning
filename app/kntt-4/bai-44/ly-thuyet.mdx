@@ -1,0 +1,76 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BoChuSo0 } from "./_animations/bo-chu-so-0";
+import { ChiaHaiChuSo } from "./_animations/chia-hai-chu-so";
+import { UocLuongThuong } from "./_animations/uoc-luong-thuong";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại chia cho số có một chữ số, nhân với số có hai chữ số và số dư. Rồi con học chia cho số có hai chữ số.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chia, nhân, trừ, hạ
+
+Xếp đều 216 khách du lịch lên 12 thuyền. Mỗi thuyền có bao nhiêu khách? Ta tính **216 : 12**. Con bấm từng bước và đọc theo lời sách.
+
+<ChiaHaiChuSo a={216} divisor={12} />
+
+<KeyFact equation="216 : 12 = 18">
+  Mỗi bước làm bốn việc: **chia**, **nhân**, **trừ**, rồi **hạ** chữ số tiếp theo xuống.
+</KeyFact>
+
+## 2. Ước lượng thương
+
+Khi chia cho số có hai chữ số, khó nhất là đoán thương. Con làm tròn số chia đến chục để ước lượng, rồi thử. Thương đúng khi số dư **bé hơn số chia**.
+
+<UocLuongThuong current={96} divisor={12} tries={[9, 8]} />
+
+Có khi thương thử lại quá bé:
+
+<UocLuongThuong current={38} divisor={18} tries={[1, 2]} />
+
+<KeyFact equation="số dư < số chia">
+  Thương **quá lớn** thì tích lớn hơn số đang chia. Thương **quá bé** thì số dư không bé hơn số chia. Cả hai trường hợp con đều thử lại.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.uocLuong} />
+
+## 3. Phép chia có dư
+
+Xếp 218 áo phao, mỗi thuyền 18 áo phao. Xếp được nhiều nhất bao nhiêu thuyền và còn thừa mấy áo phao?
+
+<ChiaHaiChuSo a={218} divisor={18} />
+
+<KeyFact equation="218 : 18 = 12 (dư 2)">
+  Số dư luôn **bé hơn số chia**. Ở đây dư 2, bé hơn 18.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.du} />
+
+## 4. Thương có chữ số 0
+
+Có bước hạ xuống mà chưa chia được: số đó chia cho số chia được **0**. Con phải viết 0 ở thương rồi mới hạ tiếp.
+
+<ChiaHaiChuSo a={4896} divisor={12} />
+
+<KeyFact equation="4 896 : 12 = 408">
+  Hạ 9, 9 chia 12 được 0, viết **0**. Quên viết 0 thì thương thành 48, sai.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.thuongKhong} />
+
+## 5. Chia nhẩm: cùng xoá chữ số 0
+
+Khi số bị chia và số chia cùng tận cùng bằng chữ số 0, con **cùng xoá** số chữ số 0 bằng nhau ở cả hai số rồi chia.
+
+<BoChuSo0 a={450} b={90} zeros={1} />
+
+<BoChuSo0 a={45000} b={900} zeros={2} />
+
+<KeyFact equation="45 000 : 900 = 450 : 9 = 50">
+  Xoá **cùng số** chữ số 0 ở **cả hai** số. Xoá ở một số thôi thì kết quả sai.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nham} />

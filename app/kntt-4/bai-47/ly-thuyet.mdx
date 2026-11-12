@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { RutVeChia, RutVeNhan } from "./_animations/rut-ve-don-vi";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu chia và nhân. Rồi con học cách giải bài toán bằng cách **rút về đơn vị**: tìm giá trị của **một** đơn vị trước.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Tìm một hộp, rồi nhân
+
+Có 36 cái bánh xếp đều vào 6 hộp. Hỏi 4 hộp có bao nhiêu cái bánh?
+
+Tóm tắt: 6 hộp: 36 cái bánh; 4 hộp: ... cái bánh?
+
+Trước tiên con tìm số bánh trong **1 hộp**. Rồi mới tìm số bánh trong 4 hộp. Con bấm từng bước.
+
+<RutVeNhan />
+
+Bài giải: Số bánh trong mỗi hộp là 36 : 6 = 6 (cái). Số bánh trong 4 hộp là 6 × 4 = **24** (cái).
+
+<KeyFact equation="36 : 6 = 6; 6 × 4 = 24">
+  Bước 1: **chia** để tìm một hộp. Bước 2: **nhân** với số hộp cần tìm.
+</KeyFact>
+
+<QuickCheck question={quickChecks.nhan} />
+
+## 2. Tìm một can, rồi chia
+
+Có 18 l mật ong đựng đều vào 6 can. Hỏi 12 l mật ong đựng được mấy can như vậy?
+
+Lần này ta biết số lít, cần tìm **số can**. Bước đầu vẫn là tìm số lít trong **1 can**.
+
+<RutVeChia />
+
+Bài giải: Số lít mật ong ở mỗi can là 18 : 6 = 3 (l). 12 l đựng vào số can là 12 : 3 = **4** (can).
+
+<KeyFact equation="18 : 6 = 3; 12 : 3 = 4">
+  Bước 1: **chia** để tìm một can. Bước 2: **chia** số cần đựng cho số lít của một can.
+</KeyFact>
+
+<QuickCheck question={quickChecks.chia} />
+
+## 3. Bước hai: nhân hay chia?
+
+Bước 1 luôn là phép chia tìm một đơn vị. Bước 2 tùy câu hỏi:
+
+- Hỏi **tổng của nhiều đơn vị** (4 hộp có bao nhiêu bánh): **nhân**.
+- Hỏi **có mấy đơn vị** (đựng được mấy can): **chia**.
+
+Con cũng ước lượng: 4 hộp ít hơn 6 hộp nên bánh phải ít hơn 36. 12 l ít hơn 18 l nên số can phải ít hơn 6.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chonPhep} />

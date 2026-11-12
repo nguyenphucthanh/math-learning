@@ -1,0 +1,50 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { HinhBaoNgoai } from "./_animations/hinh-bao-ngoai";
+import { UocLuongTong } from "./_animations/uoc-luong-tong";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Ước lượng là tính nhanh để biết kết quả **khoảng bao nhiêu**, hoặc để kiểm tra một phép tính có hợp lí không. Trước hết con nhắc lại cách làm tròn.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Làm tròn rồi tính
+
+Trong một ngày, công viên có 5 978 lượt khách buổi sáng và 2 967 lượt buổi chiều. Cả ngày có khoảng mấy nghìn lượt?
+
+<UocLuongTong a={5978} b={2967} position={3} />
+
+<KeyFact equation="5 978 + 2 967 ≈ 6 000 + 3 000 = 9 000">
+  Làm tròn từng số, rồi tính với các số tròn. Kết quả là **khoảng** 9 000, không phải đúng 9 000.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.tron} />
+
+## 2. Làm tròn đến hàng nào?
+
+Câu hỏi nói hàng nào thì con làm tròn đến hàng đó.
+
+- **Khoảng mấy nghìn?** Làm tròn đến hàng nghìn: 7 960 + 1 980 ≈ 8 000 + 2 000 = 10 000.
+- **Khoảng mấy chục nghìn?** Làm tròn đến hàng chục nghìn: 19 870 + 30 480 ≈ 20 000 + 30 000 = 50 000.
+
+<KeyFact equation="mấy nghìn → hàng nghìn">
+  Hỏi **khoảng mấy chục nghìn** thì làm tròn đến **hàng chục nghìn**. Làm tròn đến hàng nào, thì các chữ số bên phải hàng đó đều thành 0.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.hang} />
+
+## 3. Lớn hơn hay bé hơn?
+
+Nam nói diện tích mảnh vườn A (39 m × 19 m) lớn hơn 800 m². Con xem làm tròn giúp biết đúng hay sai thế nào.
+
+<HinhBaoNgoai />
+
+Mảnh vườn B có diện tích 1 050 m², chiều dài 50 m. Làm tròn 1 050 **xuống** 1 000, rồi 1 000 : 50 = 20. Diện tích thật lớn hơn 1 000, nên chiều rộng thật **không thể bé hơn 20 m**.
+
+<KeyFact equation="làm tròn lên → thật bé hơn">
+  Làm tròn **lên** cả hai thừa số thì tích thật **bé hơn** tích đã làm tròn. Làm tròn **xuống** thì tích thật **lớn hơn**. Chỉ kết luận khi cả hai số làm tròn cùng một chiều.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chieu} />
