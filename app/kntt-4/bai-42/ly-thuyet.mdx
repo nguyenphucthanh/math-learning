@@ -1,0 +1,57 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { NhanVoiHieu } from "./_animations/nhan-voi-hieu";
+import { NhanVoiTong } from "./_animations/nhan-voi-tong";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại phép nhân và dấu ngoặc. Rồi con khám phá cách nhân một số với một tổng.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Nhân một số với một tổng
+
+Con bấm từng bước. Cùng một đội đồng diễn, ta đếm theo hai cách.
+
+<NhanVoiTong />
+
+<KeyFact equation="a × (b + c) = a × b + a × c">
+  Khi nhân một số với một tổng, ta có thể nhân số đó với **từng số hạng** của tổng rồi **cộng các kết quả** với nhau. Đây là **tính chất phân phối** của phép nhân đối với phép cộng.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhanVoiTong} />
+
+## 2. Nhân một tổng với một số
+
+Số đứng ngoài ngoặc có thể đứng trước hoặc sau. Cách làm vẫn vậy.
+
+<KeyFact equation="(a + b) × c = a × c + b × c">
+  Khi nhân một tổng với một số, ta có thể nhân **từng số hạng** của tổng với số đó rồi cộng các kết quả với nhau.
+</KeyFact>
+
+Con thử: (2 + 3) × 4 = 5 × 4 = 20 và 2 × 4 + 3 × 4 = 8 + 12 = 20.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.tongNhanVoi} />
+
+## 3. Tính thuận tiện
+
+Ta đọc đẳng thức từ phải sang trái: hai tích có **thừa số chung** thì gộp lại.
+
+<KeyFact equation="34 × 8 + 34 × 2 = 34 × 10 = 340">
+  34 × 8 + 34 × 2 = 34 × (8 + 2) = 34 × 10 = **340**. Cộng trong ngoặc ra số tròn thì nhân rất dễ.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.thuanTien} />
+
+## 4. Nhân một số với một hiệu
+
+Phép trừ cũng làm được như vậy. Con bấm từng bước.
+
+<NhanVoiHieu />
+
+<KeyFact equation="a × (b − c) = a × b − a × c">
+  Khi nhân một số với một hiệu, ta có thể nhân số đó với **số bị trừ** và **số trừ** rồi **trừ** các kết quả cho nhau. Cũng đúng khi viết (a − b) × c = a × c − b × c.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhanVoiHieu} />
