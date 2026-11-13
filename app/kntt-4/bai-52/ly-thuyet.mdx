@@ -1,0 +1,48 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { quickChecks } from "./bai-tap";
+
+Đây là bài luyện tập chung của chương Làm quen với yếu tố thống kê, xác suất. Con nhắc lại các ý quan trọng, mỗi ý thử một câu. Câu nào sai thì bấm vào bài cũ để xem lại.
+
+## Dãy số liệu
+
+<KeyFact equation="Trung bình = tổng : số số hạng">
+  Đếm từng số trong dãy, kể cả số lặp lại. Số lớn nhất, số nhỏ nhất là hai số ở hai đầu khi xếp dãy theo thứ tự. Trung bình cộng bằng tổng các số chia cho số các số hạng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.day} />
+
+<QuickCheck question={quickChecks.trungBinh} />
+
+<KeyFact equation="Nhiều hơn 100 000 không gồm 100 000">
+  “Nhiều hơn một số” là lớn hơn hẳn số đó. Số bằng đúng số đó thì không tính.
+</KeyFact>
+
+<QuickCheck question={quickChecks.hon} />
+
+<ReviewLink slug="bai-49">Xem lại Bài 49. Dãy số liệu thống kê</ReviewLink>
+
+<ReviewLink slug="bai-46">Xem lại Bài 46. Tìm số trung bình cộng</ReviewLink>
+
+## Biểu đồ cột
+
+<KeyFact equation="Đọc đỉnh cột theo vạch">
+  Đọc tên ở dưới cột và số ở đỉnh cột. Nhìn xem mỗi vạch cách nhau bao nhiêu. Đỉnh cột nằm giữa hai vạch thì đếm từng ô nhỏ trên vạch thấp hơn. “Bạn nào” hỏi tên, “bao nhiêu” hỏi số.
+</KeyFact>
+
+<QuickCheck question={quickChecks.dinhCot} />
+
+<ReviewLink slug="bai-50">Xem lại Bài 50. Biểu đồ cột</ReviewLink>
+
+## Số lần xuất hiện của sự kiện
+
+<KeyFact equation="Tổng số lần của các sự kiện = số lần thực hiện">
+  Kiểm đếm theo nhóm 5: 4 nét đứng và 1 nét chéo là 5 nét. Đếm nhóm 5 trước, rồi đếm nét lẻ. Cộng số lần của mọi sự kiện thì được số lần thực hiện. So sánh số lần để biết sự kiện nào xuất hiện nhiều lần hơn, ít lần hơn.
+</KeyFact>
+
+<QuickCheck question={quickChecks.kiemDem} />
+
+<QuickCheck question={quickChecks.tongLan} />
+
+<ReviewLink slug="bai-51">Xem lại Bài 51. Số lần xuất hiện của một sự kiện</ReviewLink>

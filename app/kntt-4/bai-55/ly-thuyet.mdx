@@ -1,0 +1,58 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { BangGiay } from "./_animations/bang-giay";
+import { NhanChia } from "./_animations/nhan-chia";
+import { ThuongKhongDoi } from "./_animations/thuong-khong-doi";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học một **tính chất cơ bản của phân số**. Trước hết con ôn nhanh ba ý.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Hai băng giấy như nhau
+
+Việt và Mai có hai băng giấy như nhau. Việt chia băng của mình thành 3 phần bằng nhau rồi tô 2 phần. Mai chia băng của mình thành 6 phần bằng nhau rồi tô 4 phần. Con bấm từng bước.
+
+<BangGiay />
+
+<KeyFact equation="2/3 = 4/6">
+  Hai phần tô màu dài bằng nhau, nên 2/3 băng giấy bằng 4/6 băng giấy. Ta nói **phân số 2/3 bằng phân số 4/6**.
+</KeyFact>
+
+## 2. Nhân hoặc chia cả tử số và mẫu số
+
+Từ 3 phần lên 6 phần là gấp đôi (mỗi phần chia đôi). Số phần tô cũng gấp đôi: 2 lên 4. Tử số và mẫu số cùng nhân với 2. Con bấm từng bước.
+
+<NhanChia />
+
+<KeyFact equation="2/3 = (2 × 2)/(3 × 2) = 4/6">
+  **Tính chất cơ bản của phân số.** Nhân cả tử số và mẫu số của một phân số với cùng một số tự nhiên khác 0 thì được một phân số bằng phân số đã cho.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhan} />
+
+<KeyFact equation="4/6 = (4 : 2)/(6 : 2) = 2/3">
+  Chia hết cả tử số và mẫu số của một phân số cho cùng một số tự nhiên khác 0 thì được một phân số bằng phân số đã cho.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.chia} />
+
+<QuickCheck title="Vì sao không chỉ nhân tử số?" question={quickChecks.mot} />
+
+<KeyFact equation="Cùng một phép, cả hai số">
+  Phải làm cùng một phép tính với **cả tử số và mẫu số**. Chỉ làm với một số thì phân số đổi đi.
+</KeyFact>
+
+## 3. Chia và thương không đổi
+
+Phân số là phép chia: 2/3 là 2 : 3. Vì thế nhân (hoặc chia) cả hai số của phép chia cũng không làm đổi kết quả. Con bấm từng bước.
+
+<ThuongKhongDoi />
+
+<KeyFact equation="12 : 4 = 36 : 12 = 6 : 2 = 3">
+  Nếu nhân (chia) số bị chia và số chia với (cho) cùng một số tự nhiên khác 0 thì **thương không thay đổi**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.thuong} />

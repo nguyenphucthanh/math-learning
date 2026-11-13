@@ -1,0 +1,50 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { GhiKiemDem } from "./_animations/ghi-kiem-dem";
+import { SoSanhLan } from "./_animations/so-sanh-lan";
+import { VongQuay } from "./_illustrations/vong-quay";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con quay vòng quay, lấy bóng, gieo xúc xắc rồi **đếm** xem mỗi chuyện xảy ra mấy lần. Trước hết con ôn cách đếm nét kiểm đếm theo nhóm 5.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Sự kiện có thể xảy ra
+
+Hai bạn quay vòng quay. Quay một lần, mũi tên dừng lại ở một phần màu.
+
+<VongQuay />
+
+Có hai chuyện có thể xảy ra: mũi tên dừng ở phần màu đỏ, hoặc mũi tên dừng ở phần màu vàng. Mỗi chuyện là một **sự kiện**.
+
+<KeyFact equation="2 sự kiện: đỏ, vàng">
+  Mỗi lần quay chỉ xảy ra một sự kiện. Con liệt kê hết các sự kiện **có thể xảy ra**, đừng bỏ sót.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.suKien} />
+
+## 2. Ghi bằng bảng kiểm đếm
+
+Hai bạn quay 20 lần. Mỗi lần quay ghi một nét vào **bảng kiểm đếm**. Con bấm Tiếp để xem từng đợt.
+
+<GhiKiemDem />
+
+<KeyFact equation="9 = 5 + 4; 11 = 5 + 5 + 1">
+  Một nhóm có 4 nét đứng và 1 nét chéo là **5 nét**. Số nét của một hàng là **số lần xuất hiện** của sự kiện đó. Cộng số lần của các sự kiện được đúng số lần đã quay.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.doc} />
+
+## 3. So sánh số lần xuất hiện
+
+Màu đỏ dừng 9 lần, màu vàng dừng 11 lần. Sự kiện nào xuất hiện nhiều lần hơn?
+
+<SoSanhLan />
+
+<KeyFact equation="11 − 9 = 2">
+  Nhìn số lần trong bảng kiểm đếm để so sánh, đừng đoán. Số lớn hơn là sự kiện xuất hiện **nhiều lần hơn**, số bé hơn là **ít lần hơn**. Muốn biết hơn bao nhiêu lần thì lấy số lớn trừ số bé.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.soSanh} />

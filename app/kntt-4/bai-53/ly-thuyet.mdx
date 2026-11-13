@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { HinhPhanSo, PhanSo } from "@/components/math/phan-so";
+import { ChiaBanh } from "./_animations/chia-banh";
+import { hinhs, quickChecks, warmUps } from "./bai-tap";
+
+Mi và các bạn chia một chiếc bánh pizza. Hôm nay con học cách **viết** phần bánh mỗi bạn lấy. Trước hết con đếm phần của hình.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chia bánh thành các phần bằng nhau
+
+Con bấm Tiếp để xem các bạn chia bánh và tô màu.
+
+<ChiaBanh />
+
+<KeyFact equation="1/6 và 2/6">
+  Hình tròn chia thành 6 phần bằng nhau. Tô 1 phần là **một phần sáu** hình tròn, viết <PhanSo tu={1} mau={6} />. Tô 2 phần là **hai phần sáu**, viết <PhanSo tu={2} mau={6} />. Đây là những **phân số**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.doc} />
+
+## 2. Các phần phải bằng nhau
+
+Hình tròn dưới đây cũng chia thành 3 phần, nhưng các phần không bằng nhau.
+
+<HinhPhanSo {...hinhs.khongDeu} />
+
+<KeyFact equation="phần bằng nhau">
+  Chỉ khi hình chia thành các phần **bằng nhau** mới viết được phân số. Phần to phần bé thì không dùng phân số.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.khongDeu} />
+
+## 3. Tử số và mẫu số
+
+Băng giấy có 7 ô bằng nhau, tô 4 ô.
+
+<HinhPhanSo {...hinhs.tuMau} />
+
+<KeyFact equation="4/7: tử số 4, mẫu số 7">
+  Trong phân số <PhanSo tu={4} mau={7} />: **tử số** là số ở trên gạch ngang, chỉ số phần đã tô màu. **Mẫu số** là số ở dưới gạch ngang, chỉ số phần bằng nhau của cả hình. Mẫu số là số tự nhiên khác 0.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.tuMau} />
+
+## 4. Đọc phân số
+
+<KeyFact equation="5/9: năm phần chín">
+  Đọc tử số trước, như đọc số đếm. Rồi đọc chữ “phần” và mẫu số. Ví dụ <PhanSo tu={5} mau={9} /> đọc là **năm phần chín**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.doc2} />

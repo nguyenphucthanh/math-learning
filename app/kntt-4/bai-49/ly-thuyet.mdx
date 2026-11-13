@@ -1,0 +1,52 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { NhatKy } from "./_animations/nhat-ky";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con làm nhanh ba câu để nhớ lại so sánh số và số trung bình cộng. Rồi con học cách đọc một dãy số liệu.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Ghi lại mỗi ngày
+
+Mỗi buổi sáng Rô-bốt đạp xe quanh công viên và ghi độ dài quãng đường (km). Con bấm từng bước để xem Rô-bốt ghi từ thứ Hai đến thứ Sáu.
+
+<NhatKy />
+
+<KeyFact equation="1, 2, 2, 2, 3">
+  Các số Rô-bốt ghi, xếp theo thứ tự, gọi là một **dãy số liệu**. Dãy này có **5 số**.
+</KeyFact>
+
+## 2. Đếm số trong dãy
+
+Có 5 ngày thì có 5 số. Ba ngày đều đi 2 km, ta vẫn đếm đủ **ba số 2**. Con không đếm các giá trị khác nhau.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.dem} />
+
+## 3. Số thứ nhất, số thứ hai, ...
+
+Trong dãy 1, 2, 2, 2, 3: số thứ nhất là 1, số thứ hai là 2, số thứ năm là 3. **Số thứ n** là số đứng ở vị trí thứ n, tính từ đầu dãy.
+
+<KeyFact equation="số thứ ba ≠ 3">
+  Số thứ ba là số ở vị trí thứ ba. Giá trị của nó có thể là 3 hoặc không.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.thuN} />
+
+## 4. Nhiều nhất, ít nhất, nhiều hơn
+
+Trong dãy 1, 2, 2, 2, 3: buổi dài nhất là **3 km**, buổi ngắn nhất là **1 km**. Trung bình mỗi buổi: (1 + 2 + 2 + 2 + 3) : 5 = 2 km.
+
+Khi hỏi "lớn hơn 5" thì không tính số 5. Con gạch từng số đã đếm để khỏi sót hay đếm hai lần.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.nhieuHon} />
+
+## 5. Sắp xếp dãy
+
+Sắp xếp dãy 4, 1, 4, 3 từ bé đến lớn: 1, 3, 4, 4. Từ lớn đến bé: 4, 4, 3, 1. Dãy mới vẫn có **đủ 4 số**, số lặp viết hai lần.
+
+<KeyFact equation="Số các số không đổi khi sắp xếp">
+  Sắp xếp xong, con đếm lại: dãy mới phải có số các số bằng dãy ban đầu.
+</KeyFact>

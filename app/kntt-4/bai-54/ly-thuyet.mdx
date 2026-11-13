@@ -1,0 +1,78 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChiaBanh } from "./_animations/chia-banh";
+import { DoanThang } from "./_illustrations/doan-thang";
+import { Frac } from "./_illustrations/frac";
+import { doanThang, quickChecks, warmUps } from "./bai-tap";
+
+Con ôn nhanh phân số ở Bài 53. Rồi con học: chia đều số bánh cho các bạn thì mỗi bạn được bao nhiêu?
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chia đều 3 cái bánh cho 3 bạn
+
+3 cái bánh chia đều cho 3 bạn: mỗi bạn được 1 cái bánh. Ta viết 3 : 3 = 1.
+
+Nếu chỉ có 3 cái bánh mà chia đều cho **4 bạn** thì sao? Mỗi bạn không được nguyên một cái. Mỗi bạn được mấy phần cái bánh?
+
+## 2. Chia 3 cái bánh cho 4 bạn
+
+Con bấm từng bước. Mỗi cái bánh được chia thành 4 phần bằng nhau, vì có 4 bạn.
+
+<ChiaBanh cakes={3} />
+
+<KeyFact equation="3 : 4 = 3/4">
+  Mỗi bạn được 3 phần, mỗi phần là <Frac t={1} m={4} /> cái bánh. Vậy mỗi bạn được <Frac t={3} m={4} /> cái bánh.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.haiBaBan} />
+
+## 3. Chia 5 cái bánh cho 4 bạn
+
+Chia mỗi cái bánh thành 4 phần bằng nhau. Mỗi bạn lấy 1 phần của mỗi cái bánh. Có 5 cái bánh nên mỗi bạn được 5 phần.
+
+<ChiaBanh cakes={5} />
+
+<KeyFact equation="5 : 4 = 5/4">
+  Mỗi bạn được <Frac t={5} m={4} /> cái bánh. Tử số lớn hơn mẫu số vẫn là phân số, đọc là “năm phần tư”. Mỗi bạn được **nhiều hơn 1 cái bánh**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.baySau} />
+
+## 4. Viết thương thành phân số
+
+<KeyFact equation="7 : 5 = 7/5">
+  Thương của phép chia một số tự nhiên cho một số tự nhiên (khác 0) có thể viết thành một **phân số**. **Tử số là số bị chia, mẫu số là số chia.**
+</KeyFact>
+
+Ví dụ: 3 : 4 = <Frac t={3} m={4} />; 7 : 5 = <Frac t={7} m={5} />; 16 : 2 = <Frac t={16} m={2} />. Số bị chia là số đứng trước dấu hai chấm, nên đứng ở **trên** gạch ngang.
+
+## 5. Số tự nhiên và phân số
+
+3 cái bánh chia cho 1 bạn thì bạn đó được cả 3 cái: 3 : 1 = <Frac t={3} m={1} /> = 3.
+
+<KeyFact equation="3 = 3/1">
+  Mọi số tự nhiên có thể viết thành một phân số có **tử số là số tự nhiên đó và mẫu số bằng 1**.
+</KeyFact>
+
+Còn các phép chia đặc biệt: 24 : 24 = 24/24 = 1 (24 bánh cho 24 bạn, mỗi bạn 1 cái). 0 : 6 = 0/6 = 0 (không có bánh nào thì mỗi bạn được 0 cái). Với phép chia hết như 34 : 17 = 2, ta có 34/17 = 2.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.bangMot} />
+
+<QuickCheck question={quickChecks.motMau} />
+
+## 6. Phân số chỉ phần của đoạn thẳng
+
+Đoạn thẳng AB chia thành 6 đoạn bằng nhau, qua các điểm {doanThang.labels.join(", ")}.
+
+<DoanThang labels={doanThang.labels} />
+
+AC là 1 đoạn, nên AC = <Frac t={1} m={6} /> AB. AD gồm 2 đoạn (AC và CD), nên AD = <Frac t={2} m={6} /> AB.
+
+<KeyFact equation="AD = 2/6 AB">
+  Đếm số **đoạn**, không đếm số điểm. Từ A đến D có 2 đoạn, không phải 3 điểm.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.doanThang} />
