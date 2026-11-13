@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { QuyDongSoSanh } from "./_animations/quy-dong";
+import { ThanhPhanSo } from "./_animations/thanh-phan-so";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học cách **so sánh phân số**. Trước hết con ôn nhanh ba ý.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Cùng mẫu số
+
+Việt và Mai có hai hình như nhau, hai bạn chia thành 8 phần bằng nhau. Mai tô 5 phần, Việt tô 3 phần. Con bấm từng bước.
+
+<ThanhPhanSo />
+
+<KeyFact equation="5/8 > 3/8">
+  Trong hai phân số có **cùng mẫu số**: phân số nào có tử số lớn hơn thì lớn hơn; tử số bé hơn thì bé hơn; hai tử số bằng nhau thì hai phân số bằng nhau.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.cungMau} />
+
+## 2. So sánh với 1
+
+Phân số 4/4 là 4 phần trong 4 phần: cả hình, bằng 1. Vì 4 : 4 = 1.
+
+<KeyFact equation="3/7 < 1   8/5 > 1   4/4 = 1">
+  Tử số **bé hơn** mẫu số thì phân số **bé hơn 1**. Tử số **lớn hơn** mẫu số thì phân số **lớn hơn 1**. Tử số **bằng** mẫu số thì phân số **bằng 1**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.voiMot} />
+
+## 3. Khác mẫu số
+
+Nam tô 7/8 hình tròn, Mai tô 3/4 hình tròn. Hai hình tròn như nhau. Ai tô nhiều hơn? Hai mẫu số khác nhau nên chưa so ngay tử số được. Ta quy đồng mẫu số. Con bấm từng bước.
+
+<QuyDongSoSanh />
+
+<KeyFact equation="3/4 = (3 × 2)/(4 × 2) = 6/8   7/8 > 6/8 nên 7/8 > 3/4">
+  Muốn so sánh hai phân số **khác mẫu số**, ta quy đồng mẫu số hai phân số đó, rồi so sánh hai phân số **cùng mẫu số**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.quyDong} />
+
+## 4. Cùng tử số
+
+Chú ý: 3/8 và 3/4 có **cùng tử số** 3, nhưng **không** bằng nhau. Mẫu số càng lớn thì mỗi phần càng nhỏ. Con xem lại thanh phân số ở bước 3 của hình ở mục 1.
+
+<KeyFact equation="3/4 > 3/8">
+  Hai phân số có **cùng tử số**: phân số nào có **mẫu số bé hơn** thì phân số đó **lớn hơn**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.cungTu} />

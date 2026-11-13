@@ -1,0 +1,52 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { QuyDong } from "./_animations/quy-dong";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học **quy đồng mẫu số** hai phân số. Trước hết con ôn nhanh ba ý của bài trước.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Hai chiếc bánh, hai mẫu số
+
+Một bạn được 1/4 cái bánh, một bạn được 3/8 cái bánh. Mẫu số khác nhau. Có cách nào tìm phân số bằng 1/4 mà có cùng mẫu số với 3/8 không? Con bấm từng bước.
+
+<QuyDong />
+
+<KeyFact equation="1/4 = (1 × 2)/(4 × 2) = 2/8">
+  Mẫu số 8 chia hết cho mẫu số 4 (8 : 4 = 2). Nhân cả tử số và mẫu số của 1/4 với 2 thì được 2/8, **bằng** 1/4 và có cùng mẫu số với 3/8.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.quy} />
+
+## 2. Quy đồng mẫu số
+
+<KeyFact equation="1/4 và 3/8 → 2/8 và 3/8">
+  Ta nói: hai phân số 1/4 và 3/8 **đã được quy đồng mẫu số** thành hai phân số 2/8 và 3/8. Số 8 gọi là **mẫu số chung**.
+</KeyFact>
+
+Ví dụ: quy đồng mẫu số 3/4 và 5/12.
+
+- 12 : 4 = 3, mẫu số chung là 12.
+- 3/4 = (3 × 3)/(4 × 3) = 9/12, giữ nguyên 5/12.
+- Ta được hai phân số 9/12 và 5/12.
+
+<KeyFact equation="Chia mẫu lớn cho mẫu bé → nhân cả hai số">
+  Lấy mẫu số lớn chia cho mẫu số bé. Rồi nhân **cả tử số và mẫu số** của phân số có mẫu số bé với kết quả. Phân số có mẫu số lớn thì giữ nguyên.
+</KeyFact>
+
+<QuickCheck title="Mẫu số chung là số nào?" question={quickChecks.mauChung} />
+
+<QuickCheck title="Vì sao phải nhân cả mẫu số?" question={quickChecks.quen} />
+
+## 3. Rút gọn trước, rồi quy đồng
+
+Khi mẫu số lớn chưa chia hết cho mẫu số bé, hãy xem phân số nào rút gọn được. Ví dụ 5/15 và 4/18: rút gọn được 1/3 và 2/9. Rồi quy đồng: 1/3 = 3/9, ta được 3/9 và 2/9.
+
+<KeyFact equation="Rút gọn → quy đồng">
+  Bài có chữ “rút gọn rồi quy đồng” thì làm đủ hai bước, theo thứ tự đó.
+</KeyFact>
+
+Có ba phân số cũng làm tương tự: tìm mẫu số chung chia hết cho cả ba mẫu số, rồi quy đồng từng phân số.

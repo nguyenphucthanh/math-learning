@@ -1,0 +1,55 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { RutGon } from "./_animations/rut-gon";
+import { ToiGian } from "./_animations/toi-gian";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học **rút gọn phân số**. Trước hết con ôn nhanh ba ý.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Rút gọn phân số
+
+Lớp có 35 bạn, trong đó có 20 bạn nữ. Số bạn nữ bằng 20/35 số học sinh cả lớp. Ta tìm một phân số bằng 20/35 nhưng có tử số và mẫu số bé hơn. Con bấm từng bước.
+
+<RutGon />
+
+<KeyFact equation="20/35 = (20 : 5)/(35 : 5) = 4/7">
+  **Rút gọn phân số** là tìm phân số mới bằng phân số ban đầu nhưng có tử số và mẫu số bé hơn. Cách làm: chia cả tử số và mẫu số cho cùng một số tự nhiên lớn hơn 1 mà cả hai cùng chia hết.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.rutGon} />
+
+## 2. Phân số tối giản
+
+Phân số 4/7 có đặc điểm: tử số và mẫu số **không cùng chia hết cho số tự nhiên nào lớn hơn 1**. Không chia thêm được nữa.
+
+<KeyFact equation="4/7 là phân số tối giản">
+  Phân số mà tử số và mẫu số không cùng chia hết cho số tự nhiên nào lớn hơn 1 gọi là **phân số tối giản**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.toiGian} />
+
+## 3. Rút gọn đến phân số tối giản
+
+Rút gọn 48/60. Con có thể chia nhiều lần. Mỗi lần, hãy kiểm tra xem hai số còn cùng chia hết cho số nào không. Con bấm từng bước.
+
+<ToiGian />
+
+<KeyFact equation="48/60 = 24/30 = 12/15 = 4/5">
+  Khi rút gọn phân số, ta phải rút gọn **đến phân số tối giản**. 24/30 và 12/15 bằng 48/60 nhưng chưa tối giản, nên chưa được dừng.
+</KeyFact>
+
+<QuickCheck title="Dừng được chưa?" question={quickChecks.dung} />
+
+## 4. Rút gọn khi trên và dưới là tích
+
+Khi tử số và mẫu số là tích (phép nhân) có thừa số giống nhau, ta cùng bỏ thừa số đó ở trên và ở dưới. Đó là cùng chia tích trên và tích dưới cho số đó.
+
+<KeyFact equation="(2 × 3 × 7)/(5 × 7 × 3) = 2/5">
+  Chỉ làm vậy khi trên và dưới là **tích**. Nếu là phép cộng, như (2 + 5)/(2 + 7), thì **không** được bỏ số 2.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.tich} />

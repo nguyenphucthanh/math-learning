@@ -1,0 +1,44 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ChiaBanh } from "./_animations/chia-banh";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Con ôn nhanh ba ý cần dùng, rồi học cách tìm một phần của một số: “2/3 của 12 cái bánh là bao nhiêu cái?”
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Chia bánh thành 3 phần
+
+Có 12 cái bánh. Chia thành 3 phần bằng nhau, rồi phủ kem lên 2 phần. Có bao nhiêu cái bánh được phủ kem? Con bấm từng bước.
+
+<ChiaBanh />
+
+<KeyFact equation="12 × 2/3 = 24/3 = 8">
+  Số bánh phủ kem là **2/3 của 12**. Muốn tìm 2/3 của 12, ta lấy 12 **nhân với 2/3**. Nhân số tự nhiên với tử số, giữ nguyên mẫu số, rồi rút gọn.
+</KeyFact>
+
+Hai cách nghĩ cho cùng kết quả: chia trước (12 : 3 = 4, lấy 2 phần được 8) hoặc nhân với phân số rồi rút gọn (24/3 = 8). Sách dùng cách nhân với phân số.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.baPhanTu} />
+
+## 2. Bài toán có đổi đơn vị
+
+Có bài cho phân số của một **đơn vị đo**, như 1/6 giờ hay 1/10 phút. Đổi đơn vị đó ra số trước, rồi tìm phân số của số.
+
+<KeyFact unit="second" equation="1/10 phút = 60 × 1/10 = 6 giây">
+  1 phút = 60 giây. 1 giờ = 60 phút. 1 thế kỉ = 100 năm. Đổi ra đơn vị nhỏ hơn rồi mới nhân với phân số.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.gioPhut} />
+
+## 3. Bài toán nhiều bước
+
+Khi bài hỏi phần **còn lại**, con tìm từng phần bằng cách nhân với phân số, rồi lấy cả số trừ đi các phần đã biết.
+
+<KeyFact equation="30 − 10 − 15 = 5">
+  Tìm từng phần: 30 × 1/3 = 10 và 30 × 1/2 = 15. Phần còn lại là số ban đầu trừ các phần đã tìm.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.conLai} />

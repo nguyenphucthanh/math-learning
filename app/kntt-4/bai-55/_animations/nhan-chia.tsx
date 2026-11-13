@@ -1,5 +1,6 @@
 "use client";
 
+import { Eq, Ps } from "@/components/math/phan-so-svg";
 import { StepControls, useStepEntrance } from "@/components/lesson/step-player";
 import { useRef, useState } from "react";
 
@@ -9,21 +10,6 @@ export const nhanChiaCaptions = [
   "Làm ngược lại: chia cả tử số và mẫu số của 4/6 cho 2. 4 : 2 = 2 và 6 : 2 = 3. Lại được 2/3.",
   "Cẩn thận: chỉ nhân tử số với 2 mà giữ mẫu số thì được 4/3. 4/3 không bằng 2/3. Phải làm cùng một phép với cả tử số và mẫu số.",
 ];
-
-function Ps({ x, y, top, bottom, fill = "var(--foreground)" }: { x: number; y: number; top: string; bottom: string; fill?: string }) {
-  const half = Math.max(top.length, bottom.length) * 7 + 6;
-  return (
-    <g fontSize={22} textAnchor="middle" fill={fill}>
-      <text x={x} y={y - 6}>{top}</text>
-      <line x1={x - half} y1={y} x2={x + half} y2={y} stroke="var(--ink)" strokeWidth={2.5} />
-      <text x={x} y={y + 24}>{bottom}</text>
-    </g>
-  );
-}
-
-const Eq = ({ x, y, text = "=" }: { x: number; y: number; text?: string }) => (
-  <text x={x} y={y} fontSize={26} textAnchor="middle" fill="var(--ink)">{text}</text>
-);
 
 /** Nhân hoặc chia cả tử số và mẫu số với cùng một số: 2/3 = (2 × 2)/(3 × 2) = 4/6. */
 export function NhanChia() {

@@ -1,0 +1,65 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { BangHangLop } from "@/components/math/bang-hang-lop";
+import { quickChecks } from "./bai-tap";
+
+Đây là bài ôn các số tự nhiên con đã học ở tập một. Mỗi ý có một câu thử. Câu nào sai thì bấm vào bài cũ để xem lại.
+
+## 1. Hàng và lớp, đọc số
+
+<figure className="my-6 rounded-3xl bg-white p-4 shadow-[0_2px_16px_oklch(0.38_0.17_295/0.12)] sm:p-6">
+  <BangHangLop value={380506142} />
+</figure>
+
+<KeyFact equation="3 hàng = 1 lớp">
+  Ba hàng liền nhau hợp thành một **lớp**: lớp đơn vị, lớp nghìn, lớp triệu. Đọc từng lớp từ trái sang phải, đọc xong mỗi lớp thì đọc tên lớp. Chữ số 0 vẫn phải đọc: 050 là **không trăm** năm mươi, 506 là năm trăm **linh** sáu.
+</KeyFact>
+
+<QuickCheck question={quickChecks.doc} />
+
+<ReviewLink slug="bai-11">Xem lại Bài 11. Hàng và lớp</ReviewLink>
+<ReviewLink slug="bai-12">Xem lại Bài 12. Các số trong phạm vi lớp triệu</ReviewLink>
+
+## 2. Giá trị của chữ số, viết thành tổng
+
+<KeyFact equation="4 297 603 = 4 000 000 + 200 000 + 90 000 + 7 000 + 600 + 3">
+  Giá trị của chữ số bằng chữ số nhân với giá trị của hàng: chữ số 7 ở hàng nghìn có giá trị 7&nbsp;000. Hàng có chữ số 0 thì không có số hạng trong tổng.
+</KeyFact>
+
+<QuickCheck question={quickChecks.giaTri} />
+
+<ReviewLink slug="bai-11">Xem lại Bài 11. Hàng và lớp</ReviewLink>
+
+## 3. So sánh các số
+
+<KeyFact equation="Nhiều chữ số hơn thì lớn hơn">
+  Hai số **cùng số chữ số** thì so từng cặp chữ số từ trái sang phải, gặp cặp khác nhau đầu tiên thì dừng. Vế nào là tổng thì viết thành số trước khi so.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soSanh} />
+
+<ReviewLink slug="bai-14">Xem lại Bài 14. So sánh các số có nhiều chữ số</ReviewLink>
+
+## 4. Làm tròn số
+
+<KeyFact equation="Từ 5 trở lên thì làm tròn lên">
+  Muốn làm tròn đến một hàng, chỉ nhìn chữ số **ngay bên phải** hàng đó. Bé hơn 5 thì giữ nguyên, từ 5 trở lên thì tăng 1. Các chữ số bên phải đều thành 0.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lamTron} />
+
+<ReviewLink slug="bai-13">Xem lại Bài 13. Làm tròn số đến hàng trăm nghìn</ReviewLink>
+
+## 5. Dãy số tự nhiên, số chẵn, số lẻ
+
+<KeyFact equation="0, 1, 2, 3, ... không có số lớn nhất">
+  Số tự nhiên bé nhất là 0. Số nào cũng có số liền sau hơn nó **1 đơn vị**, nên không có số tự nhiên lớn nhất. Số chẵn và số lẻ xen kẽ nhau, nên hai số chẵn (hoặc hai số lẻ) liên tiếp hơn kém nhau **2 đơn vị**.
+</KeyFact>
+
+<QuickCheck question={quickChecks.lienSau} />
+
+<QuickCheck question={quickChecks.honKem} />
+
+<ReviewLink slug="bai-15">Xem lại Bài 15. Làm quen với dãy số tự nhiên</ReviewLink>
+<ReviewLink slug="bai-3">Xem lại Bài 3. Số chẵn, số lẻ</ReviewLink>

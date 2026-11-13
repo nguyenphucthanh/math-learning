@@ -1,0 +1,53 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { CungMau } from "./_animations/cung-mau";
+import { KhacMau } from "./_animations/khac-mau";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học **phép cộng phân số**: trước hết cộng hai phân số cùng mẫu số, sau đó cộng hai phân số khác mẫu số. Con ôn nhanh ba ý trước đã.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Cộng hai phân số cùng mẫu số
+
+Một bạn tô đỏ 1/5 băng giấy, bạn kia tô tiếp xanh 2/5 băng giấy. Cả hai bạn đã tô mấy phần của băng giấy? Con bấm từng bước.
+
+<CungMau />
+
+<KeyFact equation="1/5 + 2/5 = (1 + 2)/5 = 3/5">
+  Muốn cộng hai phân số cùng mẫu số, ta **cộng hai tử số với nhau** và **giữ nguyên mẫu số**.
+</KeyFact>
+
+Kết quả có thể lớn hơn 1, ví dụ 2/3 + 5/3 = 7/3. Con vẫn viết là phân số 7/3.
+
+<QuickCheck title="Thử nhanh" question={quickChecks.cung} />
+
+<QuickCheck title="Đúng hay sai?" question={quickChecks.nham} />
+
+Cộng nhiều phân số cùng mẫu số cũng vậy. Đổi chỗ các số hạng hoặc nhóm lại thì tổng không đổi, nên con có thể tính thuận tiện.
+
+## 2. Cộng hai phân số khác mẫu số
+
+Một bạn tô đỏ 1/8 băng giấy, rồi tô tiếp xanh 1/2 băng giấy. Mẫu số khác nhau, nên ta cần đưa về cùng mẫu số.
+
+<KhacMau />
+
+<KeyFact equation="1/8 + 1/2 = 1/8 + 4/8 = 5/8">
+  Muốn cộng hai phân số khác mẫu số, ta **quy đồng mẫu số** hai phân số rồi **cộng hai phân số đó**.
+</KeyFact>
+
+<QuickCheck title="Quy đồng trước" question={quickChecks.quy} />
+
+## 3. Rút gọn
+
+Có hai chỗ cần rút gọn. Nếu đề cho phân số rút gọn được, ta có thể rút gọn trước rồi cộng. Nếu kết quả rút gọn được, ta rút gọn kết quả.
+
+Ví dụ: 5/12 + 1/4 = 5/12 + 3/12 = 8/12 = 2/3.
+
+<KeyFact equation="8/12 = 2/3">
+  Cộng xong, hãy xem tử số và mẫu số của kết quả có cùng chia hết cho một số không. Nếu có thì rút gọn.
+</KeyFact>
+
+<QuickCheck title="Rút gọn kết quả" question={quickChecks.rutgon} />

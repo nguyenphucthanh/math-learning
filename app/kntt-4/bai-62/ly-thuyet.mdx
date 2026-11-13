@@ -1,0 +1,64 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { HinhPhanSo } from "@/components/math/phan-so";
+import { quickChecks } from "./bai-tap";
+
+Đây là bài luyện tập chung của chủ đề Phép cộng, phép trừ phân số. Con nhắc lại các ý quan trọng, mỗi ý thử một câu. Câu nào sai thì bấm vào bài cũ để xem lại.
+
+## 1. Cùng mẫu số
+
+<KeyFact equation="3/5 + 4/5 = (3 + 4)/5 = 7/5">
+  Cộng hoặc trừ hai phân số **cùng mẫu số**: cộng hoặc trừ tử số, **giữ nguyên mẫu số**. Kết quả lớn hơn 1 vẫn viết là phân số, như 7/5.
+</KeyFact>
+
+<QuickCheck question={quickChecks.cungMau} />
+
+<ReviewLink slug="bai-60">Xem lại Bài 60. Phép cộng phân số</ReviewLink>
+<ReviewLink slug="bai-61">Xem lại Bài 61. Phép trừ phân số</ReviewLink>
+
+## 2. Khác mẫu số
+
+<KeyFact equation="2/3 + 1/6 = 4/6 + 1/6 = 5/6">
+  Hai phân số **khác mẫu số** thì **quy đồng mẫu số** trước, rồi cộng hoặc trừ.
+</KeyFact>
+
+<QuickCheck question={quickChecks.quyDong} />
+
+<ReviewLink slug="bai-57">Xem lại Bài 57. Quy đồng mẫu số các phân số</ReviewLink>
+
+## 3. Rút gọn
+
+<KeyFact equation="6/10 = 3/5">
+  Phân số rút gọn được thì rút gọn trước khi tính cho số nhỏ hơn. Kết quả cũng nên rút gọn đến phân số tối giản.
+</KeyFact>
+
+<QuickCheck question={quickChecks.rutGon} />
+
+<ReviewLink slug="bai-56">Xem lại Bài 56. Rút gọn phân số</ReviewLink>
+
+## 4. Tính thuận tiện
+
+<KeyFact equation="2/7 + 3/5 + 5/7 = (2/7 + 5/7) + 3/5">
+  Đổi chỗ hoặc nhóm các số hạng để cộng trước hai phân số **cùng mẫu số**. Tổng không đổi.
+</KeyFact>
+
+<QuickCheck question={quickChecks.thuanTien} />
+
+<ReviewLink slug="bai-60">Xem lại Bài 60. Phép cộng phân số</ReviewLink>
+
+## 5. Số tự nhiên và phân số (kiến thức mới của bài này)
+
+Một hàng 6 ô là 1 hình, tức 6/6. Hai hàng là 12/6.
+
+<div className="my-4 mx-auto max-w-sm">
+  <HinhPhanSo kieu="bang" mau={12} cot={6} to={12} />
+</div>
+
+<KeyFact equation="2 = 12/6   1 = 4/4   2 + 1/6 = 12/6 + 1/6 = 13/6">
+  Số tự nhiên viết được thành phân số có mẫu số bất kỳ: lấy số đó nhân với mẫu số làm tử số. Rồi cộng hoặc trừ như hai phân số cùng mẫu số.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soTuNhien} />
+
+<QuickCheck question={quickChecks.soTuNhienTru} />

@@ -1,0 +1,51 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { ReviewLink } from "@/components/lesson/review-link";
+import { ChiaDoan } from "./_animations/chia-doan";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học **chia hai phân số**. Trước hết con ôn nhanh ba ý.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+<ReviewLink slug="bai-63">Xem lại Bài 63. Phép nhân phân số</ReviewLink>
+
+## 1. Phân số đảo ngược
+
+Phân số 2/5 có tử số là 2, mẫu số là 5. Đổi chỗ hai số, ta được phân số 5/2. Nhân hai phân số này: 2/5 × 5/2 = 10/10 = 1.
+
+<KeyFact equation="2/5 và 5/2 là hai phân số đảo ngược của nhau">
+  Đổi chỗ tử số và mẫu số của một phân số, ta được **phân số đảo ngược** của phân số đó. Phân số đảo ngược của 2/5 là 5/2.
+</KeyFact>
+
+<QuickCheck question={quickChecks.daoNguoc} />
+
+## 2. Thanh sắt cắt thành các đoạn
+
+Một thanh sắt dài 3/2 m, cắt thành các đoạn, mỗi đoạn dài 1/8 m. Cắt được bao nhiêu đoạn? Đó là phép chia 3/2 : 1/8. Con bấm từng bước.
+
+<ChiaDoan />
+
+## 3. Chia hai phân số
+
+<KeyFact equation="7/19 : 2/5 = 7/19 × 5/2 = (7 × 5)/(19 × 2) = 35/38">
+  Muốn chia hai phân số, ta lấy **phân số thứ nhất** nhân với **phân số đảo ngược của phân số thứ hai**. Chia cho 1/8 thì nhân với 8/1. Sau khi nhân, nhớ rút gọn nếu được.
+</KeyFact>
+
+Chỉ đảo ngược phân số **thứ hai** (số đứng sau dấu chia). Phân số thứ nhất giữ nguyên.
+
+<QuickCheck question={quickChecks.chia} />
+
+## 4. Số tự nhiên và phân số
+
+Số tự nhiên n viết được thành phân số n/1. Phân số đảo ngược của n/1 là 1/n.
+
+<KeyFact equation="2 : 3/4 = 2/1 : 3/4 = 2/1 × 4/3 = 8/3   3/4 : 2 = 3/4 : 2/1 = 3/4 × 1/2 = 3/8">
+  Số tự nhiên chia phân số, hoặc phân số chia số tự nhiên: viết số tự nhiên thành phân số **mẫu số 1**, rồi chia như hai phân số. Kết quả lớn hơn 1 vẫn viết là phân số.
+</KeyFact>
+
+<QuickCheck question={quickChecks.soTuNhien} />
+
+<QuickCheck question={quickChecks.chiaSo} />

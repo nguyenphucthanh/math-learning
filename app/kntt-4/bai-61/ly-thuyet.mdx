@@ -1,0 +1,45 @@
+import { KeyFact } from "@/components/lesson/key-fact";
+import { QuickCheck } from "@/components/exercises/quick-check";
+import { TruCungMau } from "./_animations/tru-cung-mau";
+import { TruKhacMau } from "./_animations/tru-khac-mau";
+import { quickChecks, warmUps } from "./bai-tap";
+
+Hôm nay con học **phép trừ phân số**. Trước hết con ôn nhanh ba ý.
+
+{warmUps.map((question, index) => (
+  <QuickCheck key={question.id} title={`Khởi động ${index + 1}/${warmUps.length}`} question={question} />
+))}
+
+## 1. Cùng mẫu số
+
+Tớ có 7/8 cái bánh, tớ đã ăn 2/8 cái bánh. Hỏi tớ còn lại mấy phần của cái bánh? Con bấm từng bước.
+
+<TruCungMau />
+
+<KeyFact equation="7/8 − 2/8 = (7 − 2)/8 = 5/8">
+  Muốn trừ hai phân số **cùng mẫu số**, ta trừ tử số của phân số thứ nhất cho tử số của phân số thứ hai và **giữ nguyên mẫu số**.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.cungMau} />
+
+## 2. Khác mẫu số
+
+Tớ có 7/8 cái bánh, tớ đã ăn 1/4 cái bánh. Hai mẫu số khác nhau nên chưa trừ ngay được. Ta quy đồng mẫu số trước. Con bấm từng bước.
+
+<TruKhacMau />
+
+<KeyFact equation="1/4 = (1 × 2)/(4 × 2) = 2/8   7/8 − 1/4 = 7/8 − 2/8 = 5/8">
+  Muốn trừ hai phân số **khác mẫu số**, ta **quy đồng mẫu số** hai phân số rồi trừ hai phân số đó.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.quyDong} />
+
+## 3. Rút gọn kết quả
+
+Có khi kết quả chưa tối giản, như 7/10 − 1/5 = 7/10 − 2/10 = 5/10. Ta rút gọn: chia cả tử số và mẫu số cho 5.
+
+<KeyFact equation="5/10 = (5 : 5)/(10 : 5) = 1/2">
+  Trừ xong, nếu kết quả rút gọn được thì rút gọn. Trong bài này, **số bị trừ lớn hơn hoặc bằng số trừ**, nên kết quả không bé hơn 0.
+</KeyFact>
+
+<QuickCheck title="Thử nhanh" question={quickChecks.rutGon} />
